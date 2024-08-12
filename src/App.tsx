@@ -1,12 +1,13 @@
-import './App.css'
+// npm run dev to start
+import "./App.css";
+import ChoicesView from "./views/ChoicesView";
 
 function App() {
-
-  return (
-    <>
-      <div>This is app</div>
-    </>
-  )
+	return (
+		<div className="background">
+			<ChoicesView />
+		</div>
+	);
 }
 
-export default App
+export default App;
