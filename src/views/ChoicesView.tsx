@@ -1,3 +1,4 @@
+
 import BeerTile from "../components/tiles/BeerTile";
 import BuildingsTile from "../components/tiles/BuildingsTile";
 import CouplesTile from "../components/tiles/CouplesTile";
@@ -7,7 +8,9 @@ import ReminescensesTile from "../components/tiles/ReminescensesTile";
 import SetTile from "../components/tiles/SetTile";
 import SistersTile from "../components/tiles/SistersTile";
 
-const ChoicesView = () => {
+const ChoicesView: React.FC = () => {
+	
+
 	return (
 		<div className="choices-view-container">
 			<SetTile />
@@ -18,6 +21,7 @@ const ChoicesView = () => {
 			<ReminescensesTile />
 			<BeerTile />
 			<CouplesTile />
+
 		</div>
 	);
 };

@@ -1,32 +1,52 @@
+import { useContext } from "react";
+import { StateContext } from "../../utils/stateHandler";
+import { EReminescenses, FilterState } from "../../utils/types";
+
 interface RadioGroupProps {
-	parent: string;
-	optionsArray: string[];
+	options: { value: string; label: string }[];
+	stateKey: keyof FilterState;
 	toolTip?: string;
 }
 
-const RadioGroup = (props: RadioGroupProps) => {
+const RadioGroup: React.FC<RadioGroupProps> = ({
+	stateKey,
+	toolTip,
+	options = [],
+}) => {
+	console.log(`OPTIOSN,`, options);
+	const { state, dispatch } = useContext(StateContext);
+	console.log("Current Value:", state[stateKey]);
+
+	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+		dispatch({
+			type: "SET_SELECTED_OPTION",
+			payload: {
+				key: stateKey,
+				value: event.target.value, // Assuming you handle the conversion in reducer
+			},
+		});
+	};
+	
+	//Grab the value that's in state so we can accuretly mark the radio group on load
+	const currentValue = state[stateKey] as EReminescenses;
+
 	return (
 		<>
-			{props.optionsArray.map((option, index) => {
-				return (
-					<div key={`radio-div-${index}-${parent}`}>
+			<div>
+				{options.map((option) => (
+					<div key={option.value}>
 						<input
 							type="radio"
-							name={`radio-option-${props.parent}`}
-							id={`radio-option-${props.parent}`}
-							value={option}
-							key={`radio-option-${index}-${parent}`}
+							name={stateKey}
+							value={option.value}
+							onChange={handleChange}
+							checked={currentValue === option.value} // Set the checked property
 						/>
-						<label
-							htmlFor={`radio-option-${props.parent}`}
-							key={`radio-label-${index}-${parent}`}
-						>
-							{option}
-						</label>
+						<label>{option.label}</label>
 					</div>
-				);
-			})}
-			{props.toolTip && <p className="tooltipText">{props.toolTip}</p>}
+				))}
+			</div>
+			{toolTip && <p className="tooltipText">{toolTip}</p>}
 		</>
 	);
 };

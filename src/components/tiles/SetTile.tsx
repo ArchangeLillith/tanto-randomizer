@@ -1,3 +1,4 @@
+import { ESet } from "../../utils/types";
 import Checkbox from "../building-blocks/Checkbox";
 import TileBox from "../building-blocks/TileBox";
 import Title from "../building-blocks/Title";
@@ -8,11 +9,23 @@ const SetTile = () => {
 			children={
 				<>
 					<Title title="Sets" />
-					<Checkbox parent="sets" item="Base Set" />
-					<Checkbox parent="sets" item="Expanding The House" />
-					<Checkbox parent="sets" item="Romantic Vacation" />
-					<Checkbox parent="sets" item="Oktoberfest" />
-					<Checkbox parent="sets" item="Winter Romance" />
+					<Checkbox parent="sets" item="Base Set" id={ESet.BaseSet} />
+					<Checkbox
+						parent="sets"
+						item="Expanding The House"
+						id={ESet.ExpandingTheHouse}
+					/>
+					<Checkbox
+						parent="sets"
+						item="Romantic Vacation"
+						id={ESet.RomanticVacation}
+					/>
+					<Checkbox parent="sets" item="Oktoberfest" id={ESet.Oktoberfest} />
+					<Checkbox
+						parent="sets"
+						item="Winter Romance"
+						id={ESet.WinterRomance}
+					/>
 				</>
 			}
 		/>

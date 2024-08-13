@@ -9,6 +9,7 @@ const SistersTile = () => {
 				<>
 					<Title title="Keep the sisters together!" />
 					<Dropdown
+						stateKey={"sisterInclusion"}
 						label="If a sister is chosen, force include how many more sisters?"
 						toolTip="NOTE: Includes Compy sisters if 'Promo' set is chosen"
 					/>
