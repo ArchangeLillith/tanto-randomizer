@@ -1,1 +1,1 @@
-Built with Vite, React, TS, useReducer, react-icons, node
+Built with Vite, React, TS, useReducer & useContext, react-icons, node, JSON blob database?
