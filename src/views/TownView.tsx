@@ -1,4 +1,4 @@
-import Card from "../components/town-building-blocks/Card";
+import CardStructure from "../components/town-building-blocks/CardStructure";
 import { ESet } from "../utils/types";
 
 // const maidUrlList: string[] = [
@@ -40,7 +40,7 @@ const TownView = () => {
 	return (
 		<div>
 			<div className="town-grid">
-				<Card
+				<CardStructure
 					genericMaidUrl="/images/genericMaids/maid7.jpg"
 					card={{
 						name: "Lillia",

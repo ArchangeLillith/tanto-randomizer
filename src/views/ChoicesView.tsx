@@ -15,6 +15,7 @@ import {
 	// chooseChambermaidChiefs,
 	createTheTown,
 } from "../utils/CardFilterService";
+import SlantTile from "../components/tiles/SlantTile";
 
 const ChoicesView: React.FC = () => {
 	const { state } = useContext(StateContext);
@@ -96,8 +97,9 @@ const ChoicesView: React.FC = () => {
 	const handleTownCreation = () => {
 		//Refactor implement this
 		// const cheifs = chooseChambermaidChiefs(townMaterial);
-		const final = createTheTown(townMaterial);
+		const final = createTheTown(townMaterial, state);
 		//Sets the final array to what was returned from creating the town
+		console.log(`Final`, final);
 		setFinalTown([...final]);
 	};
 
@@ -112,11 +114,13 @@ const ChoicesView: React.FC = () => {
 				<ReminescensesTile />
 				<BeerTile />
 				<CouplesTile />
+				<SlantTile />
 				<button onClick={handleTownCreation}>Create Town</button>
 				<ol>
 					{finalTown.map((card) => (
-						<li>
+						<li key={card.name}>
 							{card.beerMaid ? "YES BEER" : ""}
+							{card.crescentSister ? `YES SISTER, ${card.name}` : ""}
 							{card.eventRequired ? "YES EVENT" : ""}
 							{card.couplesRequired ? "YES COUPLES" : ""}
 							{card.eventRequired ? "YES EVENT" : ""}

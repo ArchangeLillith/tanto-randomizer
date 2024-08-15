@@ -1,37 +1,27 @@
-import { ReactNode } from "react";
-
 //State shape
 export interface FilterState {
 	setList: ESet[];
 	bannedCards: string[];
 	sisterInclusion: number;
-	attackCards: string;
+	attackOptions: EAttackOptions;
 	beerOptions: EBeerOptions;
-	reminescenseOptions: EReminescenses;
-	booleans: booleanOptions;
+	reminescenseOptions: EReminescenseOptions;
+	booleans: stateBooleans;
+	victoryPointSlant: ESlantOptions;
+	cardDrawSlant: ESlantOptions;
+	loveCostSlant: ESlantOptions;
+	loveGiveSlant: ESlantOptions;
+	servingsSlant: ESlantOptions;
+	employEffectsSlant: ESlantOptions;
 }
-
 //Pulling out the boolean options
-type booleanOptions = {
+type stateBooleans = {
 	includePrivateMaids: boolean;
 	includeEvents: boolean;
 	includeBuildings: boolean;
 	includeCouples: boolean;
-	highVictoryPoints: boolean;
-	lowVictoryPoints: boolean;
-	highLoveCost: boolean;
-	lowLoveCost: boolean;
-	highLoveGive: boolean;
-	lowLoveGive: boolean;
-	highServings: boolean;
-	lowServings: boolean;
-	highDraw: boolean;
-	lowDraw: boolean;
-	highEmployEffects: boolean;
-	lowEmployEffects: boolean;
 };
 
-//The set enum
 export enum ESet {
 	BaseSet = "base_set",
 	ExpandingTheHouse = "expanding_the_house",
@@ -40,34 +30,24 @@ export enum ESet {
 	WinterRomance = "winter_romance",
 }
 
-//The booleans enum
 export enum EBooleans {
-	baseSet = "baseSet",
 	includePrivateMaids = "includePrivateMaids",
 	includeEvents = "includeEvents",
 	includeBuildings = "includeBuildings",
 	includeReminecsenses = "includeReminecsenses",
-	forceBeer = "forceBeer",
 	includeCouples = "includeCouples",
-	highVictoryPoints = "highVictoryPoints",
-	lowVictoryPoints = "lowVictoryPoints",
-	highLoveCost = "highLoveCost",
-	lowLoveCost = "lowLoveCost",
-	highLoveGive = "highLoveGive",
-	lowLoveGive = "lowLoveGive",
-	highServings = "highServings",
-	lowServings = "lowServings",
-	highDraw = "highDraw",
-	lowDraw = "lowDraw",
-	highEmployEffects = "highEmployEffects",
-	lowEmployEffects = "lowEmployEffects",
 }
 
-//The reminesenses enum
-export enum EReminescenses {
+export enum EReminescenseOptions {
 	All = "all",
 	Purchasable = "allPurchasable",
 	Exclude = "exclude",
+}
+
+export enum ESlantOptions {
+	NoSlant = "noSlant",
+	SlantHigh = "slantHigh",
+	SlantLow = "slantLow",
 }
 
 export enum EBeerOptions {
@@ -75,23 +55,24 @@ export enum EBeerOptions {
 	Force = "forceBeer",
 	Exclude = "excludeBeer",
 }
-//Showing state that we have children to pass in and that they're reactnodes
-export interface StateProviderProps {
-	children: ReactNode;
+
+export enum EAttackOptions {
+	NoPreference = "noPreference",
+	NoAttack = "noAttack",
+	AllAttack = "allAttack",
 }
 
-//The handler for the state actions. Without adding it here, we can't use a new action.
-export type Action =
-	| { type: "TOGGLE_BOOLEAN"; payload: keyof FilterState["booleans"] }
-	| { type: "HANDLE_SET_LIST"; payload: ESet }
-	| { type: "SET_SISTER_INCLUSION"; payload: number }
-	| {
-			type: "SET_SELECTED_OPTION";
-			payload: { key: keyof FilterState; value: string };
-	  };
-// Add more action types for other booleans as needed
+//The key for slants that match state
+export enum ESlantKeys {
+	victoryPointSlant = "victoryPointSlant",
+	cardDrawSlant = "cardDrawSlant",
+	loveCostSlant = "loveCostSlant",
+	loveGiveSlant = "loveGiveSlant",
+	servingsSlant = "servingsSlant",
+	employEffectsSlant = "employEffectsSlant",
+}
 
-//When card coems back from data bse, we type cast to this to ensure that the thingies are speled correctly
+//When card comes back from database, we type cast to this to ensure that the keys are spelled correctly
 export interface Card {
 	name: string;
 	cardTitle: string;

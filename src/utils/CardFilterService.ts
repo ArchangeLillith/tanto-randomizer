@@ -1,4 +1,4 @@
-import { Card, EBeerOptions, FilterState } from "./types";
+import { Card, EBeerOptions, ESlantOptions, FilterState } from "./types";
 
 export function chooseChambermaidChiefs(cardArray: Card[]) {
 	const maidChiefs: Card[] = [];
@@ -24,123 +24,194 @@ export function chooseChambermaidChiefs(cardArray: Card[]) {
 	return randomizedChiefs;
 }
 
-export function createTheTown(cardArray: Card[]) {
-	console.log(`Card array passed into createTheTown:`, cardArray);
+export function createTheTown(cardArray: Card[], filter: FilterState) {
+	const beerMaid = cardArray.find((card) => card.beerMaid === true);
+	const sisters = cardArray.filter((card) => card.crescentSister === true);
+	console.log(`SISTERS in create`, sisters);
 	const finishedTown: Card[] = [];
-	while (finishedTown.length < 10) {
-		const index = Math.floor(Math.random() * cardArray.length);
-		finishedTown.push(cardArray[index]);
-		cardArray.splice(index, 1);
+	// console.log(`Card array passed into createTheTown:`, cardArray);
+	while (finishedTown.length < 10 && cardArray.length > 0) {
+		const index: number = Math.floor(Math.random() * cardArray.length);
+		const selectedCard: Card = cardArray[index];
+		//This is an overkill check to make sure that we don't have a duplicate just in case something super funky happens. It also logs into the console with an error so I can see if there's something that needs debugging
+		if (!finishedTown.some((card) => card.name === selectedCard.name)) {
+			finishedTown.push(cardArray.splice(index, 1)[0]);
+		} else {
+			console.error("There was a duplicate, got skipped figure it out X_X");
+		}
+	}
+	if (filter.beerOptions === EBeerOptions.Force) {
+		//Is there one card with beerMaid === true?
+		const hasBeerMaid = finishedTown.some((card) => card.beerMaid === true);
+		//If not, we need to splice a random card and add a beer maid
+		if (!hasBeerMaid && beerMaid) {
+			console.log(`Beer maid added retroactivley`);
+			//Get rid of a random one
+			finishedTown.splice(getRandomNumber(finishedTown.length), 1);
+			finishedTown.push(beerMaid);
+		}
+	}
+	if (filter.sisterInclusion > 0) {
+		//Is there one card with beerMaid === true?
+		const howManySisters: number = finishedTown.filter(
+			(card) => card.crescentSister === true
+		).length;
+		//If not, we need to splice a random card and add a beer maid
+		if (filter.sisterInclusion + 1 > howManySisters) {
+			for (let i = 0; i < filter.sisterInclusion + 1; i++) {
+				const randomSister = sisters.splice(
+					getRandomNumber(sisters.length),
+					1
+				)[0];
+				if (
+					randomSister &&
+					!finishedTown.some((card) => card.name === randomSister.name)
+				) {
+					finishedTown.splice(getRandomNumber(finishedTown.length), 1);
+					finishedTown.push(randomSister);
+				}
+			}
+		}
 	}
 	return finishedTown;
 }
 
 export const filterCards = (cardArray: Card[], filter: FilterState): Card[] => {
-	const fullArray: Card[] = cardArray;
-	fullArray.forEach((card) => console.log(card.beerMaid));
-	console.log(`FYLL array`, fullArray);
-	const beerMaid = fullArray.find((card) => card.beerMaid === true);
-	console.log(`BEER`, beerMaid);
-
 	const cardsToCut: Card[] = [];
-	//Passes in the card to the filter method and expects a card or undefined as a return. If a card is returned, it gets added to the cards to cut array and then removed subsequently
-	for (let i = 0; i < cardArray.length; i++) {
-		const cardToCut = filterByCardProperty(cardArray[i], filter);
+
+	//Grab beer and sister cards from the main array
+	const beerMaids = cardArray.filter((card) => card.beerMaid === true);
+	const sisters = cardArray.filter((card) => card.crescentSister === true);
+	console.log(`SISTERS`, sisters);
+
+	//filter based on state
+	cardArray.forEach((card) => {
+		const cardToCut = filterByCardProperty(card, filter);
 		if (cardToCut) cardsToCut.push(cardToCut);
+	});
+
+	//Remove the cards that don't match the filters
+	cardsToCut.forEach((cardToCut) => {
+		cardArray = cardArray.filter((card) => card.name !== cardToCut.name);
+	});
+
+	//Ensure there's beer if the filter demands it
+	if (
+		filter.beerOptions === EBeerOptions.Force &&
+		!cardArray.some((card) => card.beerMaid)
+	) {
+		const randomBeerMaid = beerMaids[getRandomNumber(beerMaids.length)];
+		if (randomBeerMaid) cardArray.push(randomBeerMaid);
 	}
-	for (let i = 0; i < cardsToCut.length; i++) {
-		const deleteThisCardName = cardsToCut[i].name;
-		cardArray = cardArray.filter((card) => card.name !== deleteThisCardName);
-	}
-	//Here we handle the beermaid force after the other filters have been passed through because this is a stricter filter. If this is selected, it overrides the slants below.
-	if (filter.beerOptions === EBeerOptions.Force) {
-		//Is there one card with beerMaid === true?
-		const hasBeerMaid = cardArray.some((card) => card.beerMaid === true);
-		console.log(`HAS BEER?`, hasBeerMaid);
-		//If not, we need to splice a random card and add a beer maid
-		if (!hasBeerMaid) {
-			//Get rid of a random one
-			cardArray.splice(getRandomNumber(), 1);
-			//Add a beer maid
-			if (beerMaid) cardArray.push(beerMaid);
+
+	//If there's sister inclusion
+	if (filter.sisterInclusion > 0) {
+		cardArray = cardArray.filter((card) => !card.crescentSister);
+		for (let i = 0; i < filter.sisterInclusion + 1; i++) {
+			const randomSister = sisters.splice(
+				getRandomNumber(sisters.length),
+				1
+			)[0];
+			if (randomSister) cardArray.push(randomSister);
 		}
 	}
-	// console.log(`Card array when filtered:`, cardArray);
-	console.log(`Length of cardArray after:`, cardArray.length);
 	return cardArray;
 };
 
-export function filterByCardProperty(
+function filterByCardProperty(
 	card: Card,
 	filterObject: FilterState
 ): Card | undefined {
-	//kick out the chief maids
-	if (card.chiefMaid === true) {
-		return card;
-	}
-	//Banned cards will go here and return if filter.bannedCards.includes(card.name)
+	//NOTE ON STRUCTURE: While I could have easilly combined the slant and booleans in this logic, I decided not to for ease of reading and debugging. It doesn't mean much that they're in seperate places like this other than ease of readability at the cost of a handful more lines of code
 
-	//event filter
-	if (
-		card.eventRequired === true &&
-		filterObject.booleans.includeEvents === false
-	) {
-		return card;
+	//Exclude chief maids immediatley
+	if (card.chiefMaid) return card;
+
+	const {
+		bannedCards,
+		booleans,
+		beerOptions,
+		victoryPointSlant,
+		cardDrawSlant,
+		loveCostSlant,
+		loveGiveSlant,
+		servingsSlant,
+	} = filterObject;
+
+	if (bannedCards.includes(card.name)) return card;
+
+	//Filters based on booleans
+	const booleanFilters = [
+		{ condition: card.eventRequired && !booleans.includeEvents, card },
+		{ condition: card.couplesRequired && !booleans.includeCouples, card },
+		{ condition: card.beerMaid && beerOptions === EBeerOptions.Exclude, card },
+	];
+
+	//Handle the boolean filters
+	for (const { condition, card } of booleanFilters) {
+		if (condition) return card;
 	}
-	if (
-		card.couplesRequired === true &&
-		filterObject.booleans.includeCouples === false
-	) {
-		return card;
+
+	//Filters based on slants
+	const slantFilters = [
+		{
+			condition:
+				victoryPointSlant === ESlantOptions.SlantHigh &&
+				card.victoryPoints <= 2,
+			card,
+		},
+		{
+			condition:
+				victoryPointSlant === ESlantOptions.SlantLow && card.victoryPoints > 2,
+			card,
+		},
+		{
+			condition:
+				cardDrawSlant === ESlantOptions.SlantHigh && card.cardDraw <= 1,
+			card,
+		},
+		{
+			condition: cardDrawSlant === ESlantOptions.SlantLow && card.cardDraw > 2,
+			card,
+		},
+		{
+			condition:
+				loveCostSlant === ESlantOptions.SlantHigh && card.purchasePrice <= 3,
+			card,
+		},
+		{
+			condition:
+				loveCostSlant === ESlantOptions.SlantLow && card.purchasePrice > 3,
+			card,
+		},
+		{
+			condition: loveGiveSlant === ESlantOptions.SlantHigh && card.love <= 2,
+			card,
+		},
+		{
+			condition: loveGiveSlant === ESlantOptions.SlantLow && card.love > 2,
+			card,
+		},
+		{
+			condition:
+				servingsSlant === ESlantOptions.SlantHigh && card.servings <= 2,
+			card,
+		},
+		{
+			condition: servingsSlant === ESlantOptions.SlantLow && card.servings > 2,
+			card,
+		},
+	];
+
+	//Handling the slants
+	for (const { condition, card } of slantFilters) {
+		if (condition) return card;
 	}
-	//Beer filter
-	//If beer is off and the maid requires beer
-	if (
-		card.beerMaid === true &&
-		filterObject.beerOptions === EBeerOptions.Exclude
-	) {
-		return card;
-	}
-	//Slant options start:
-	if (
-		card.victoryPoints <= 2 &&
-		filterObject.booleans.highVictoryPoints === true
-	) {
-		return card;
-	}
-	if (
-		card.victoryPoints > 2 &&
-		filterObject.booleans.lowVictoryPoints === true
-	) {
-		return card;
-	}
-	if (card.purchasePrice <= 2 && filterObject.booleans.highLoveCost === true) {
-		return card;
-	}
-	if (card.purchasePrice > 2 && filterObject.booleans.lowLoveCost === true) {
-		return card;
-	}
-	if (card.love <= 2 && filterObject.booleans.highLoveGive === true) {
-		return card;
-	}
-	if (card.love > 2 && filterObject.booleans.lowLoveGive === true) {
-		return card;
-	}
-	if (card.servings < 2 && filterObject.booleans.highServings === true) {
-		return card;
-	}
-	if (card.servings >= 2 && filterObject.booleans.lowServings === true) {
-		return card;
-	}
-	if (card.cardDraw <= 2 && filterObject.booleans.highDraw === true) {
-		return card;
-	}
-	if (card.cardDraw > 2 && filterObject.booleans.lowDraw === true) {
-		return card;
-	}
+
+	//This means every check was passed
 	return undefined;
 }
 
-function getRandomNumber(): number {
-	return Math.floor(Math.random() * 11);
+function getRandomNumber(max: number): number {
+	return Math.floor(Math.random() * max);
 }

@@ -1,38 +1,47 @@
-import { createContext, useReducer } from "react";
+import { createContext, ReactNode, useReducer } from "react";
 import {
-	Action,
 	FilterState,
-	StateProviderProps,
-	EReminescenses,
+	EReminescenseOptions,
 	EBeerOptions,
+	ESlantOptions,
+	EAttackOptions,
+	ESet,
 } from "./types";
 
 const initialState: FilterState = {
 	setList: [],
 	bannedCards: [],
 	sisterInclusion: 0,
-	attackCards: "no preference",
+	attackOptions: EAttackOptions.NoPreference,
 	beerOptions: EBeerOptions.NoPreference,
-	reminescenseOptions: EReminescenses.All,
+	reminescenseOptions: EReminescenseOptions.All,
+	victoryPointSlant: ESlantOptions.NoSlant,
+	cardDrawSlant: ESlantOptions.NoSlant,
+	loveCostSlant: ESlantOptions.NoSlant,
+	loveGiveSlant: ESlantOptions.NoSlant,
+	servingsSlant: ESlantOptions.NoSlant,
+	employEffectsSlant: ESlantOptions.NoSlant,
 	booleans: {
 		includePrivateMaids: true,
 		includeEvents: true,
 		includeBuildings: true,
 		includeCouples: true,
-		highVictoryPoints: false,
-		lowVictoryPoints: false,
-		highLoveCost: false,
-		lowLoveCost: false,
-		highLoveGive: false,
-		lowLoveGive: false,
-		highServings: false,
-		lowServings: false,
-		highDraw: false,
-		lowDraw: false,
-		highEmployEffects: false,
-		lowEmployEffects: false,
 	},
 };
+
+//The handler for the state actions. Without adding it here, we can't use a new action.
+type Action =
+	| { type: "TOGGLE_BOOLEAN"; payload: keyof FilterState["booleans"] }
+	| { type: "HANDLE_SET_LIST"; payload: ESet }
+	| { type: "SET_SISTER_INCLUSION"; payload: number }
+	| {
+			type: "SET_SLANT_OPTION";
+			payload: { key: keyof FilterState; value: ESlantOptions };
+	  }
+	| {
+			type: "SET_SELECTED_OPTION";
+			payload: { key: keyof FilterState; value: string };
+	  };
 
 function reducer(state: FilterState, action: Action): FilterState {
 	switch (action.type) {
@@ -65,6 +74,12 @@ function reducer(state: FilterState, action: Action): FilterState {
 				...state,
 				sisterInclusion: action.payload,
 			};
+		case "SET_SLANT_OPTION": {
+			return {
+				...state,
+				[action.payload.key]: action.payload.value, // Toggle the specific boolean value
+			};
+		}
 		default:
 			return state;
 	}
@@ -77,6 +92,12 @@ export const StateContext = createContext<{
 	state: initialState,
 	dispatch: () => undefined,
 });
+
+//Left here because it's only used here, no point in throwing it in util
+//Showing state that we have children to pass in and that they're reactnodes
+interface StateProviderProps {
+	children: ReactNode;
+}
 
 export const StateProvider: React.FC<StateProviderProps> = ({ children }) => {
 	const [state, dispatch] = useReducer(reducer, initialState);

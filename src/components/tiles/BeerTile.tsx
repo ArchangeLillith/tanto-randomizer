@@ -4,29 +4,27 @@ import TileBox from "../building-blocks/TileBox";
 import Title from "../building-blocks/Title";
 
 const BeerTile = () => {
+	const options: { value: EBeerOptions; label: string }[] = [
+		{
+			value: EBeerOptions.NoPreference,
+			label: "No preference",
+		},
+		{
+			value: EBeerOptions.Exclude,
+			label: "Exclude all cards that affect or require Beer cards",
+		},
+		{
+			value: EBeerOptions.Force,
+			label:
+				"Ensure at least one bar maid in results to allow beer cards to be utilized",
+		},
+	];
 	return (
 		<TileBox
 			children={
 				<>
 					<Title title="Beer" />
-					<RadioGroup
-						stateKey={"beerOptions"}
-						options={[
-							{
-								value: EBeerOptions.NoPreference,
-								label: "No preference",
-							},
-							{
-								value: EBeerOptions.Exclude,
-								label: "Exclude all cards that affect or require Beer cards",
-							},
-							{
-								value: EBeerOptions.Force,
-								label:
-									"Ensure at least one bar maid in results to allow beer cards to be utilized",
-							},
-						]}
-					/>
+					<RadioGroup stateKey={"beerOptions"} options={options} />
 				</>
 			}
 		/>

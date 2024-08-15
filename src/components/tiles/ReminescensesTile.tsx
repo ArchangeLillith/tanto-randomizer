@@ -1,21 +1,21 @@
-import { EReminescenses } from "../../utils/types";
+import { EReminescenseOptions } from "../../utils/types";
 import RadioGroup from "../building-blocks/RadioGroup";
 import TileBox from "../building-blocks/TileBox";
 import Title from "../building-blocks/Title";
 
 const ReminescensesTile = () => {
-	const options = [
+	const options: { value: EReminescenseOptions; label: string }[] = [
 		{
-			value: EReminescenses.All,
+			value: EReminescenseOptions.All,
 			label: "Include all reminescense cards",
 		},
 		{
-			value: EReminescenses.Purchasable,
+			value: EReminescenseOptions.Purchasable,
 			label:
 				"Ensure a cost spread that permits all Reminiscence cards to be purchased",
 		},
 		{
-			value: EReminescenses.Exclude,
+			value: EReminescenseOptions.Exclude,
 			label: "Exclude all cards that affect or require Reminiscence cards",
 		},
 	];
