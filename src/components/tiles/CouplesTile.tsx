@@ -12,7 +12,7 @@ const CouplesTile = () => {
 					<Checkbox
 						parent="couples"
 						id={EBooleans.includeCouples}
-						item="Exclude all cards that affect or require Couple cards"
+						item="Include all cards that affect or require Couple cards"
 						tooltip="(Friends, Trial, Drama cards, Meetup Spot cards, Chapel, and Social Bonus)"
 					/>
 				</>

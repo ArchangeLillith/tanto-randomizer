@@ -12,7 +12,7 @@ const EventsTile = () => {
 					<Checkbox
 						id={EBooleans.includeEvents}
 						parent="events"
-						item="Exclude all cards that affect or require Event cards"
+						item="Include all cards that affect or require Event cards"
 						tooltip="Select this option if using Tanto Cuore, Oktoberfest, and/or Winter Romance without Event cards NOTE: Winter Romance 'Drama' cards are treated as Event cards."
 					/>
 				</>

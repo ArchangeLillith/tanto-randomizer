@@ -12,7 +12,7 @@ const BuildingsTile = () => {
 					<Checkbox
 						parent="buildings"
 						id={EBooleans.includeBuildings}
-						item="Exclude all cards that affect or require Building cards"
+						item="Include all cards that affect or require Building cards"
 						tooltip="Select this option if using Expanding the House, Oktoberfest, and/or Winter Romance without Building cards"
 					/>
 				</>

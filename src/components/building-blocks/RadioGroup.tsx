@@ -13,9 +13,7 @@ const RadioGroup: React.FC<RadioGroupProps> = ({
 	toolTip,
 	options = [],
 }) => {
-	console.log(`OPTIOSN,`, options);
 	const { state, dispatch } = useContext(StateContext);
-	console.log("Current Value:", state[stateKey]);
 
 	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		dispatch({

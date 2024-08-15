@@ -90,3 +90,30 @@ export type Action =
 			payload: { key: keyof FilterState; value: string };
 	  };
 // Add more action types for other booleans as needed
+
+//When card coems back from data bse, we type cast to this to ensure that the thingies are speled correctly
+export interface Card {
+	name: string;
+	cardTitle: string;
+	pictureUrl?: string;
+	promo: boolean;
+	employEffect: boolean;
+	chiefMaid: boolean;
+	beerMaid: boolean;
+	eventRequired: boolean;
+	couplesRequired: boolean;
+	reminescenceRequired: boolean;
+	chamberMaid: boolean;
+	crescentSister: boolean;
+	stackingVP: boolean;
+	victoryPoints: number;
+	negativeVP: boolean;
+	purchasePrice: number;
+	cardDraw: number;
+	employs: number;
+	servings: number;
+	love: number;
+	cardID: number;
+	set: ESet;
+	id?: number;
+}

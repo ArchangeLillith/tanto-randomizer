@@ -26,8 +26,7 @@ const ReminescensesTile = () => {
 					<Title title="Reminiscenses" />
 					<RadioGroup
 						options={options}
-						stateKey={"reminescenseOptions"} // Key from the `booleans` object as a string
-						toolTip="Include reminescenses?"
+						stateKey={"reminescenseOptions"} //Key from state that cooresponds to this option
 					/>
 				</>
 			}

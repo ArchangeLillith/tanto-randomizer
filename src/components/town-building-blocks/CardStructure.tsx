@@ -1,27 +1,11 @@
-import { ESet } from "../../utils/types";
+import { Card } from "../../utils/types";
 
-//Refactor throw card in a util file
 interface CardProps {
 	card: Card;
 	genericMaidUrl?: string;
 }
 
-//When card coems back from data bse, we type cast to this to ensure that the thingies are speled correctly
-
-interface Card {
-	name: string;
-	cardDraw: number;
-	employs: number;
-	purchasePrice: number;
-	servings: number;
-	employEffect: boolean;
-	love: number;
-	victoryPoints: number;
-	set: ESet;
-	pictureUrl?: string;
-}
-
-const Card = (props: CardProps) => {
+const CardStructure = (props: CardProps) => {
 	const card: CardProps["card"] = props.card;
 	return (
 		<>
@@ -199,4 +183,4 @@ const Card = (props: CardProps) => {
 	);
 };
 
-export default Card;
+export default CardStructure;
