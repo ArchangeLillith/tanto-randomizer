@@ -29,7 +29,6 @@ export enum ESet {
 	Oktoberfest = "oktoberfest",
 	WinterRomance = "winter_romance",
 }
-
 export enum EBooleans {
 	includePrivateMaids = "includePrivateMaids",
 	includeEvents = "includeEvents",
@@ -37,25 +36,21 @@ export enum EBooleans {
 	includeReminecsenses = "includeReminecsenses",
 	includeCouples = "includeCouples",
 }
-
 export enum EReminescenseOptions {
 	All = "all",
 	Purchasable = "allPurchasable",
 	Exclude = "exclude",
 }
-
 export enum ESlantOptions {
 	NoSlant = "noSlant",
 	SlantHigh = "slantHigh",
 	SlantLow = "slantLow",
 }
-
 export enum EBeerOptions {
 	NoPreference = "noPreference",
 	Force = "forceBeer",
 	Exclude = "excludeBeer",
 }
-
 export enum EAttackOptions {
 	NoPreference = "noPreference",
 	NoAttack = "noAttack",
@@ -98,3 +93,22 @@ export interface Card {
 	set: ESet;
 	id?: number;
 }
+
+/**
+ * A mapping between sets and the names to be displayed to the user
+ */
+export const setNameMapping: Record<ESet, string> = {
+	[ESet.BaseSet]: "Base Set",
+	[ESet.ExpandingTheHouse]: "Expanding the House",
+	[ESet.Oktoberfest]: "Oktoberfest",
+	[ESet.RomanticVacation]: "Romantic Vacation",
+	[ESet.WinterRomance]: "Winter Romance",
+};
+/**
+ * A mapping between slants and the names to be displayed to the user
+ */
+export const slantNameMapping: Record<ESlantOptions, string> = {
+	[ESlantOptions.NoSlant]: "No preference",
+	[ESlantOptions.SlantHigh]: "Slant high",
+	[ESlantOptions.SlantLow]: "Slant low",
+};

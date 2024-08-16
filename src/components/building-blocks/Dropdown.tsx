@@ -1,14 +1,11 @@
 import { useContext } from "react";
 import { StateContext } from "../../utils/stateHandler";
-import { FilterState } from "../../utils/types";
 
-interface DropdownProps {
+const Dropdown: React.FC<{
 	label: string;
-	stateKey: keyof FilterState;
-	toolTip?: string;
-}
 
-const Dropdown = (props: DropdownProps) => {
+	toolTip?: string;
+}> = ({ label, toolTip }) => {
 	const { dispatch } = useContext(StateContext);
 
 	const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -20,13 +17,13 @@ const Dropdown = (props: DropdownProps) => {
 
 	return (
 		<>
-			<p>{props.label}</p>
+			<p>{label}</p>
 			<select className="custom-select" onChange={handleSelectChange}>
 				<option id="0">0</option>
 				<option id="1">1</option>
 				<option id="2">2</option>
 			</select>
-			{props.toolTip && <p>{props.toolTip}</p>}
+			{toolTip && <p>{toolTip}</p>}
 		</>
 	);
 };

@@ -2,18 +2,16 @@ import { useContext } from "react";
 import { StateContext } from "../../utils/stateHandler";
 import { EBooleans, ESet, FilterState } from "../../utils/types";
 
-interface CheckboxProps {
+const Checkbox: React.FC<{
 	parent: string;
 	item: string;
 	id: ESet | EBooleans;
 	tooltip?: string;
-}
-
-const Checkbox = (props: CheckboxProps) => {
+}> = ({ parent, item, id, tooltip }) => {
 	const { state, dispatch } = useContext(StateContext);
 	// Determine if the checkbox should be checked
 	const isChecked = (id: ESet | EBooleans): boolean => {
-		if (props.parent === "sets") {
+		if (parent === "sets") {
 			return state.setList.includes(id as ESet); // Assumes setList contains ESet values
 		} else {
 			// Check if id is a valid boolean key
@@ -26,7 +24,7 @@ const Checkbox = (props: CheckboxProps) => {
 
 	const handleCheckClick = (event: React.ChangeEvent<HTMLInputElement>) => {
 		const id = event.target.id as ESet | EBooleans;
-		if (props.parent === "sets") {
+		if (parent === "sets") {
 			dispatch({ type: "HANDLE_SET_LIST", payload: id as ESet });
 		} else {
 			dispatch({
@@ -35,20 +33,20 @@ const Checkbox = (props: CheckboxProps) => {
 			});
 		}
 	};
-	
+
 	return (
 		<div className="custom-control custom-checkbox">
 			<input
 				type="checkbox"
 				className="custom-control-input"
-				id={`${props.id}`}
-				checked={isChecked(props.id)}
+				id={`${id}`}
+				checked={isChecked(id)}
 				onChange={handleCheckClick}
 			/>
-			<label className="custom-control-label-check" htmlFor={`${props.id}`}>
-				{props.item}
+			<label className="custom-control-label-check" htmlFor={`${id}`}>
+				{item}
 			</label>
-			{props.tooltip && <p className="tooltipText">{props.tooltip}</p>}
+			{tooltip && <p className="tooltipText">{tooltip}</p>}
 		</div>
 	);
 };

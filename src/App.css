@@ -1,7 +1,29 @@
+/*
+File structure(mostly so I can find my way around after the refactor lol):
+
+	- VERY generic props, h3/html ect
+	- Options view styling
+	- Side boxes
+	- Finished Town view generic styling
+	- Color variables
+	- Coloring based on set as needed (multiple sections)
+
+	NOTE: the order of the colors is by release year of the set, from oldest to newest:
+		- Base
+		- Expanding
+		- Vactaion (this and Oktober came out same year so I went of vibes)
+		- Oktoberfest
+		- Winter
+*/
 * {
 	font-family: "TantoFont";
 }
-
+@font-face {
+	font-family: "TantoFont";
+	src: url("../src/assets/Jua-Regular.ttf") format("truetype");
+	font-weight: bold;
+}
+/* The heart background */
 html {
 	background-image: url("./assets/hearts.png");
 	background-repeat: repeat;
@@ -9,7 +31,15 @@ html {
 	background-size: auto;
 	min-height: 100%;
 }
+h3 {
+	margin: 0;
+}
+/* The secret sauce to get the stupid black border when a select is active to disappear */
+select:focus {
+	outline: none;
+}
 
+/* ------------------------------------------------ Options view CSS --------------------------------------------------------*/
 .tile-box {
 	display: flex;
 	align-items: normal;
@@ -22,21 +52,6 @@ html {
 	margin: 10px 0px 10px 0px;
 	border-radius: 20px;
 }
-
-.inner-content-container {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: space-evenly;
-	gap: 10px;
-}
-
-@font-face {
-	font-family: "TantoFont";
-	src: url("../src/assets/Jua-Regular.ttf") format("truetype");
-	font-weight: bold;
-}
-
 .custom-select {
 	display: inline-block;
 	width: 100%;
@@ -54,20 +69,17 @@ html {
 	-moz-appearance: none;
 	appearance: none;
 }
-
 .custom-control {
 	position: relative;
 	display: block;
 	min-height: 1.5rem;
 	padding-left: 1.5rem;
 }
-
 .custom-control-input {
 	position: absolute;
 	z-index: -1;
 	opacity: 0;
 }
-
 .custom-control-label-check::before {
 	position: absolute;
 	top: 0.25rem;
@@ -101,14 +113,12 @@ html {
 	background-image: url("/src/assets/single-heart.png");
 	background-size: 12px 12px;
 }
-
 .choices-view-container {
 	align-items: center;
 	justify-content: center;
 	display: flex;
 	flex-direction: column;
 }
-
 .title-wrapper {
 	background: rgb(250, 146, 163);
 	border-radius: 10px;
@@ -119,14 +129,238 @@ html {
 	margin-bottom: 25px;
 	margin-top: 10px;
 }
-
-/* The secret sauce to get the stupid black border when a select is active to disappear */
-select:focus {
-	outline: none;
+/* Button styling */
+.button-75 {
+	align-items: center;
+	background-image: linear-gradient(135deg, #ff8799 40%, pink);
+	border: 0;
+	border-radius: 10px;
+	box-sizing: border-box;
+	color: #fff;
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	font-size: 16px;
+	font-weight: 700;
+	height: 54px;
+	justify-content: center;
+	letter-spacing: 0.4px;
+	line-height: 1;
+	max-width: 100%;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 3px;
+	text-decoration: none;
+	user-select: none;
+	-webkit-user-select: none;
+	touch-action: manipulation;
 }
-
-/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-
+.button-75:active {
+	outline: 0;
+}
+.button-75:hover {
+	outline: 0;
+}
+.button-75 span {
+	transition: all 200ms;
+}
+.button-75:hover span {
+	transform: scale(0.9);
+	opacity: 0.75;
+}
+.warning-box {
+	display: flex;
+	align-items: normal;
+	justify-content: center;
+	text-align: center;
+	padding: 1% 4%;
+	border: 3px solid rgb(220, 94, 115);
+	background-color: rgb(254, 162, 177);
+	flex-direction: column;
+	width: 550px;
+	margin: 10px 0px 10px 0px;
+}
+.warning-header-wrapper {
+	background: rgb(220, 94, 115);
+	color: rgb(251, 221, 226);
+	border-radius: 10px;
+	height: fit-content;
+	width: fit-content;
+	padding: 1%;
+	align-self: center;
+	margin-bottom: 25px;
+	margin-top: 10px;
+}
+/* -------------------------------------------------- Side Boxes ------------------------------------------------------- */
+.right-fixed-box {
+	position: fixed;
+	right: 7px;
+	background-color: rgb(211, 115, 131);
+	padding: 20px;
+	border-radius: 10px;
+	color: white;
+}
+.left-fixed-box {
+	position: fixed;
+	color: white;
+	left: 7px;
+	background-color: rgb(211, 115, 131);
+	padding: 20px;
+	border-radius: 10px;
+}
+.legend-set-box {
+	align-items: center;
+	flex-direction: row;
+	display: flex;
+}
+.legend-set-title {
+	margin-left: 5px;
+}
+.legend-heart-icon {
+	height: 30px;
+	width: 30px;
+	align-items: center;
+}
+.state-box {
+	align-items: center;
+	flex-direction: column;
+	display: flex;
+}
+/*---------------------------------------------- Finished town view generic styling --------------------------------------------*/
+/* The base grid for the town cards */
+.town-grid {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-template-rows: repeat(2, 1fr);
+	grid-column-gap: 20px;
+	grid-row-gap: 4px;
+	background-color: pink;
+	border-radius: 10px;
+	padding: 2% 33px 2% 20px;
+	width: 1180px;
+}
+/* The grid that informs where everything in the created card should go */
+.single-card-grid {
+	padding: 2%;
+	padding-bottom: 4%;
+	width: 200px;
+	height: 280px;
+	display: grid;
+	grid-template-columns: 0.4fr 2.2fr 0.4fr;
+	grid-template-rows: 0.41fr 4.02fr 0.01fr 1fr;
+	gap: 0px 0px;
+	grid-template-areas:
+		"purchasePrice name VP"
+		"image image image"
+		"bottomSection bottomSection bottomSection"
+		"bottomSection bottomSection bottomSection";
+	align-content: center;
+}
+/* Set the areas of all of the icons within the card*/
+.servings {
+	grid-area: servings;
+}
+.card-draw {
+	grid-area: card-draw;
+}
+.love {
+	grid-area: love;
+}
+.employs {
+	grid-area: employs;
+}
+/* Set the icon sizes */
+.iconEnabled > svg,
+.iconDisabled > svg {
+	width: 15px;
+	height: 15px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+/* The base of the card */
+.card-background {
+	margin: 35px 0 35px 0;
+	padding: 2%;
+	width: 205px;
+	height: 290px;
+	border-radius: 10px;
+	padding-bottom: 20px;
+}
+.purchasePrice {
+	grid-area: purchasePrice;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50px;
+}
+/* Generic styling for the top section components */
+.name {
+	grid-area: name;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	border-radius: 5px;
+}
+.VP {
+	grid-area: VP;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50px;
+}
+.image {
+	grid-area: image;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 5px 4% 0 8px;
+	border-radius: 5px;
+	margin-bottom: 2px;
+}
+/* Bottom grid informing where componenets should go in the bottom section */
+.bottomSection {
+	display: grid;
+	border-radius: 10px;
+	grid-template-columns: 0.6fr 1.8fr 0.6fr;
+	grid-template-rows: 1fr 1fr;
+	gap: 0px 0px;
+	grid-template-areas:
+		"card-draw effects servings"
+		"love effects employs";
+	grid-area: bottomSection;
+}
+/* Generic location CSS for smaller parts*/
+.valueLoveHasValue {
+	grid-area: valueLove;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.valueLoveIsZero {
+	grid-area: valueLove;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.effects {
+	grid-area: effects;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.servings,
+.card-draw,
+.love,
+.employs {
+	display: flex;
+	align-items: center;
+	border-radius: 50px;
+	padding: 4px;
+	margin: 2px;
+}
+/* -------------------------------------------------- Color variables ------------------------------------------------------*/
 * {
 	--baseSetBackgroundColor: pink;
 	--baseSetLightAccentColor: #ffd1d9;
@@ -159,726 +393,164 @@ select:focus {
 	--oktoberfestIconDisabled: rgb(229, 189, 161);
 }
 
-/* ---------------------- GENERAL STYLING--------------------- */
-.single-card-grid {
-	padding: 2%;
-	padding-bottom: 4%;
-	width: 200px;
-	height: 280px;
-	display: grid;
-	grid-template-columns: 0.4fr 2.2fr 0.4fr;
-	grid-template-rows: 0.41fr 4.02fr 0.01fr 1fr;
-	gap: 0px 0px;
-	grid-template-areas:
-		"purchasePrice name VP"
-		"image image image"
-		"bottomSection bottomSection bottomSection"
-		"bottomSection bottomSection bottomSection";
-	align-content: center;
+/*------------------------ Coloring for text and icons relating to card draw, love, employs and servings ------------------------*/
+.iconEnabled.base_set {
+	fill: var(--baseSetIconEnabled);
+}
+.iconDisabled.base_set {
+	fill: var(--baseSetIconDisabled);
+}
+.hasValue.base_set {
+	color: var(--baseSetIconEnabled);
+}
+.hasNoValue.base_set {
+	color: var(--baseSetIconDisabled);
+}
+.iconEnabled.expanding_the_house {
+	fill: var(--expandingTheHouseIconEnabled);
+}
+.iconDisabled.expanding_the_house {
+	fill: var(--expandingTheHouseIconDisabled);
+}
+.hasValue.expanding_the_house {
+	color: var(--expandingTheHouseIconEnabled);
+}
+.hasNoValue.expanding_the_house {
+	color: var(--expandingTheHouseIconDisabled);
+}
+.iconEnabled.romantic_vacation {
+	fill: var(--romanticVacationIconEnabled);
+}
+.iconDisabled.romantic_vacation {
+	fill: var(--romanticVacationIconDisabled);
+}
+.hasValue.romantic_vacation {
+	color: var(--romanticVacationIconEnabled);
+}
+.hasNoValue.romantic_vacation {
+	color: var(--romanticVacationIconDisabled);
+}
+.iconEnabled.oktoberfest {
+	fill: var(--oktoberfestIconEnabled);
+}
+.iconDisabled.oktoberfest {
+	fill: var(--oktoberfestIconDisabled);
+}
+.hasValue.oktoberfest {
+	color: var(--oktoberfestIconEnabled);
+}
+.hasNoValue.oktoberfest {
+	color: var(--oktoberfestIconDisabled);
+}
+.iconEnabled.winter_romance {
+	fill: var(--winterRomanceIconEnabled);
+}
+.iconDisabled.winter_romance {
+	fill: var(--winterRomanceIconDisabled);
+}
+.hasValue.winter_romance {
+	color: var(--winterRomanceIconEnabled);
+}
+.hasNoValue.winter_romance {
+	color: var(--winterRomanceIconDisabled);
 }
 
-/* Set the icon sizes */
-.iconLoveEnabled > svg,
-.iconCardDrawEnabled > svg,
-.iconServingsEnabled > svg,
-.iconEmploysEnabled > svg,
-.iconLoveDisabled > svg,
-.iconCardDrawDisabled > svg,
-.iconServingsDisabled > svg,
-.iconEmploysDisabled > svg {
-	width: 15px;
-	height: 15px;
-}
-.card-background {
-	margin: 35px 0 35px 0;
-	padding: 2%;
-	align-items: center;
-	width: 205px;
-	height: 290px;
-	border-radius: 10px;
-	padding-bottom: 20px;
-}
-.originalCardImage {
-	padding-top: 100px;
-}
-.img-wrapper {
-	padding: 2%;
-	margin-top: 35px;
-	width: 150px;
-	height: 200px;
-}
-/* Top section */
-.purchasePrice {
-	grid-area: purchasePrice;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	border-radius: 50px;
-}
-.name {
-	grid-area: name;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
-	border-radius: 5px;
-}
-.VP {
-	grid-area: VP;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	border-radius: 50px;
-}
-.image {
-	grid-area: image;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin: 5px 4% 0 8px;
-	border-radius: 5px;
-	margin-bottom: 2px;
-}
-/* Bottom Section */
-.bottomSection {
-	display: grid;
-	border-radius: 10px;
-	grid-template-columns: 0.6fr 1.8fr 0.6fr;
-	grid-template-rows: 1fr 1fr;
-	gap: 0px 0px;
-	grid-template-areas:
-		"card-draw effects servings"
-		"love effects employs";
-	grid-area: bottomSection;
-}
-/* Card Draw  */
-.card-draw {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-template-rows: 1fr;
-	gap: 0px 3px;
-	grid-auto-flow: row;
-	grid-template-areas: " valueCardDraw iconCardDraw";
-	grid-area: card-draw;
-	border-radius: 50px;
-	padding: 4px;
-	margin: 2px;
-}
-.iconCardDrawEnabled {
-	grid-area: iconCardDraw;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-.iconCardDrawDisabled {
-	grid-area: iconCardDraw;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-.valueCardDrawHasValue {
-	grid-area: valueCardDraw;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-.valueCardDrawIsZero {
-	grid-area: valueCardDraw;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-/* Love */
-.love {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-template-rows: 1fr;
-	gap: 0px 0px;
-	grid-auto-flow: row;
-	grid-template-areas: "valueLove iconLove ";
-	grid-area: love;
-	border-radius: 50px;
-	padding: 4px;
-	margin: 2px;
-}
-.iconLoveEnabled {
-	grid-area: iconLove;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-.iconLoveDisabled {
-	grid-area: iconLove;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-.valueLoveHasValue {
-	grid-area: valueLove;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-.valueLoveIsZero {
-	grid-area: valueLove;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-/* Effects */
-.effects {
-	grid-area: effects;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-/* Servings  */
-.servings {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-template-rows: 1fr;
-	gap: 0px 0px;
-	grid-auto-flow: row;
-	grid-template-areas: "iconServings valueServings";
-	grid-area: servings;
-	border-radius: 50px;
-	padding: 4px;
-	margin: 2px;
-}
-.iconServingsEnabled {
-	grid-area: iconServings;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-.iconServingsDisabled {
-	grid-area: iconServings;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-.valueServingsHasValue {
-	grid-area: valueServings;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-.valueServingsIsZero {
-	grid-area: valueServings;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-/* Employs  */
-.employs {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-template-rows: 1fr;
-	gap: 0px 3px;
-	grid-auto-flow: row;
-	grid-template-areas: "iconEmploys valueEmploys";
-	grid-area: employs;
-	border-radius: 50px;
-	padding: 4px;
-	margin: 2px;
-}
-.iconEmploysEnabled {
-	grid-area: iconEmploys;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-.iconEmploysDisabled {
-	grid-area: iconEmploys;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-.valueEmploysHasValue {
-	grid-area: valueEmploys;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-.valueEmploysIsZero {
-	grid-area: valueEmploys;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-/* ---------------------- BASE SET--------------------- */
+/* ---------------------------------------------- Card backgrounds coloring ---------------------------------------------------- */
 .card-background.base_set {
 	background-color: var(--baseSetBackgroundColor);
 	border: 4px solid var(--baseSetDarkAccentColor);
 }
-/* Top section */
-.purchasePrice.base_set,
-.name.base_set,
-.VP.base_set,
-.image.base_set {
-	background-color: var(--baseSetDarkAccentColor);
+.card-background.expanding_the_house {
+	background-color: var(--expandingTheHouseBackgroundColor);
+	border: 4px solid var(--expandingTheHouseDarkAccentColor);
 }
-/* Bottom Section */
-.bottomSection.base_set {
-	background-color: var(--baseSetBackgroundColor);
+.card-background.romantic_vacation {
+	background-color: var(--romanticVacationBackgroundColor);
+	border: 4px solid var(--romanticVacationDarkAccentColor);
 }
+.card-background.oktoberfest {
+	background-color: var(--oktoberfestBackgroundColor);
+	border: 4px solid var(--oktoberfestDarkAccentColor);
+}
+.card-background.winter_romance {
+	background-color: var(--winterRomanceBackgroundColor);
+	border: 4px solid var(--winterRomanceDarkAccentColor);
+}
+/*---------------------------------------------- Background colors for the icons -------------------------------------------*/
 .love.base_set,
 .servings.base_set,
 .employs.base_set,
 .card-draw.base_set {
 	background-color: var(--baseSetLightAccentColor);
 }
-.iconLoveEnabled.base_set,
-.iconServingsEnabled.base_set,
-.iconEmploysEnabled.base_set,
-.iconCardDrawEnabled.base_set {
-	fill: var(--baseSetIconEnabled);
+.love.expanding_the_house,
+.servings.expanding_the_house,
+.employs.expanding_the_house,
+.card-draw.expanding_the_house {
+	background-color: var(--expandingTheHouseLightAccentColor);
 }
-.iconLoveDisabled.base_set,
-.iconServingsDisabled.base_set,
-.iconEmploysDisabled.base_set,
-.iconCardDrawDisabled.base_set {
-	fill: var(--baseSetIconDisabled);
-}
-.valueLoveHasValue.base_set,
-.valueServingsHasValue.base_set,
-.valueEmploysHasValue.base_set,
-.valueCardDrawHasValue.base_set {
-	color: var(--baseSetIconEnabled);
-}
-.valueLoveIsZero.base_set,
-.valueServingsIsZero.base_set,
-.valueEmploysIsZero.base_set,
-.valueCardDrawIsZero.base_set {
-	color: var(--baseSetIconDisabled);
-}
-
-/* ---------------------------------------------------OKTOBERFEST-------------------------------------------  */
-
-.card-background.oktoberfest {
-	background-color: var(--oktoberfestBackgroundColor);
-	border: 4px solid var(--oktoberfestDarkAccentColor);
-}
-
-/* Top section */
-.purchasePrice.oktoberfest {
-	background-color: var(--oktoberfestDarkAccentColor);
-}
-
-.name.oktoberfest {
-	background-color: var(--oktoberfestDarkAccentColor);
-}
-
-.VP.oktoberfest {
-	background-color: var(--oktoberfestDarkAccentColor);
-}
-
-.image.oktoberfest {
-	border: 4px solid var(--oktoberfestDarkAccentColor);
-	border-bottom: 6px solid var(--oktoberfestDarkAccentColor);
-}
-
-/* Bottom Section */
-.bottomSection.oktoberfest {
-	background-color: var(--oktoberfestBackgroundColor);
-}
-/* Card Draw  */
-.card-draw.oktoberfest {
-	background-color: var(--oktoberfestLightAccentColor);
-}
-.iconCardDrawEnabled.oktoberfest {
-	fill: var(--oktoberfestIconEnabled);
-}
-.iconCardDrawDisabled.oktoberfest {
-	fill: var(--oktoberfestIconDisabled);
-}
-.valueCardDrawHasValue.oktoberfest {
-	color: var(--oktoberfestIconEnabled);
-}
-.valueCardDrawIsZero.oktoberfest {
-	color: var(--oktoberfestIconDisabled);
-}
-
-/* Love */
-.love.oktoberfest {
-	background-color: var(--oktoberfestLightAccentColor);
-}
-.iconLoveEnabled.oktoberfest {
-	fill: var(--oktoberfestIconEnabled);
-}
-.iconLoveDisabled.oktoberfest {
-	fill: var(--oktoberfestIconDisabled);
-}
-.valueLoveHasValue.oktoberfest {
-	color: var(--oktoberfestIconEnabled);
-}
-.valueLoveIsZero.oktoberfest {
-	color: var(--oktoberfestIconDisabled);
-}
-
-/* Servings  */
-.servings.oktoberfest {
-	background-color: var(--oktoberfestLightAccentColor);
-}
-.iconServingsEnabled.oktoberfest {
-	fill: var(--oktoberfestIconEnabled);
-}
-.iconServingsDisabled.oktoberfest {
-	fill: var(--oktoberfestIconDisabled);
-}
-.valueServingsHasValue.oktoberfest {
-	color: var(--oktoberfestIconEnabled);
-}
-.valueServingsIsZero.oktoberfest {
-	color: var(--oktoberfestIconDisabled);
-}
-
-/* Employs  */
-.employs.oktoberfest {
-	background-color: var(--oktoberfestLightAccentColor);
-}
-.iconEmploysEnabled.oktoberfest {
-	fill: var(--oktoberfestIconEnabled);
-}
-.iconEmploysDisabled.oktoberfest {
-	fill: var(--oktoberfestIconDisabled);
-}
-.valueEmploysHasValue.oktoberfest {
-	color: var(--oktoberfestIconEnabled);
-}
-.valueEmploysIsZero.oktoberfest {
-	color: var(--oktoberfestIconDisabled);
-}
-
-/* --------------------------------------------------------ROMANTIC VACATION------------------------------------ */
-.card-background.romantic_vacation {
-	background-color: var(--romanticVacationBackgroundColor);
-	border: 4px solid var(--romanticVacationDarkAccentColor);
-}
-
-/* Top section */
-.purchasePrice.romantic_vacation {
-	background-color: var(--romanticVacationDarkAccentColor);
-}
-
-.name.romantic_vacation {
-	background-color: var(--romanticVacationDarkAccentColor);
-}
-
-.VP.romantic_vacation {
-	background-color: var(--romanticVacationDarkAccentColor);
-}
-
-.image.romantic_vacation {
-	border: 4px solid var(--romanticVacationDarkAccentColor);
-	border-bottom: 6px solid var(--romanticVacationDarkAccentColor);
-}
-
-/* Bottom Section */
-.bottomSection.romantic_vacation {
-	background-color: var(--romanticVacationBackgroundColor);
-}
-/* Card Draw  */
+.love.romantic_vacation,
+.servings.romantic_vacation,
+.employs.romantic_vacatio,
 .card-draw.romantic_vacation {
 	background-color: var(--romanticVacationLightAccentColor);
 }
-.iconCardDrawEnabled.romantic_vacation {
-	fill: var(--romanticVacationIconEnabled);
+.love.oktoberfest,
+.servings.oktoberfest,
+.employs.oktoberfest,
+.card-draw.oktoberfest {
+	background-color: var(--oktoberfestLightAccentColor);
 }
-.iconCardDrawDisabled.romantic_vacation {
-	fill: var(--romanticVacationIconDisabled);
+.love.winter_romance,
+.servings.winter_romance,
+.employs.winter_romance,
+.card-draw.winter_romance {
+	background-color: var(--winterRomanceLightAccentColor);
 }
-.valueCardDrawHasValue.romantic_vacation {
-	color: var(--romanticVacationIconEnabled);
+/* -------------------------------------------------- Frame for the image -------------------------------------------------------*/
+.image.base_set {
+	border: 4px solid var(--baseSetDarkAccentColor);
+	border-bottom: 6px solid var(--baseSetDarkAccentColor);
 }
-.valueCardDrawIsZero.romantic_vacation {
-	color: var(--romanticVacationIconDisabled);
-}
-
-/* Love */
-.love.romantic_vacation {
-	background-color: var(--romanticVacationLightAccentColor);
-}
-.iconLoveEnabled.romantic_vacation {
-	fill: var(--romanticVacationIconEnabled);
-}
-.iconLoveDisabled.romantic_vacation {
-	fill: var(--romanticVacationIconDisabled);
-}
-.valueLoveHasValue.romantic_vacation {
-	color: var(--romanticVacationIconEnabled);
-}
-.valueLoveIsZero.romantic_vacation {
-	color: var(--romanticVacationIconDisabled);
-}
-
-/* Servings  */
-.servings.romantic_vacation {
-	background-color: var(--romanticVacationLightAccentColor);
-}
-.iconServingsEnabled.romantic_vacation {
-	fill: var(--romanticVacationIconEnabled);
-}
-.iconServingsDisabled.romantic_vacation {
-	fill: var(--romanticVacationIconDisabled);
-}
-.valueServingsHasValue.romantic_vacation {
-	color: var(--romanticVacationIconEnabled);
-}
-.valueServingsIsZero.romantic_vacation {
-	color: var(--romanticVacationIconDisabled);
-}
-
-/* Employs  */
-.employs.romantic_vacation {
-	background-color: var(--romanticVacationLightAccentColor);
-}
-.iconEmploysEnabled.romantic_vacation {
-	fill: var(--romanticVacationIconEnabled);
-}
-.iconEmploysDisabled.romantic_vacation {
-	fill: var(--romanticVacationIconDisabled);
-}
-.valueEmploysHasValue.romantic_vacation {
-	color: var(--romanticVacationIconEnabled);
-}
-.valueEmploysIsZero.romantic_vacation {
-	color: var(--romanticVacationIconDisabled);
-}
-
-/* ---------------------------------------------------EXPANDING THE HOUSE---------------------------------- */
-.card-background.expanding_the_house {
-	background-color: var(--expandingTheHouseBackgroundColor);
-	border: 4px solid var(--expandingTheHouseDarkAccentColor);
-}
-
-/* Top section */
-.purchasePrice.expanding_the_house {
-	background-color: var(--expandingTheHouseDarkAccentColor);
-}
-
-.name.expanding_the_house {
-	background-color: var(--expandingTheHouseDarkAccentColor);
-}
-
-.VP.expanding_the_house {
-	background-color: var(--expandingTheHouseDarkAccentColor);
-}
-
 .image.expanding_the_house {
 	border: 4px solid var(--expandingTheHouseDarkAccentColor);
 	border-bottom: 6px solid var(--expandingTheHouseDarkAccentColor);
 }
-
-/* Bottom Section */
-.bottomSection.expanding_the_house {
-	background-color: var(--expandingTheHouseBackgroundColor);
+.image.romantic_vacation {
+	border: 4px solid var(--romanticVacationDarkAccentColor);
+	border-bottom: 6px solid var(--romanticVacationDarkAccentColor);
 }
-/* Card Draw  */
-.card-draw.expanding_the_house {
-	background-color: var(--expandingTheHouseLightAccentColor);
+.image.oktoberfest {
+	border: 4px solid var(--oktoberfestDarkAccentColor);
+	border-bottom: 6px solid var(--oktoberfestDarkAccentColor);
 }
-.iconCardDrawEnabled.expanding_the_house {
-	fill: var(--expandingTheHouseIconEnabled);
-}
-.iconCardDrawDisabled.expanding_the_house {
-	fill: var(--expandingTheHouseIconDisabled);
-}
-.valueCardDrawHasValue.expanding_the_house {
-	color: var(--expandingTheHouseIconEnabled);
-}
-.valueCardDrawIsZero.expanding_the_house {
-	color: var(--expandingTheHouseIconDisabled);
-}
-
-/* Love */
-.love.expanding_the_house {
-	background-color: var(--expandingTheHouseLightAccentColor);
-}
-.iconLoveEnabled.expanding_the_house {
-	fill: var(--expandingTheHouseIconEnabled);
-}
-.iconLoveDisabled.expanding_the_house {
-	fill: var(--expandingTheHouseIconDisabled);
-}
-.valueLoveHasValue.expanding_the_house {
-	color: var(--expandingTheHouseIconEnabled);
-}
-.valueLoveIsZero.expanding_the_house {
-	color: var(--expandingTheHouseIconDisabled);
-}
-
-/* Servings  */
-.servings.expanding_the_house {
-	background-color: var(--expandingTheHouseLightAccentColor);
-}
-.iconServingsEnabled.expanding_the_house {
-	fill: var(--expandingTheHouseIconEnabled);
-}
-.iconServingsDisabled.expanding_the_house {
-	fill: var(--expandingTheHouseIconDisabled);
-}
-.valueServingsHasValue.expanding_the_house {
-	color: var(--expandingTheHouseIconEnabled);
-}
-.valueServingsIsZero.expanding_the_house {
-	color: var(--expandingTheHouseIconDisabled);
-}
-
-/* Employs  */
-.employs.expanding_the_house {
-	background-color: var(--expandingTheHouseLightAccentColor);
-}
-.iconEmploysEnabled.expanding_the_house {
-	fill: var(--expandingTheHouseIconEnabled);
-}
-.iconEmploysDisabled.expanding_the_house {
-	fill: var(--expandingTheHouseIconDisabled);
-}
-.valueEmploysHasValue.expanding_the_house {
-	color: var(--expandingTheHouseIconEnabled);
-}
-.valueEmploysIsZero.expanding_the_house {
-	color: var(--expandingTheHouseIconDisabled);
-}
-
-/*------------------ WINTER ROMANCE------------------- */
-.card-background.winter_romance {
-	background-color: var(--winterRomanceBackgroundColor);
-	border: 4px solid var(--winterRomanceDarkAccentColor);
-}
-
-/* Top section */
-.purchasePrice.winter_romance {
-	background-color: var(--winterRomanceDarkAccentColor);
-}
-
-.name.winter_romance {
-	background-color: var(--winterRomanceDarkAccentColor);
-}
-
-.VP.winter_romance {
-	background-color: var(--winterRomanceDarkAccentColor);
-}
-
 .image.winter_romance {
 	border: 4px solid var(--winterRomanceDarkAccentColor);
 	border-bottom: 6px solid var(--winterRomanceDarkAccentColor);
 }
-
-/* Bottom Section */
-.bottomSection.winter_romance {
-	background-color: var(--winterRomanceBackgroundColor);
+/* ---------------------------------------------- Coloring for top section -------------------------------------------------------*/
+.purchasePrice.base_set,
+.name.base_set,
+.VP.base_set {
+	background-color: var(--baseSetDarkAccentColor);
 }
-/* Card Draw  */
-.card-draw.winter_romance {
-	background-color: var(--winterRomanceLightAccentColor);
+.name.expanding_the_house,
+.purchasePrice.expanding_the_house,
+.VP.expanding_the_house {
+	background-color: var(--expandingTheHouseDarkAccentColor);
 }
-.iconCardDrawEnabled.winter_romance {
-	fill: var(--winterRomanceIconEnabled);
+.name.romantic_vacation,
+.purchasePrice.romantic_vacation,
+.VP.romantic_vacation {
+	background-color: var(--romanticVacationDarkAccentColor);
 }
-.iconCardDrawDisabled.winter_romance {
-	fill: var(--winterRomanceIconDisabled);
+.VP.oktoberfest,
+.name.oktoberfest,
+.purchasePrice.oktoberfest {
+	background-color: var(--oktoberfestDarkAccentColor);
 }
-.valueCardDrawHasValue.winter_romance {
-	color: var(--winterRomanceIconEnabled);
-}
-.valueCardDrawIsZero.winter_romance {
-	color: var(--winterRomanceIconDisabled);
-}
-
-/* Love */
-.love.winter_romance {
-	background-color: var(--winterRomanceLightAccentColor);
-}
-.iconLoveEnabled.winter_romance {
-	fill: var(--winterRomanceIconEnabled);
-}
-.iconLoveDisabled.winter_romance {
-	fill: var(--winterRomanceIconDisabled);
-}
-.valueLoveHasValue.winter_romance {
-	color: var(--winterRomanceIconEnabled);
-}
-.valueLoveIsZero.winter_romance {
-	color: var(--winterRomanceIconDisabled);
-}
-
-/* Servings  */
-.servings.winter_romance {
-	background-color: var(--winterRomanceLightAccentColor);
-}
-.iconServingsEnabled.winter_romance {
-	fill: var(--winterRomanceIconEnabled);
-}
-.iconServingsDisabled.winter_romance {
-	fill: var(--winterRomanceIconDisabled);
-}
-.valueServingsHasValue.winter_romance {
-	color: var(--winterRomanceIconEnabled);
-}
-.valueServingsIsZero.winter_romance {
-	color: var(--winterRomanceIconDisabled);
-}
-/* Employs  */
-.employs.winter_romance {
-	background-color: var(--winterRomanceLightAccentColor);
-}
-.iconEmploysEnabled.winter_romance {
-	fill: var(--winterRomanceIconEnabled);
-}
-.iconEmploysDisabled.winter_romance {
-	fill: var(--winterRomanceIconDisabled);
-}
-.valueEmploysHasValue.winter_romance {
-	color: var(--winterRomanceIconEnabled);
-}
-.valueEmploysIsZero.winter_romance {
-	color: var(--winterRomanceIconDisabled);
-}
-
-.town-grid {
-	display: grid;
-	grid-template-columns: repeat(5, 1fr);
-	grid-template-rows: repeat(2, 1fr);
-	grid-column-gap: 20px;
-	grid-row-gap: 4px;
-	background-color: pink;
-	border-radius: 10px;
-	padding: 2% 33px 2% 20px;
-	width: 1180px;
-}
-
-.div1 {
-	grid-area: 1 / 1 / 2 / 2;
-}
-.div2 {
-	grid-area: 1 / 2 / 2 / 3;
-}
-.div3 {
-	grid-area: 1 / 3 / 2 / 4;
-}
-.div4 {
-	grid-area: 1 / 4 / 2 / 5;
-}
-.div5 {
-	grid-area: 1 / 5 / 2 / 6;
-}
-.div6 {
-	grid-area: 2 / 1 / 3 / 2;
-}
-.div7 {
-	grid-area: 2 / 2 / 3 / 3;
-}
-.div8 {
-	grid-area: 2 / 3 / 3 / 4;
-}
-.div9 {
-	grid-area: 2 / 4 / 3 / 5;
-}
-.div10 {
-	grid-area: 2 / 5 / 3 / 6;
+.purchasePrice.winter_romance,
+.name.winter_romance,
+.VP.winter_romance {
+	background-color: var(--winterRomanceDarkAccentColor);
 }

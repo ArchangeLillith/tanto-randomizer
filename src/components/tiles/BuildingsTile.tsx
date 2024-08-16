@@ -3,21 +3,19 @@ import Checkbox from "../building-blocks/Checkbox";
 import TileBox from "../building-blocks/TileBox";
 import Title from "../building-blocks/Title";
 
-const BuildingsTile = () => {
+const BuildingsTile: React.FC<{ enabledClass: string }> = ({
+	enabledClass,
+}) => {
 	return (
-		<TileBox
-			children={
-				<>
-					<Title title="Buildings" />
-					<Checkbox
-						parent="buildings"
-						id={EBooleans.includeBuildings}
-						item="Include all cards that affect or require Building cards"
-						tooltip="Select this option if using Expanding the House, Oktoberfest, and/or Winter Romance without Building cards"
-					/>
-				</>
-			}
-		/>
+		<TileBox enabledClass={enabledClass}>
+			<Title title="Buildings" />
+			<Checkbox
+				parent="buildings"
+				id={EBooleans.includeBuildings}
+				item="Include all cards that affect or require Building cards"
+				tooltip="Select this option if using Expanding the House, Oktoberfest, and/or Winter Romance without Building cards"
+			/>
+		</TileBox>
 	);
 };
 

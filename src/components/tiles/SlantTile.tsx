@@ -3,106 +3,74 @@ import SlantGroup from "../building-blocks/SlantGroup";
 import TileBox from "../building-blocks/TileBox";
 import Title from "../building-blocks/Title";
 
-const SlantTile = () => {
-	//Could move to types util, but it's only used here
-	type SlantOptions = {
-		stateKey: ESlantKeys;
-		options: { value: ESlantOptions; label: string }[];
-	};
-
-	const cardDrawOptions: SlantOptions = {
+//No explicit typing because TS infers the typing of this because it's repetative and doesn't change, and we don't need to force type it when TS can just infer it
+const slantOptionsData = [
+	{
 		stateKey: ESlantKeys.cardDrawSlant,
 		options: [
 			{ value: ESlantOptions.SlantHigh, label: "High Draw" },
 			{ value: ESlantOptions.SlantLow, label: "Low Draw" },
 			{ value: ESlantOptions.NoSlant, label: "No Preference" },
 		],
-	};
-
-	const loveCostOptions: SlantOptions = {
+		title: "Card Draw",
+	},
+	{
 		stateKey: ESlantKeys.loveCostSlant,
 		options: [
 			{ value: ESlantOptions.SlantHigh, label: "High Love Cost" },
 			{ value: ESlantOptions.SlantLow, label: "Low Love Cost" },
 			{ value: ESlantOptions.NoSlant, label: "No Preference" },
 		],
-	};
-
-	const loveGiveOptions: SlantOptions = {
+		title: "Love Cost",
+	},
+	{
 		stateKey: ESlantKeys.loveGiveSlant,
 		options: [
 			{ value: ESlantOptions.SlantHigh, label: "High Love Give" },
 			{ value: ESlantOptions.SlantLow, label: "Low Love Give" },
 			{ value: ESlantOptions.NoSlant, label: "No Preference" },
 		],
-	};
-
-	const servingsOptions: SlantOptions = {
+		title: "Love Give",
+	},
+	{
 		stateKey: ESlantKeys.servingsSlant,
 		options: [
 			{ value: ESlantOptions.SlantHigh, label: "High Servings" },
 			{ value: ESlantOptions.SlantLow, label: "Low Servings" },
 			{ value: ESlantOptions.NoSlant, label: "No Preference" },
 		],
-	};
-	const employEffectsOptions: SlantOptions = {
+		title: "Servings",
+	},
+	{
 		stateKey: ESlantKeys.employEffectsSlant,
 		options: [
 			{ value: ESlantOptions.SlantHigh, label: "High Employ Effects" },
 			{ value: ESlantOptions.SlantLow, label: "Low Employ Effects" },
 			{ value: ESlantOptions.NoSlant, label: "No Preference" },
 		],
-	};
-	const victoryPointSlant: SlantOptions = {
+		title: "Employ Effects",
+	},
+	{
 		stateKey: ESlantKeys.victoryPointSlant,
-
 		options: [
 			{ value: ESlantOptions.SlantHigh, label: "High Victory Points" },
 			{ value: ESlantOptions.SlantLow, label: "Low Victory Points" },
 			{ value: ESlantOptions.NoSlant, label: "No Preference" },
 		],
-	};
+		title: "Victory Points",
+	},
+];
 
+const SlantTile = () => {
 	return (
-		<TileBox
-			children={
-				<>
-					<Title title="Slants:" />
-					<SlantGroup
-						stateKey={cardDrawOptions.stateKey}
-						options={cardDrawOptions.options}
-						title="Card Draw"
-					/>
-					<SlantGroup
-						stateKey={loveCostOptions.stateKey}
-						options={loveCostOptions.options}
-						title="Love Cost"
-					/>
-					<SlantGroup
-						stateKey={loveGiveOptions.stateKey}
-						options={loveGiveOptions.options}
-						title="Love Give"
-					/>
-					<SlantGroup
-						stateKey={servingsOptions.stateKey}
-						options={servingsOptions.options}
-						title="Servings"
-					/>
-					<SlantGroup
-						stateKey={employEffectsOptions.stateKey}
-						options={employEffectsOptions.options}
-						title="Employ Effects"
-					/>
-					<SlantGroup
-						stateKey={victoryPointSlant.stateKey}
-						options={victoryPointSlant.options}
-						title="Victory Points"
-					/>
-				</>
-			}
-		/>
+		// Hard code this beacuse this should always be enabled
+		<TileBox enabledClass="tileEnabled">
+			<Title title="Slants:" />
+			{slantOptionsData.map(({ stateKey, options, title }) => (
+				<SlantGroup stateKey={stateKey} options={options} title={title} />
+			))}
+		</TileBox>
 	);
 };
 
 export default SlantTile;
-

@@ -16,8 +16,11 @@ import {
 	createTheTown,
 } from "../utils/CardFilterService";
 import SlantTile from "../components/tiles/SlantTile";
+import CardStructure from "../components/town-building-blocks/CardStructure";
+import LegendBox from "../components/town-building-blocks/LegendBox";
+import StateBox from "../components/town-building-blocks/StateBox";
 
-const ChoicesView: React.FC = () => {
+const MainPage: React.FC = () => {
 	const { state } = useContext(StateContext);
 	//The current sets cards in one big array
 	const [currentSetCards, setCurrentSetCards] = useState<Card[]>([]);
@@ -103,33 +106,139 @@ const ChoicesView: React.FC = () => {
 		setFinalTown([...final]);
 	};
 
+	const maidUrlList: string[] = [
+		"/images/genericMaids/maid1.jpg",
+		"/images/genericMaids/maid2.jpg",
+		"/images/genericMaids/maid3.jpg",
+		"/images/genericMaids/maid4.jpg",
+		"/images/genericMaids/maid5.jpg",
+		"/images/genericMaids/maid6.jpg",
+		"/images/genericMaids/maid7.jpg",
+		"/images/genericMaids/maid8.jpg",
+		"/images/genericMaids/maid9.jpg",
+		"/images/genericMaids/maid10.jpg",
+		"/images/genericMaids/maid11.jpg",
+		"/images/genericMaids/maid12.jpg",
+		"/images/genericMaids/maid13.jpg",
+		"/images/genericMaids/maid14.jpg",
+		"/images/genericMaids/maid15.jpg",
+		"/images/genericMaids/maid16.jpg",
+		"/images/genericMaids/maid17.jpg",
+		"/images/genericMaids/maid18.jpg",
+		"/images/genericMaids/maid19.jpg",
+		"/images/genericMaids/maid20.jpg",
+		"/images/genericMaids/maid21.jpg",
+		"/images/genericMaids/maid22.jpg",
+		"/images/genericMaids/maid23.jpg",
+		"/images/genericMaids/maid24.jpg",
+		"/images/genericMaids/maid25.jpg",
+		"/images/genericMaids/maid26.jpg",
+		"/images/genericMaids/maid27.jpg",
+		"/images/genericMaids/maid28.jpg",
+		"/images/genericMaids/maid29.jpg",
+		"/images/genericMaids/maid30.jpg",
+		"/images/genericMaids/maid31.jpg",
+		"/images/genericMaids/maid32.jpg",
+	];
+
+	const maidUrlListCopy = maidUrlList;
+	const genericMaidList: string[] = [];
+	function getRandomMaid() {
+		for (let i = 0; i < 10; i++) {
+			const index = Math.floor(Math.random() * maidUrlListCopy.length);
+			genericMaidList.push(maidUrlList[index]);
+			maidUrlListCopy.splice(index, 1);
+		}
+	}
+	getRandomMaid();
 	return (
 		<div className="choices-view-container">
-			<>
-				<SetTile />
-				<SistersTile />
-				<PrivateMaidTile />
-				<EventsTile />
-				<BuildingsTile />
-				<ReminescensesTile />
-				<BeerTile />
-				<CouplesTile />
-				<SlantTile />
-				<button onClick={handleTownCreation}>Create Town</button>
-				<ol>
-					{finalTown.map((card) => (
-						<li key={card.name}>
-							{card.beerMaid ? "YES BEER" : ""}
-							{card.crescentSister ? `YES SISTER, ${card.name}` : ""}
-							{card.eventRequired ? "YES EVENT" : ""}
-							{card.couplesRequired ? "YES COUPLES" : ""}
-							{card.eventRequired ? "YES EVENT" : ""}
-						</li>
-					))}
-				</ol>
-			</>
+			{finalTown.length < 10 && (
+				<>
+					<SetTile />
+					<SistersTile
+						enabledClass={
+							state.setList.includes(ESet.BaseSet)
+								? "tileEnabled"
+								: "tileDisabled"
+						}
+					/>
+					<PrivateMaidTile
+						enabledClass={
+							state.setList.includes(ESet.BaseSet) ||
+							state.setList.includes(ESet.ExpandingTheHouse)
+								? "tileEnabled"
+								: "tileDisabled"
+						}
+					/>
+					<EventsTile
+						enabledClass={
+							state.setList.includes(ESet.BaseSet) ||
+							state.setList.includes(ESet.Oktoberfest) ||
+							state.setList.includes(ESet.WinterRomance)
+								? "tileEnabled"
+								: "tileDisabled"
+						}
+					/>
+					<BuildingsTile
+						enabledClass={
+							state.setList.includes(ESet.ExpandingTheHouse) ||
+							state.setList.includes(ESet.Oktoberfest) ||
+							state.setList.includes(ESet.WinterRomance)
+								? "tileEnabled"
+								: "tileDisabled"
+						}
+					/>
+					<ReminescensesTile
+						enabledClass={
+							state.setList.includes(ESet.RomanticVacation)
+								? "tileEnabled"
+								: "tileDisabled"
+						}
+					/>
+					<BeerTile
+						enabledClass={
+							state.setList.includes(ESet.RomanticVacation)
+								? "tileEnabled"
+								: "tileDisabled"
+						}
+					/>
+					<CouplesTile
+						enabledClass={
+							state.setList.includes(ESet.WinterRomance)
+								? "tileEnabled"
+								: "tileDisabled"
+						}
+					/>
+					<SlantTile />
+					<div className="button-container">
+						<button
+							className="button-75"
+							role="button"
+							onClick={handleTownCreation}
+						>
+							<span className="text">Create Town!</span>
+						</button>
+					</div>
+				</>
+			)}
+			{finalTown.length === 10 && (
+				<>
+					<LegendBox />
+					<StateBox state={state} />
+					<div className="town-grid">
+						{finalTown.map((card, index) => (
+							<CardStructure
+								key={card.id + card.set}
+								card={card}
+								genericMaidUrl={genericMaidList[index]}
+							/>
+						))}
+					</div>
+				</>
+			)}
 		</div>
 	);
 };
 
-export default ChoicesView;
+export default MainPage;

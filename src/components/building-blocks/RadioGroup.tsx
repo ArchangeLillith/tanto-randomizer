@@ -1,7 +1,8 @@
 import { useContext } from "react";
 import { StateContext } from "../../utils/stateHandler";
-import { EReminescenses, FilterState } from "../../utils/types";
+import { EReminescenseOptions, FilterState } from "../../utils/types";
 
+//Intentionally pulled out because options is a long
 interface RadioGroupProps {
 	options: { value: string; label: string }[];
 	stateKey: keyof FilterState;
@@ -11,7 +12,7 @@ interface RadioGroupProps {
 const RadioGroup: React.FC<RadioGroupProps> = ({
 	stateKey,
 	toolTip,
-	options = [],
+	options,
 }) => {
 	const { state, dispatch } = useContext(StateContext);
 
@@ -20,27 +21,27 @@ const RadioGroup: React.FC<RadioGroupProps> = ({
 			type: "SET_SELECTED_OPTION",
 			payload: {
 				key: stateKey,
-				value: event.target.value, // Assuming you handle the conversion in reducer
+				value: event.target.value,
 			},
 		});
 	};
-	
+
 	//Grab the value that's in state so we can accuretly mark the radio group on load
-	const currentValue = state[stateKey] as EReminescenses;
+	const currentValue = state[stateKey] as EReminescenseOptions;
 
 	return (
 		<>
 			<div>
-				{options.map((option) => (
-					<div key={option.value}>
+				{options.map(({ value, label }) => (
+					<div key={value}>
 						<input
 							type="radio"
 							name={stateKey}
-							value={option.value}
+							value={value}
 							onChange={handleChange}
-							checked={currentValue === option.value} // Set the checked property
+							checked={currentValue === value} // Set the checked property
 						/>
-						<label>{option.label}</label>
+						<label>{label}</label>
 					</div>
 				))}
 			</div>
