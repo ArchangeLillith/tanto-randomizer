@@ -191,6 +191,30 @@ select:focus {
 	margin-bottom: 25px;
 	margin-top: 10px;
 }
+/* Setting up the disabled filter */
+.disabledFilter {
+	z-index: 4;
+	grid-column: 1;
+	grid-row: 1;
+	background: #85536684;
+	display: flex;
+	align-items: normal;
+	justify-content: left;
+	padding: 1% 4%;
+	border: 3px solid #ad456d84;
+	flex-direction: column;
+	width: 550px;
+	margin: 10px 0px 10px 0px;
+	border-radius: 20px;
+}
+.tile-box {
+	z-index: -1;
+	grid-column: 1;
+	grid-row: 1;
+}
+.tile-wrapper {
+	display: grid;
+}
 /* -------------------------------------------------- Side Boxes ------------------------------------------------------- */
 .right-fixed-box {
 	position: fixed;
@@ -269,6 +293,11 @@ select:focus {
 .employs {
 	grid-area: employs;
 }
+/* Give the text of the properties on the card some breathing room from the SVGs */
+.hasValue,
+.hasNoValue {
+	margin-right: 2px;
+}
 /* Set the icon sizes */
 .iconEnabled > svg,
 .iconDisabled > svg {
@@ -330,19 +359,6 @@ select:focus {
 		"card-draw effects servings"
 		"love effects employs";
 	grid-area: bottomSection;
-}
-/* Generic location CSS for smaller parts*/
-.valueLoveHasValue {
-	grid-area: valueLove;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-.valueLoveIsZero {
-	grid-area: valueLove;
-	display: flex;
-	justify-content: center;
-	align-items: center;
 }
 .effects {
 	grid-area: effects;
@@ -491,7 +507,7 @@ select:focus {
 }
 .love.romantic_vacation,
 .servings.romantic_vacation,
-.employs.romantic_vacatio,
+.employs.romantic_vacation,
 .card-draw.romantic_vacation {
 	background-color: var(--romanticVacationLightAccentColor);
 }

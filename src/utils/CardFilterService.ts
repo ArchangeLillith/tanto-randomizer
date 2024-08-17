@@ -27,9 +27,7 @@ export function chooseChambermaidChiefs(cardArray: Card[]) {
 export function createTheTown(cardArray: Card[], filter: FilterState) {
 	const beerMaid = cardArray.find((card) => card.beerMaid === true);
 	const sisters = cardArray.filter((card) => card.crescentSister === true);
-	console.log(`SISTERS in create`, sisters);
 	const finishedTown: Card[] = [];
-	// console.log(`Card array passed into createTheTown:`, cardArray);
 	while (finishedTown.length < 10 && cardArray.length > 0) {
 		const index: number = Math.floor(Math.random() * cardArray.length);
 		const selectedCard: Card = cardArray[index];
@@ -45,7 +43,6 @@ export function createTheTown(cardArray: Card[], filter: FilterState) {
 		const hasBeerMaid = finishedTown.some((card) => card.beerMaid === true);
 		//If not, we need to splice a random card and add a beer maid
 		if (!hasBeerMaid && beerMaid) {
-			console.log(`Beer maid added retroactivley`);
 			//Get rid of a random one
 			finishedTown.splice(getRandomNumber(finishedTown.length), 1);
 			finishedTown.push(beerMaid);
@@ -82,7 +79,6 @@ export const filterCards = (cardArray: Card[], filter: FilterState): Card[] => {
 	//Grab beer and sister cards from the main array
 	const beerMaids = cardArray.filter((card) => card.beerMaid === true);
 	const sisters = cardArray.filter((card) => card.crescentSister === true);
-	console.log(`SISTERS`, sisters);
 
 	//filter based on state
 	cardArray.forEach((card) => {

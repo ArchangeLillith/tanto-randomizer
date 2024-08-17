@@ -17,7 +17,7 @@ const SetTile = () => {
 		<TileBox enabledClass="tileEnabled">
 			<Title title="Sets" />
 			{sets.map(({ item, id }) => (
-				<Checkbox parent="sets" item={item} id={id} />
+				<Checkbox parent="sets" item={item} id={id} key={item} />
 			))}
 		</TileBox>
 	);

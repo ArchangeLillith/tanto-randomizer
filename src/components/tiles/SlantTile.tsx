@@ -67,7 +67,12 @@ const SlantTile = () => {
 		<TileBox enabledClass="tileEnabled">
 			<Title title="Slants:" />
 			{slantOptionsData.map(({ stateKey, options, title }) => (
-				<SlantGroup stateKey={stateKey} options={options} title={title} />
+				<SlantGroup
+					stateKey={stateKey}
+					options={options}
+					title={title}
+					key={stateKey}
+				/>
 			))}
 		</TileBox>
 	);

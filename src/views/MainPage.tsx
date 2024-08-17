@@ -21,6 +21,9 @@ import LegendBox from "../components/town-building-blocks/LegendBox";
 import StateBox from "../components/town-building-blocks/StateBox";
 
 const MainPage: React.FC = () => {
+	console.log(
+		`Welcome to my Tanto Cuore Randomizer! If you're curious how I built this, please feel free to dig through my GiHub linked at the bottom. Happy playing!`
+	);
 	const { state } = useContext(StateContext);
 	//The current sets cards in one big array
 	const [currentSetCards, setCurrentSetCards] = useState<Card[]>([]);
@@ -63,7 +66,6 @@ const MainPage: React.FC = () => {
 				},
 				[]
 			);
-			console.log(`SLECTED cards`, selectedCards);
 			//Set the current state to the correct array that was just made
 			setCurrentSetCards(selectedCards);
 		}
@@ -85,7 +87,6 @@ const MainPage: React.FC = () => {
 			//While we could do this in a different place, it's done here on each state change to ensure there are still 10 cards at least in the town materials. If not, it throws an error to the frontend that there aren't enough cards to make a town.
 			//This, while less performant, will make it so the user sees an immediate change when a choice they've made has pulled the town material to less than 10, not enough to make a town. Then they can choose other options, knowing what limited the pool too much. Feels better from a user experiance prespective rather than doing this all on submit when the user is done selecting all the different options.
 			const townMaterial: Card[] = filterCards(currentSetCards, state);
-			console.log(`Town materials`, townMaterial);
 			setTownMaterial(townMaterial);
 			if (
 				townMaterial.length < 10 &&
@@ -102,7 +103,6 @@ const MainPage: React.FC = () => {
 		// const cheifs = chooseChambermaidChiefs(townMaterial);
 		const final = createTheTown(townMaterial, state);
 		//Sets the final array to what was returned from creating the town
-		console.log(`Final`, final);
 		setFinalTown([...final]);
 	};
 
@@ -156,13 +156,15 @@ const MainPage: React.FC = () => {
 			{finalTown.length < 10 && (
 				<>
 					<SetTile />
-					<SistersTile
-						enabledClass={
-							state.setList.includes(ESet.BaseSet)
-								? "tileEnabled"
-								: "tileDisabled"
-						}
-					/>
+					<div className="tile-wrapper">
+						<div
+							className={
+								state.setList.includes(ESet.BaseSet) ? "disabledFilter" : ""
+							}
+						></div>
+						<SistersTile />
+					</div>
+
 					<PrivateMaidTile
 						enabledClass={
 							state.setList.includes(ESet.BaseSet) ||
