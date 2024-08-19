@@ -1,3 +1,5 @@
+import db from "../../db.json";
+
 //State shape
 export interface FilterState {
 	setList: ESet[];
@@ -111,4 +113,22 @@ export const slantNameMapping: Record<ESlantOptions, string> = {
 	[ESlantOptions.NoSlant]: "No preference",
 	[ESlantOptions.SlantHigh]: "Slant high",
 	[ESlantOptions.SlantLow]: "Slant low",
+};
+
+// Maps the ESet enum values to the corresponding database keys
+export const setMapping: { [key in ESet]: Card[] } = {
+	[ESet.BaseSet]: db.base_set as Card[],
+	[ESet.ExpandingTheHouse]: db.expanding_the_house as Card[],
+	[ESet.WinterRomance]: db.winter_romance as Card[],
+	[ESet.Oktoberfest]: db.oktoberfest as Card[],
+	[ESet.RomanticVacation]: db.romantic_vacation as Card[],
+};
+
+// Mapping of internal set values to display names
+export const setDisplayNames: Record<string, string> = {
+	base_set: "Base Set",
+	expanding_the_house: "Expanding the House",
+	romantic_vacation: "Romantic Vacation",
+	oktoberfest: "Oktoberfest",
+	winter_romance: "Winter Romance",
 };

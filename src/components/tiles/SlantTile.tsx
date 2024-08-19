@@ -1,6 +1,5 @@
 import { ESlantKeys, ESlantOptions } from "../../utils/types";
 import SlantGroup from "../building-blocks/SlantGroup";
-import TileBox from "../building-blocks/TileBox";
 import Title from "../building-blocks/Title";
 
 //No explicit typing because TS infers the typing of this because it's repetative and doesn't change, and we don't need to force type it when TS can just infer it
@@ -63,18 +62,19 @@ const slantOptionsData = [
 
 const SlantTile = () => {
 	return (
-		// Hard code this beacuse this should always be enabled
-		<TileBox enabledClass="tileEnabled">
+		<div className="tile-box slant-wrapper">
 			<Title title="Slants:" />
-			{slantOptionsData.map(({ stateKey, options, title }) => (
-				<SlantGroup
-					stateKey={stateKey}
-					options={options}
-					title={title}
-					key={stateKey}
-				/>
-			))}
-		</TileBox>
+			<div className="slant-box">
+				{slantOptionsData.map(({ stateKey, options, title }) => (
+					<SlantGroup
+						stateKey={stateKey}
+						options={options}
+						title={title}
+						key={stateKey}
+					/>
+				))}
+			</div>
+		</div>
 	);
 };
 

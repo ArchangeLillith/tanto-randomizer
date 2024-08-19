@@ -1,4 +1,10 @@
-import { Card, EBeerOptions, ESlantOptions, FilterState } from "./types";
+import {
+	Card,
+	EBeerOptions,
+	ESlantOptions,
+	FilterState,
+	setDisplayNames,
+} from "./types";
 
 export function chooseChambermaidChiefs(cardArray: Card[]) {
 	const maidChiefs: Card[] = [];
@@ -27,7 +33,7 @@ export function chooseChambermaidChiefs(cardArray: Card[]) {
 export function createTheTown(cardArray: Card[], filter: FilterState) {
 	const beerMaid = cardArray.find((card) => card.beerMaid === true);
 	const sisters = cardArray.filter((card) => card.crescentSister === true);
-	const finishedTown: Card[] = [];
+	let finishedTown: Card[] = [];
 	while (finishedTown.length < 10 && cardArray.length > 0) {
 		const index: number = Math.floor(Math.random() * cardArray.length);
 		const selectedCard: Card = cardArray[index];
@@ -69,6 +75,23 @@ export function createTheTown(cardArray: Card[], filter: FilterState) {
 				}
 			}
 		}
+	}
+	if (filter.bannedCards.length > 0) {
+		const withoutBanned = finishedTown.filter(
+			(card) =>
+				!filter.bannedCards.includes(
+					`${setDisplayNames[card.set]} - ${card.name}, ${card.cardTitle}`
+				)
+		);
+
+		while (withoutBanned.length < 10) {
+			const randomIndex = getRandomNumber(cardArray.length);
+			const randomCard = cardArray.splice(randomIndex, 1)[0];
+			if (!filter.bannedCards.includes(randomCard.name)) {
+				withoutBanned.push(randomCard);
+			}
+		}
+		finishedTown = withoutBanned;
 	}
 	return finishedTown;
 }

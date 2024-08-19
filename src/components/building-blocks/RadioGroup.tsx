@@ -36,12 +36,13 @@ const RadioGroup: React.FC<RadioGroupProps> = ({
 					<div key={value}>
 						<input
 							type="radio"
+							className="radio-check-input"
 							name={stateKey}
 							value={value}
 							onChange={handleChange}
 							checked={currentValue === value} // Set the checked property
 						/>
-						<label>{label}</label>
+						<label className="radio-check-label">{label}</label>
 					</div>
 				))}
 			</div>

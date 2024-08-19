@@ -19,12 +19,10 @@ const options = [
 	},
 ];
 
-const ReminescensesTile: React.FC<{ enabledClass: string }> = ({
-	enabledClass,
-}) => {
+const ReminescensesTile = () => {
 	//No explicit typing because TS infers the typing of this because it's repetative and doesn't change, and we don't need to force type it when TS can just infer it
 	return (
-		<TileBox enabledClass={enabledClass}>
+		<TileBox>
 			<Title title="Reminiscenses" />
 			<RadioGroup
 				options={options}

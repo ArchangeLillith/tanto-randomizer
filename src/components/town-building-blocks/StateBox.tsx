@@ -30,17 +30,11 @@ const StateBox = ({ state }: { state: FilterState }) => {
 	return (
 		<div className="right-fixed-box">
 			<div className="state-box">
-				<h2 className="legend-set-title">Filters</h2>
-				<br />
-				<div>
+				<h2 className="legend-set-title align-center">Filters</h2>
+				<div className="set-box">
 					<h3>Sets Chosen: </h3>
 					{state.setList.map((set) => (
-						<p>{setNameMapping[set]}</p>
-					))}
-				</div>
-				<div>
-					{state.bannedCards?.map((cardName) => (
-						<p>{cardName}</p>
+						<div>{setNameMapping[set]}</div>
 					))}
 				</div>
 				{state.sisterInclusion !== 0 && (
@@ -53,6 +47,14 @@ const StateBox = ({ state }: { state: FilterState }) => {
 				{renderSlantInfo("Servings Slant", state.servingsSlant)}
 				{renderSlantInfo("Employ Effects Slant", state.employEffectsSlant)}
 				{renderBooleansInfo()}
+				{state.bannedCards.length > 0 && (
+					<div className="banned-cards-wrapper">
+						<div>Banned Cards:</div>
+						{state.bannedCards?.map((cardName) => (
+							<div className="banned-card">{cardName}</div>
+						))}
+					</div>
+				)}
 			</div>
 		</div>
 	);

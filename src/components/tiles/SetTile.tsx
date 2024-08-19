@@ -14,7 +14,7 @@ const sets = [
 const SetTile = () => {
 	return (
 		// Hard code this enabled as it shouldn't change but we still want it to use the tile component
-		<TileBox enabledClass="tileEnabled">
+		<TileBox>
 			<Title title="Sets" />
 			{sets.map(({ item, id }) => (
 				<Checkbox parent="sets" item={item} id={id} key={item} />

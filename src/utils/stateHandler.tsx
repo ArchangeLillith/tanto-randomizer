@@ -41,6 +41,10 @@ type Action =
 	| {
 			type: "SET_SELECTED_OPTION";
 			payload: { key: keyof FilterState; value: string };
+	  }
+	| {
+			type: "BAN_MAIDS";
+			payload: string[];
 	  };
 
 function reducer(state: FilterState, action: Action): FilterState {
@@ -78,6 +82,16 @@ function reducer(state: FilterState, action: Action): FilterState {
 			return {
 				...state,
 				[action.payload.key]: action.payload.value, // Toggle the specific boolean value
+			};
+		}
+		case "BAN_MAIDS": {
+			const updatedBannedCards = Array.from(
+				new Set([...state.bannedCards, ...action.payload])
+			);
+
+			return {
+				...state,
+				bannedCards: updatedBannedCards,
 			};
 		}
 		default:
