@@ -34,7 +34,7 @@ const StateBox = ({ state }: { state: FilterState }) => {
 				<div className="set-box">
 					<h3>Sets Chosen: </h3>
 					{state.setList.map((set) => (
-						<div>{setNameMapping[set]}</div>
+						<div key={setNameMapping[set]}>{setNameMapping[set]}</div>
 					))}
 				</div>
 				{state.sisterInclusion !== 0 && (
@@ -51,7 +51,9 @@ const StateBox = ({ state }: { state: FilterState }) => {
 					<div className="banned-cards-wrapper">
 						<div>Banned Cards:</div>
 						{state.bannedCards?.map((cardName) => (
-							<div className="banned-card">{cardName}</div>
+							<div className="banned-card" key={cardName}>
+								{cardName}
+							</div>
 						))}
 					</div>
 				)}

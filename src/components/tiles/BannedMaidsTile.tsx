@@ -7,6 +7,7 @@ import { StateContext } from "../../utils/stateHandler";
 const BannedMaidsTile = () => {
 	const { state, dispatch } = useContext(StateContext);
 	const allMaids = useRef<Card[]>([]);
+	const previousSelection = useRef<string[]>([]);
 	useEffect(() => {
 		allMaids.current = state.setList.reduce(
 			//accumulator is the place everything is added and persists between iterations, setName is the set that's currently being looked at
@@ -25,9 +26,30 @@ const BannedMaidsTile = () => {
 			event.target.selectedOptions,
 			(option) => option.value
 		);
-		dispatch({
-			type: "BAN_MAIDS",
-			payload: selectedMaids,
+		//Maids that were just selected
+		const newlySelected = selectedMaids.filter(
+			(maid) => !previousSelection.current.includes(maid)
+		);
+		//Find the ones that were just deselected
+		const newlyDeselected = previousSelection.current.filter(
+			(maid) => !selectedMaids.includes(maid)
+		);
+
+		//Update the previous selection to the current one, as this will be the "previous" selection the next time this funtion runs
+		previousSelection.current = selectedMaids;
+
+		newlyDeselected.forEach((maid) => {
+			dispatch({
+				type: "BAN_MAIDS",
+				payload: maid,
+			});
+		});
+
+		newlySelected.forEach((maid) => {
+			dispatch({
+				type: "BAN_MAIDS",
+				payload: maid,
+			});
 		});
 	};
 	return (
@@ -42,7 +64,7 @@ const BannedMaidsTile = () => {
 
 						<select multiple={true} onChange={handleChange}>
 							{allMaids.current.map((card: Card) => (
-								<option id={card.name}>
+								<option id={card.name} value={card.name} key={card.name}>
 									{setDisplayNames[card.set]} - {card.name}, {card.cardTitle}
 								</option>
 							))}

@@ -12,7 +12,6 @@ import { Card, ESet, FilterState, setMapping } from "../utils/types";
 import {
 	filterCards,
 	// chooseChambermaidChiefs,
-	createTheTown,
 } from "../utils/CardFilterService";
 import SlantTile from "../components/tiles/SlantTile";
 import CardStructure from "../components/town-building-blocks/CardStructure";
@@ -21,11 +20,15 @@ import StateBox from "../components/town-building-blocks/StateBox";
 import { CSSTransition } from "react-transition-group";
 import { maidUrlList } from "../utils";
 import BannedMaidsTile from "../components/tiles/BannedMaidsTile";
+import { createTheTown } from "../utils/CreateTheTown";
+import CautionTile from "../components/tiles/CautionTile";
+import ListView from "./ListView";
+import Footer from "../components/Footer";
 
 const MainPage: React.FC = () => {
-	console.log(
-		`Welcome to my Tanto Cuore Randomizer! If you're curious how I built this, please feel free to dig through my GiHub linked at the bottom. Happy playing!`
-	);
+	// console.log(
+	// 	`Welcome to my Tanto Cuore Randomizer! If you're curious how I built this, please feel free to dig through my GiHub linked at the bottom. Happy playing!`
+	// );
 	const { state } = useContext(StateContext);
 	//The current sets cards in one big array
 	const [currentSetCards, setCurrentSetCards] = useState<Card[]>([]);
@@ -147,7 +150,7 @@ const MainPage: React.FC = () => {
 		}
 		//Refactor implement this
 		// const cheifs = chooseChambermaidChiefs(townMaterial);
-		const final = createTheTown(townMaterial, state);
+		const final = createTheTown(townMaterial, currentSetCards, state);
 		//Sets the final array to what was returned from creating the town
 		setFinalTown([...final]);
 	};
@@ -168,84 +171,13 @@ const MainPage: React.FC = () => {
 	const genericMaidList = getRandomMaid();
 
 	getRandomMaid();
-	return (
-		<div className="choices-view-container">
-			{finalTown.length < 10 && (
-				<>
-					<SetTile />
-					<CSSTransition
-						in={showSistersTile}
-						timeout={300}
-						classNames="tile"
-						unmountOnExit
-					>
-						<SistersTile />
-					</CSSTransition>
-					<CSSTransition
-						in={showPrivateMaids}
-						timeout={300}
-						classNames="tile"
-						unmountOnExit
-					>
-						<PrivateMaidTile />
-					</CSSTransition>
-					<CSSTransition
-						in={showEvents}
-						timeout={300}
-						classNames="tile"
-						unmountOnExit
-					>
-						<EventsTile />
-					</CSSTransition>
-					<CSSTransition
-						in={showBuildings}
-						timeout={300}
-						classNames="tile"
-						unmountOnExit
-					>
-						<BuildingsTile />
-					</CSSTransition>
-					<CSSTransition
-						in={showReminescenses}
-						timeout={300}
-						classNames="tile"
-						unmountOnExit
-					>
-						<ReminescensesTile />
-					</CSSTransition>
-					<CSSTransition
-						in={showBeer}
-						timeout={300}
-						classNames="tile"
-						unmountOnExit
-					>
-						<BeerTile />
-					</CSSTransition>
-					<CSSTransition
-						in={showCouples}
-						timeout={300}
-						classNames="tile"
-						unmountOnExit
-					>
-						<CouplesTile />
-					</CSSTransition>
-					<BannedMaidsTile />
-					<SlantTile />
-					<div className="button-container">
-						<button
-							className="button-75"
-							role="button"
-							onClick={handleTownCreation}
-						>
-							<span className="text">Create Town!</span>
-						</button>
-					</div>
-				</>
-			)}
-			{finalTown.length === 10 && (
-				<>
-					<LegendBox />
-					<StateBox state={state} />
+
+	if (finalTown.length === 10) {
+		return (
+			<div className="final-town-wrapper">
+				<LegendBox />
+				<StateBox state={state} />
+				{state.listView === false ? (
 					<div className="town-grid">
 						{finalTown.map((card, index) => (
 							<CardStructure
@@ -255,8 +187,118 @@ const MainPage: React.FC = () => {
 							/>
 						))}
 					</div>
-				</>
+				) : (
+					//Pull this into tile when done
+					<ListView finalTown={finalTown} />
+				)}
+				<Footer />
+			</div>
+		);
+	}
+
+	return (
+		<div className="choices-view-container">
+			{townMaterial.length > 0 && (
+				<div className="right-fixed-box">
+					<ul className="nameDisplayList">
+						{currentSetCards.map((card) => {
+							//Pull the chief maids out cause they're pulled out anyways
+							if (!card.chiefMaid)
+								return (
+									<li
+										key={card.name}
+										className={
+											townMaterial.includes(card)
+												? "enabledName"
+												: "disabledName"
+										}
+									>
+										{card.name}
+									</li>
+								);
+						})}
+					</ul>
+				</div>
 			)}
+			<SetTile />
+			<CSSTransition
+				in={showSistersTile}
+				timeout={300}
+				classNames="tile"
+				unmountOnExit
+			>
+				<SistersTile />
+			</CSSTransition>
+			<CSSTransition
+				in={showReminescenses}
+				timeout={300}
+				classNames="tile"
+				unmountOnExit
+			>
+				<ReminescensesTile />
+			</CSSTransition>
+			<CSSTransition
+				in={showBeer}
+				timeout={300}
+				classNames="tile"
+				unmountOnExit
+			>
+				<BeerTile />
+			</CSSTransition>
+			<CSSTransition
+				in={showBeer || showReminescenses || showSistersTile}
+				timeout={300}
+				classNames="tile"
+				unmountOnExit
+			>
+				<CautionTile />
+			</CSSTransition>
+			<CSSTransition
+				in={showPrivateMaids}
+				timeout={300}
+				classNames="tile"
+				unmountOnExit
+			>
+				<PrivateMaidTile />
+			</CSSTransition>
+			<CSSTransition
+				in={showEvents}
+				timeout={300}
+				classNames="tile"
+				unmountOnExit
+			>
+				<EventsTile />
+			</CSSTransition>
+			<CSSTransition
+				in={showBuildings}
+				timeout={300}
+				classNames="tile"
+				unmountOnExit
+			>
+				<BuildingsTile />
+			</CSSTransition>
+
+			<CSSTransition
+				in={showCouples}
+				timeout={300}
+				classNames="tile"
+				unmountOnExit
+			>
+				<CouplesTile />
+			</CSSTransition>
+			<BannedMaidsTile />
+
+			<SlantTile />
+			<div className="button-container">
+				<button
+					className="button-75"
+					role="button"
+					onClick={handleTownCreation}
+				>
+					<span className="text">Create Town!</span>
+				</button>
+			</div>
+			<Footer />
 		</div>
 	);
 };

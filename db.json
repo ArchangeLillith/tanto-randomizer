@@ -78,7 +78,7 @@
 		{
 			"name": "Ophelia Grail",
 			"cardTitle": "All-Purpose Maid",
-			"pictureUrl": "/images/Ophelia.webp",
+			"pictureUrl": null,
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -1597,7 +1597,7 @@
 			"stackingVP": false,
 			"victoryPoints": 0,
 			"negativeVP": false,
-			"purchasePrice": 0,
+			"purchasePrice": 4,
 			"cardDraw": 0,
 			"employs": 0,
 			"servings": 2,

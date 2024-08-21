@@ -2,6 +2,7 @@ import db from "../../db.json";
 
 //State shape
 export interface FilterState {
+	listView: boolean;
 	setList: ESet[];
 	bannedCards: string[];
 	sisterInclusion: number;

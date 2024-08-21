@@ -31,12 +31,46 @@ html {
 	background-size: auto;
 	min-height: 100%;
 }
+
+html,
+body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+}
 h3 {
 	margin: 0;
 }
 /* The secret sauce to get the stupid black border when a select is active to disappear */
 select:focus {
 	outline: none;
+}
+/* footer */
+.footer {
+	background: pink;
+	width: 100%;
+	height: 80px;
+	margin-top: 35px;
+}
+.footer-inner-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-right: auto;
+	margin-left: auto;
+	height: 80px;
+}
+.footer-inner-container > div > a {
+	text-decoration: none;
+	color: rgb(255, 95, 95);
+}
+.heart-container {
+	justify-content: center;
+	align-items: center;
+	display: flex;
 }
 
 /* ------------------------------------------------ Options view CSS --------------------------------------------------------*/
@@ -146,11 +180,14 @@ select:focus {
 	float: left;
 	margin-left: -1.5em;
 }
+
 .choices-view-container {
-	align-items: center;
-	justify-content: center;
+	min-height: 92vh;
 	display: flex;
 	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 4%;
 }
 .title-wrapper {
 	background: rgb(250, 146, 163);
@@ -200,6 +237,63 @@ select:focus {
 .button-75:hover span {
 	transform: scale(0.9);
 	opacity: 0.75;
+}
+.button-container.stats-button {
+	width: 40%;
+	align-self: center;
+	padding: 10px;
+}
+.button-75.stats-button {
+	padding: 5px;
+}
+.button-74 {
+	align-items: center;
+	background-image: linear-gradient(-75deg, #f97287 20%, rgb(253, 167, 181));
+	border: 0;
+	border-radius: 10px;
+	box-sizing: border-box;
+	color: #fff;
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	font-size: 16px;
+	font-weight: 700;
+	height: 54px;
+	justify-content: center;
+	letter-spacing: 0.4px;
+	line-height: 1;
+	max-width: 100%;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 3px;
+	text-decoration: none;
+	user-select: none;
+	-webkit-user-select: none;
+	touch-action: manipulation;
+}
+.button-74:active {
+	outline: 0;
+}
+.button-74:hover {
+	outline: 0;
+}
+.button-74 span {
+	transition: all 200ms;
+}
+.button-74:hover span {
+	transform: scale(0.9);
+	opacity: 0.75;
+}
+.button-container.stats-button {
+	width: 40%;
+	align-self: center;
+	padding: 10px;
+}
+.stats-button-container {
+	padding-top: 2%;
+}
+.button-75.stats-button {
+	padding: 5px;
 }
 .banned-maids-tile {
 	display: flex;
@@ -281,11 +375,24 @@ select:focus {
 .tile-box.remove-padding {
 	padding: 1% 0%;
 }
-
+.nameDisplayList > li {
+	list-style: none;
+}
+.nameDisplayList {
+	margin: 0;
+	padding: 10px;
+}
+.enabledName {
+	color: white;
+}
+.disabledName {
+	color: rgb(219, 145, 145);
+}
 /* -------------------------------------------------- Side Boxes ------------------------------------------------------- */
 .right-fixed-box {
-	position: fixed;
+	position: absolute;
 	right: 7px;
+	top: 20%;
 	background-color: rgb(211, 115, 131);
 	padding: 20px;
 	border-radius: 10px;
@@ -293,7 +400,9 @@ select:focus {
 	max-width: 200px;
 }
 .left-fixed-box {
-	position: fixed;
+	position: absolute;
+	left: 0;
+	top: 20%;
 	color: white;
 	left: 7px;
 	background-color: rgb(211, 115, 131);
@@ -330,6 +439,164 @@ select:focus {
 	font-size: 10px;
 }
 /*---------------------------------------------- Finished town view generic styling --------------------------------------------*/
+.final-town-wrapper {
+	display: flex;
+	flex-direction: column;
+	align-self: center;
+	align-items: center;
+	min-height: 100vh;
+	margin-top: 4%;
+}
+.list-view-wrapper {
+	width: 800px;
+}
+.list-view-grid {
+	display: flex;
+	flex-direction: column;
+	width: 35%;
+}
+.inner-choices-container {
+	flex: 1;
+	padding-bottom: 50px;
+}
+.grid-wrapper {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+}
+.list-view-card {
+	width: 100%;
+	align-self: center;
+}
+.list-view-card.base_set {
+	background-color: #faa9b5;
+}
+.list-view-card.expanding_the_house {
+	background-color: var(--expandingTheHouseBackgroundColor);
+}
+.list-view-card.romantic_vacation {
+	background-color: rgb(194, 232, 246);
+}
+.list-view-card.oktoberfest {
+	background-color: rgb(238, 173, 127);
+}
+.list-view-card.winter_romance {
+	background-color: rgb(138, 166, 236);
+}
+.list-view-col-header {
+	color: white;
+	font-size: 24px;
+	margin-left: -25px;
+}
+.legend-header {
+	margin: 0;
+}
+.list-view-price-col {
+	max-width: 10%;
+	min-width: 10%;
+	align-items: center;
+}
+
+.list-view-card,
+.list-view-col-header {
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	border-radius: 10px;
+	margin-top: 4px;
+}
+.card-is-attack-card {
+	color: red;
+}
+.card-is-chambermaid {
+	text-decoration: underline;
+}
+.card-has-vp {
+	color: rgb(255, 255, 255);
+	text-shadow: #000 0px 0px 2px;
+	-webkit-font-smoothing: antialiased;
+}
+.legend-line {
+	margin-top: 35px;
+}
+.legend-for-list-view {
+	width: 20%;
+	margin-left: 40px;
+	margin-top: 45px;
+	background-color: #faa9b5;
+	border-radius: 20px;
+	padding: 2%;
+}
+/* The CSS for the extra stats view */
+.lots-of-stats-container {
+	background: pink;
+	border-radius: 20px;
+	padding: 2%;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+.grid-container {
+	display: grid;
+	border-radius: 30px;
+	grid-gap: 0px;
+	grid-auto-flow: row;
+	/* Remove fixed grid-template-columns if using dynamic inline styles */
+	grid-template-areas: "ID Name Cost VP Love-Give Card-Draw Servings Employs Chambermaid Sister Beer-maid Events-required Rem-required Employ-effect Private-maids-required Promo";
+}
+
+.data-column > .header {
+	background: rgb(255, 171, 171);
+	font-size: 22px;
+	color: white;
+	text-align: center;
+}
+.data-column > div[class^="list-view"] {
+	font-size: 18px;
+	line-height: 1.5;
+	border: 1px solid rgb(255, 255, 255);
+}
+div[class^="list-view"].base_set {
+	background-color: #faa9b5;
+}
+div[class^="list-view"].expanding_the_house {
+	background-color: var(--expandingTheHouseBackgroundColor);
+}
+div[class^="list-view"].romantic_vacation {
+	background-color: rgb(194, 232, 246);
+}
+div[class^="list-view"].oktoberfest {
+	background-color: rgb(238, 173, 127);
+}
+div[class^="list-view"].winter_romance {
+	background-color: rgb(138, 166, 236);
+}
+.show {
+	display: grid;
+}
+.hide {
+	display: none;
+}
+
+.list-view-ID,
+.list-view-Cost,
+.list-view-VP,
+.list-view-Love-Give,
+.list-view-Card-Draw,
+.list-view-Servings,
+.list-view-Employs,
+.list-view-Sister,
+.list-view-Beer-maid,
+.list-view-Events-required,
+.list-view-Rem-required,
+.list-view-Employ-effect,
+.list-view-Private-maids-required,
+.list-view-Promo,
+.list-view-Chambermaid {
+	text-align: center;
+}
+
 /* The base grid for the town cards */
 .town-grid {
 	display: grid;
@@ -455,6 +722,7 @@ select:focus {
 	padding: 4px;
 	margin: 2px;
 }
+
 /* -------------------------------------------------- Color variables ------------------------------------------------------*/
 * {
 	--baseSetBackgroundColor: pink;

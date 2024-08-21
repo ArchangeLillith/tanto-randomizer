@@ -9,6 +9,7 @@ import {
 } from "./types";
 
 const initialState: FilterState = {
+	listView: false,
 	setList: [],
 	bannedCards: [],
 	sisterInclusion: 0,
@@ -39,12 +40,15 @@ type Action =
 			payload: { key: keyof FilterState; value: ESlantOptions };
 	  }
 	| {
+			type: "TOGGLE_LIST_VIEW";
+	  }
+	| {
 			type: "SET_SELECTED_OPTION";
 			payload: { key: keyof FilterState; value: string };
 	  }
 	| {
 			type: "BAN_MAIDS";
-			payload: string[];
+			payload: string;
 	  };
 
 function reducer(state: FilterState, action: Action): FilterState {
@@ -84,14 +88,20 @@ function reducer(state: FilterState, action: Action): FilterState {
 				[action.payload.key]: action.payload.value, // Toggle the specific boolean value
 			};
 		}
-		case "BAN_MAIDS": {
-			const updatedBannedCards = Array.from(
-				new Set([...state.bannedCards, ...action.payload])
-			);
-
+		case "TOGGLE_LIST_VIEW": {
 			return {
 				...state,
-				bannedCards: updatedBannedCards,
+				listView: !state.listView, // Toggle the specific boolean value
+			};
+		}
+		case "BAN_MAIDS": {
+			const maidName = action.payload;
+			const isBanned = state.bannedCards.includes(maidName);
+			return {
+				...state,
+				bannedCards: isBanned
+					? state.bannedCards.filter((name) => name !== maidName)
+					: [...state.bannedCards, maidName],
 			};
 		}
 		default:

@@ -26,7 +26,8 @@ const ReminescensesTile = () => {
 			<Title title="Reminiscenses" />
 			<RadioGroup
 				options={options}
-				stateKey={"reminescenseOptions"} //Key from state that cooresponds to this option
+				stateKey={"reminescenseOptions"}
+				toolTip="NOTE: Reminiscenses purchasable is one of the hardest options to satisfy, and will take over the town" //Key from state that cooresponds to this option
 			/>
 		</TileBox>
 	);

@@ -1,4 +1,13 @@
+import { useContext } from "react";
+import { StateContext } from "../../utils/stateHandler";
+
 const LegendBox = () => {
+	const { state, dispatch } = useContext(StateContext);
+
+	const toggleListView = () => {
+		dispatch({ type: "TOGGLE_LIST_VIEW" });
+	};
+
 	return (
 		<div className="left-fixed-box">
 			<h3>Legend:</h3>
@@ -67,6 +76,10 @@ const LegendBox = () => {
 				</svg>
 				<div className="legend-set-title">Winter Romance</div>
 			</div>
+			<br />
+			<button className="button-75" onClick={toggleListView}>
+				{state.listView ? "Picture View!" : "List view!"}
+			</button>
 		</div>
 	);
 };
