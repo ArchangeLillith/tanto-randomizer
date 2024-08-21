@@ -3,7 +3,7 @@
 		{
 			"name": "Marianne Soleil",
 			"cardTitle": "Maid Chief",
-			"pictureUrl": "/images/MarianneSoleil.webp",
+			"pictureUrl": "src/assets/images/MarianneSoleil.webp",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": true,
@@ -28,7 +28,7 @@
 		{
 			"name": "Colette Framboise",
 			"cardTitle": "Chambermaid Chief",
-			"pictureUrl": "/images/ColetteFramboise.webp",
+			"pictureUrl": "src/assets/images/ColetteFramboise.webp",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": true,
@@ -53,7 +53,7 @@
 		{
 			"name": "Anise Greenaway",
 			"cardTitle": "Treasury Maid",
-			"pictureUrl": "/images/AniseGreenaway.webp",
+			"pictureUrl": "src/assets/images/AniseGreenaway.webp",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -103,7 +103,7 @@
 		{
 			"name": "Sainsbury Lockwood",
 			"cardTitle": "Laundry Maid",
-			"pictureUrl": "/images/SainsburyLockwood.webp",
+			"pictureUrl": "src/assets/images/SainsburyLockwood.webp",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -128,7 +128,7 @@
 		{
 			"name": "Tenalys Trent",
 			"cardTitle": "Nap Maid",
-			"pictureUrl": "/images/TenalysTrent.webp",
+			"pictureUrl": "src/assets/images/TenalysTrent.webp",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -153,7 +153,7 @@
 		{
 			"name": "Natsumi Fujikawa",
 			"cardTitle": "Cleaning Maid",
-			"pictureUrl": "/images/NatsumiFujikawa.webp",
+			"pictureUrl": "src/assets/images/NatsumiFujikawa.webp",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -178,7 +178,7 @@
 		{
 			"name": "Nena Wilder",
 			"cardTitle": "Teasing Maid",
-			"pictureUrl": "/images/NenaWilder.webp",
+			"pictureUrl": "src/assets/images/NenaWilder.webp",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -203,7 +203,7 @@
 		{
 			"name": "Esquine Foret",
 			"cardTitle": "Scrapping Maid",
-			"pictureUrl": "/images/EsquineForet.webp",
+			"pictureUrl": "src/assets/images/EsquineForet.webp",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -228,7 +228,7 @@
 		{
 			"name": "Genevieve Daubigny",
 			"cardTitle": "Cooking Maid",
-			"pictureUrl": "/images/GenevieveDaubigny.webp",
+			"pictureUrl": "src/assets/images/GenevieveDaubigny.webp",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -253,7 +253,7 @@
 		{
 			"name": "Moine de Lefevre",
 			"cardTitle": "Employing Maid",
-			"pictureUrl": "/images/MoineDeLefevre.webp",
+			"pictureUrl": "src/assets/images/MoineDeLefevre.webp",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -278,7 +278,7 @@
 		{
 			"name": "Eliza Rosewater",
 			"cardTitle": "Policing Maid",
-			"pictureUrl": "/images/ElizaRosewater.webp",
+			"pictureUrl": "src/assets/images/ElizaRosewater.webp",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -303,7 +303,7 @@
 		{
 			"name": "Kagari Ichinomiya",
 			"cardTitle": "Sewing Maid",
-			"pictureUrl": "/images/KagariIchinomiya.webp",
+			"pictureUrl": "src/assets/images/KagariIchinomiya.webp",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -328,7 +328,7 @@
 		{
 			"name": "Claire Saint-Juste",
 			"cardTitle": "White Maid",
-			"pictureUrl": "/images/ClaireSaint-Juste.webp",
+			"pictureUrl": "src/assets/images/ClaireSaint-Juste.webp",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -353,7 +353,7 @@
 		{
 			"name": "Safran Virginie",
 			"cardTitle": "Chambermaid",
-			"pictureUrl": "/images/SafranVirginie.webp",
+			"pictureUrl": "src/assets/images/SafranVirginie.webp",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -378,7 +378,7 @@
 		{
 			"name": "Azure Crescent",
 			"cardTitle": "Chambermaid",
-			"pictureUrl": "/images/AzureCrescent.webp",
+			"pictureUrl": "src/assets/images/AzureCrescent.webp",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -403,7 +403,7 @@
 		{
 			"name": "Viola Crescent",
 			"cardTitle": "Chambermaid",
-			"pictureUrl": "/images/ViolaCrescent.webp",
+			"pictureUrl": "src/assets/images/ViolaCrescent.webp",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -428,7 +428,7 @@
 		{
 			"name": "Rouge Crescent",
 			"cardTitle": "Chambermaid",
-			"pictureUrl": "/images/RougeCrescent.webp",
+			"pictureUrl": "src/assets/images/RougeCrescent.webp",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -455,7 +455,7 @@
 		{
 			"name": "Claudine de La Rochelle",
 			"cardTitle": "Maid Chief",
-			"pictureUrl": "/assets/images/RougeCrescent.webp",
+			"pictureUrl": "/assetssrc/assets/images/RougeCrescent.webp",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": true,
@@ -480,7 +480,7 @@
 		{
 			"name": "Aline Du Roy",
 			"cardTitle": "Chambermaid Chief",
-			"pictureUrl": "/images/AlineDuRoy.webp",
+			"pictureUrl": "src/assets/images/AlineDuRoy.webp",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": true,
@@ -505,7 +505,7 @@
 		{
 			"name": "Tiffany Wise",
 			"cardTitle": "Hiring Maid",
-			"pictureUrl": "/images/TiffanyWise.webp",
+			"pictureUrl": "src/assets/images/TiffanyWise.webp",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -530,7 +530,7 @@
 		{
 			"name": "Carillion Vandoor",
 			"cardTitle": "Governess Maid",
-			"pictureUrl": "/images/CarillonVandoor.webp",
+			"pictureUrl": "src/assets/images/CarillonVandoor.webp",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -555,7 +555,7 @@
 		{
 			"name": "Francine Barbier",
 			"cardTitle": "Library Maid",
-			"pictureUrl": "/images/FrancineBarbier.webp",
+			"pictureUrl": "src/assets/images/FrancineBarbier.webp",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -580,7 +580,7 @@
 		{
 			"name": "Renee R Rieussec",
 			"cardTitle": "Pet Maid",
-			"pictureUrl": "/images/ReneeRRieussec.webp",
+			"pictureUrl": "src/assets/images/ReneeRRieussec.webp",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -605,7 +605,7 @@
 		{
 			"name": "Domino Bonaparte",
 			"cardTitle": "Black Maid",
-			"pictureUrl": "/images/DominoBonaparte.webp",
+			"pictureUrl": "src/assets/images/DominoBonaparte.webp",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -630,7 +630,7 @@
 		{
 			"name": "Amaretto Renard",
 			"cardTitle": "Dressing Maid",
-			"pictureUrl": "/images/AmarettoRenard.webp",
+			"pictureUrl": "src/assets/images/AmarettoRenard.webp",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -655,7 +655,7 @@
 		{
 			"name": "Victoria Calderan",
 			"cardTitle": "Destruction Maid",
-			"pictureUrl": "/images/VictoriaCalderan.webp",
+			"pictureUrl": "src/assets/images/VictoriaCalderan.webp",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -680,7 +680,7 @@
 		{
 			"name": "Emily Raymond",
 			"cardTitle": "Architect Maid",
-			"pictureUrl": "/images/EmilyRaymond.webp",
+			"pictureUrl": "src/assets/images/EmilyRaymond.webp",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -705,7 +705,7 @@
 		{
 			"name": "Rutile der Sar",
 			"cardTitle": "Ninja Maid",
-			"pictureUrl": "/images/RutileDerSar.webp",
+			"pictureUrl": "src/assets/images/RutileDerSar.webp",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -730,7 +730,7 @@
 		{
 			"name": "Phyllis Lumley",
 			"cardTitle": "Guest Room Maid",
-			"pictureUrl": "/images/PhyllisLumley.webp",
+			"pictureUrl": "src/assets/images/PhyllisLumley.webp",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -855,7 +855,7 @@
 		{
 			"name": "Pauline Dumond",
 			"cardTitle": "Tea Maid",
-			"pictureUrl": "/images/PaulineDumond.webp",
+			"pictureUrl": "src/assets/images/PaulineDumond.webp",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -907,7 +907,7 @@
 		{
 			"name": "Anja Brunner",
 			"cardTitle": "Maid Chief",
-			"pictureUrl": "/images/PR20-Anja_Brunner.webp",
+			"pictureUrl": "src/assets/images/PR20-Anja_Brunner.webp",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": true,
@@ -932,7 +932,7 @@
 		{
 			"name": "Matilde Wiese",
 			"cardTitle": "Chambermaid Chief",
-			"pictureUrl": "/images/PR21-Matilde_Wiese.webp",
+			"pictureUrl": "src/assets/images/PR21-Matilde_Wiese.webp",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": true,
@@ -1007,7 +1007,7 @@
 		{
 			"name": "Toni Darling",
 			"cardTitle": "Confectionary Maid",
-			"pictureUrl": "/images/PR22-Toni_Darling.webp",
+			"pictureUrl": "src/assets/images/PR22-Toni_Darling.webp",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -1057,7 +1057,7 @@
 		{
 			"name": "Nadja Kesten",
 			"cardTitle": "Bar Maid",
-			"pictureUrl": "/images/PR23-Nadja_Kersten.webp",
+			"pictureUrl": "src/assets/images/PR23-Nadja_Kersten.webp",
 			"promo": false,
 			"employEffect": true,
 			"chiefMaid": false,
@@ -1082,7 +1082,7 @@
 		{
 			"name": "Gina Kersten",
 			"cardTitle": "Bar Maid",
-			"pictureUrl": "/images/PR24-Gina_Kersten.webp",
+			"pictureUrl": "src/assets/images/PR24-Gina_Kersten.webp",
 			"promo": false,
 			"employEffect": true,
 			"chiefMaid": false,
@@ -1359,7 +1359,7 @@
 		{
 			"name": "Leopold Niebling",
 			"cardTitle": "Butler Chief",
-			"pictureUrl": "/images/PR39-Leopold_Niebling.webp",
+			"pictureUrl": "src/assets/images/PR39-Leopold_Niebling.webp",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": true,
@@ -1384,7 +1384,7 @@
 		{
 			"name": "Beverly Snowfeldt",
 			"cardTitle": "Chambermaid Chief",
-			"pictureUrl": "/images/PR40-Beverly_Snowfeldt.webp",
+			"pictureUrl": "src/assets/images/PR40-Beverly_Snowfeldt.webp",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": true,
@@ -1811,7 +1811,7 @@
 		{
 			"name": "Sophia Marfil",
 			"cardTitle": "Maid Chief",
-			"pictureUrl": "/images/PR12-Sophia_Marfil.webp",
+			"pictureUrl": "src/assets/images/PR12-Sophia_Marfil.webp",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": true,
@@ -1836,7 +1836,7 @@
 		{
 			"name": "Beatrice Escudo",
 			"cardTitle": "Chambermaid Chief",
-			"pictureUrl": "/images/PR13-Beatrice_Escudo.webp",
+			"pictureUrl": "src/assets/images/PR13-Beatrice_Escudo.webp",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": true,
@@ -1861,7 +1861,7 @@
 		{
 			"name": "Fryda Viento",
 			"cardTitle": "Oceanographer Maid",
-			"pictureUrl": "/images/FrydaViento.webp",
+			"pictureUrl": "src/assets/images/FrydaViento.webp",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,

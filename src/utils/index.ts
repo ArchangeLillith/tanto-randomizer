@@ -1,38 +1,3 @@
-export const maidUrlList: string[] = [
-	"/images/genericMaids/maid1.jpg",
-	"/images/genericMaids/maid2.jpg",
-	"/images/genericMaids/maid3.jpg",
-	"/images/genericMaids/maid4.jpg",
-	"/images/genericMaids/maid5.jpg",
-	"/images/genericMaids/maid6.jpg",
-	"/images/genericMaids/maid7.jpg",
-	"/images/genericMaids/maid8.jpg",
-	"/images/genericMaids/maid9.jpg",
-	"/images/genericMaids/maid10.jpg",
-	"/images/genericMaids/maid11.jpg",
-	"/images/genericMaids/maid12.jpg",
-	"/images/genericMaids/maid13.jpg",
-	"/images/genericMaids/maid14.jpg",
-	"/images/genericMaids/maid15.jpg",
-	"/images/genericMaids/maid16.jpg",
-	"/images/genericMaids/maid17.jpg",
-	"/images/genericMaids/maid18.jpg",
-	"/images/genericMaids/maid19.jpg",
-	"/images/genericMaids/maid20.jpg",
-	"/images/genericMaids/maid21.jpg",
-	"/images/genericMaids/maid22.jpg",
-	"/images/genericMaids/maid23.jpg",
-	"/images/genericMaids/maid24.jpg",
-	"/images/genericMaids/maid25.jpg",
-	"/images/genericMaids/maid26.jpg",
-	"/images/genericMaids/maid27.jpg",
-	"/images/genericMaids/maid28.jpg",
-	"/images/genericMaids/maid29.jpg",
-	"/images/genericMaids/maid30.jpg",
-	"/images/genericMaids/maid31.jpg",
-	"/images/genericMaids/maid32.jpg",
-];
-
 export function getRandomNumber(max: number): number {
 	return Math.floor(Math.random() * max);
 }

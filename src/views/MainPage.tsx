@@ -24,7 +24,7 @@ import {
 	StateBox,
 } from "../components/town-building-blocks";
 import { CSSTransition } from "react-transition-group";
-import { maidUrlList } from "../utils";
+import { maidUrlList } from "../../genericMaidUrls";
 import { createTheTown } from "../utils/CreateTheTown";
 import ListView from "./ListView";
 import Footer from "../components/Footer";
