@@ -1,53 +1,51 @@
 import { useCallback, useContext, useEffect, useRef, useState } from "react";
-import BeerTile from "../components/tiles/BeerTile";
-import BuildingsTile from "../components/tiles/BuildingsTile";
-import CouplesTile from "../components/tiles/CouplesTile";
-import EventsTile from "../components/tiles/EventsTile";
-import PrivateMaidTile from "../components/tiles/PrivateMaidTile";
-import ReminescensesTile from "../components/tiles/ReminescensesTile";
-import SetTile from "../components/tiles/SetTile";
-import SistersTile from "../components/tiles/SistersTile";
+import {
+	BeerTile,
+	BuildingsTile,
+	CouplesTile,
+	EventsTile,
+	PrivateMaidTile,
+	ReminescensesTile,
+	SetTile,
+	SistersTile,
+	SlantTile,
+	BannedMaidsTile,
+	CautionTile,
+} from "../components/tiles/index";
 import { StateContext } from "../utils/stateHandler";
 import { Card, ESet, FilterState, setMapping } from "../utils/types";
 import {
 	filterCards,
 	// chooseChambermaidChiefs,
 } from "../utils/CardFilterService";
-import SlantTile from "../components/tiles/SlantTile";
-import CardStructure from "../components/town-building-blocks/CardStructure";
-import LegendBox from "../components/town-building-blocks/LegendBox";
-import StateBox from "../components/town-building-blocks/StateBox";
+import {
+	CardStructure,
+	LegendBox,
+	StateBox,
+} from "../components/town-building-blocks";
 import { CSSTransition } from "react-transition-group";
 import { maidUrlList } from "../utils";
-import BannedMaidsTile from "../components/tiles/BannedMaidsTile";
 import { createTheTown } from "../utils/CreateTheTown";
-import CautionTile from "../components/tiles/CautionTile";
 import ListView from "./ListView";
 import Footer from "../components/Footer";
 
 const MainPage: React.FC = () => {
-	// console.log(
-	// 	`Welcome to my Tanto Cuore Randomizer! If you're curious how I built this, please feel free to dig through my GiHub linked at the bottom. Happy playing!`
-	// );
-	const { state } = useContext(StateContext);
-	//The current sets cards in one big array
-	const [currentSetCards, setCurrentSetCards] = useState<Card[]>([]);
-	//All the cards that pass the filters
-	const [townMaterial, setTownMaterial] = useState<Card[]>([]);
-	//Final cards to be displayed in the town
-	const [finalTown, setFinalTown] = useState<Card[]>([]);
-	//Boolean to make sure the screen renders once
-	const [isInitialized, setIsInitialized] = useState<boolean>(false);
-	// Ref to store previous state
+	const { state, dispatch } = useContext(StateContext);
+
+	const [mainPageState, setMainPageState] = useState({
+		currentSetCards: [] as Card[],
+		townMaterial: [] as Card[],
+		finalTown: [] as Card[],
+		isInitialized: false,
+		showSistersTile: false,
+		showPrivateMaids: false,
+		showEvents: false,
+		showBuildings: false,
+		showReminescenses: false,
+		showBeer: false,
+		showCouples: false,
+	});
 	const prevStateRef = useRef<FilterState | undefined>(undefined);
-	//The handlers that show when a tile shoud be rendered for react-transition-groups
-	const [showSistersTile, setShowSistersTile] = useState(false);
-	const [showPrivateMaids, setShowPrivateMaids] = useState(false);
-	const [showEvents, setShowEvents] = useState(false);
-	const [showBuildings, setShowBuildings] = useState(false);
-	const [showReminescenses, setShowReminescenses] = useState(false);
-	const [showBeer, setShowBeer] = useState(false);
-	const [showCouples, setShowCouples] = useState(false);
 
 	/**
 	 * Handles updating if the tile should be shown or not depending on what's in the state.setList
@@ -55,22 +53,41 @@ const MainPage: React.FC = () => {
 	 */
 	const updateVisibility = useCallback(() => {
 		const visibilityConfig = [
-			{ sets: [ESet.BaseSet], setter: setShowSistersTile },
+			{
+				sets: [ESet.BaseSet],
+				setter: (value: boolean) =>
+					setMainPageState((prev) => ({ ...prev, showSistersTile: value })),
+			},
 			{
 				sets: [ESet.BaseSet, ESet.ExpandingTheHouse],
-				setter: setShowPrivateMaids,
+				setter: (value: boolean) =>
+					setMainPageState((prev) => ({ ...prev, showPrivateMaids: value })),
 			},
 			{
 				sets: [ESet.BaseSet, ESet.Oktoberfest, ESet.WinterRomance],
-				setter: setShowEvents,
+				setter: (value: boolean) =>
+					setMainPageState((prev) => ({ ...prev, showEvents: value })),
 			},
 			{
 				sets: [ESet.ExpandingTheHouse, ESet.Oktoberfest, ESet.WinterRomance],
-				setter: setShowBuildings,
+				setter: (value: boolean) =>
+					setMainPageState((prev) => ({ ...prev, showBuildings: value })),
 			},
-			{ sets: [ESet.RomanticVacation], setter: setShowReminescenses },
-			{ sets: [ESet.Oktoberfest], setter: setShowBeer },
-			{ sets: [ESet.WinterRomance], setter: setShowCouples },
+			{
+				sets: [ESet.RomanticVacation],
+				setter: (value: boolean) =>
+					setMainPageState((prev) => ({ ...prev, showReminescenses: value })),
+			},
+			{
+				sets: [ESet.Oktoberfest],
+				setter: (value: boolean) =>
+					setMainPageState((prev) => ({ ...prev, showBeer: value })),
+			},
+			{
+				sets: [ESet.WinterRomance],
+				setter: (value: boolean) =>
+					setMainPageState((prev) => ({ ...prev, showCouples: value })),
+			},
 		];
 
 		visibilityConfig.forEach(({ sets, setter }) => {
@@ -102,13 +119,13 @@ const MainPage: React.FC = () => {
 				[]
 			);
 			//Set the current state to the correct array that was just made
-			setCurrentSetCards(selectedCards);
+			setMainPageState((prev) => ({ ...prev, currentSetCards: selectedCards }));
 		}
 		// Update the ref to the current state
 		prevStateRef.current = state;
 		// Set initialization flag to true after the first render
-		if (!isInitialized) {
-			setIsInitialized(true);
+		if (!mainPageState.isInitialized) {
+			setMainPageState((prev) => ({ ...prev, isInitialized: true }));
 		}
 		//This is throwing a fit because the linter sees that I have the setMapping in the useEffect and it's warning me that there's no re-render when it changes. This doensn't matter because it's a stable, unchanging value declared outside the useEffect and we don't *want* the useEffect to triger off of that
 		// eslint-disable-next-line react-hooks/exhaustive-deps
@@ -119,18 +136,21 @@ const MainPage: React.FC = () => {
 	 * Throws an error if the town is less than 10
 	 */
 	useEffect(() => {
-		if (isInitialized) {
-			const filteredCards: Card[] = filterCards(currentSetCards, state);
-			setTownMaterial(filteredCards);
+		if (mainPageState.isInitialized) {
+			const filteredCards: Card[] = filterCards(
+				mainPageState.currentSetCards,
+				state
+			);
+			setMainPageState((prev) => ({ ...prev, townMaterial: filteredCards }));
 			if (
 				filteredCards.length < 10 &&
 				state.setList.length > 0 &&
-				currentSetCards.length > 0
+				mainPageState.currentSetCards.length > 0
 			) {
 				alert("Less than 10");
 			}
 		}
-	}, [currentSetCards, state, isInitialized]);
+	}, [mainPageState.currentSetCards, state, mainPageState.isInitialized]);
 
 	/**
 	 * Watches the state.setList and calls updateVisibility on change
@@ -150,9 +170,13 @@ const MainPage: React.FC = () => {
 		}
 		//Refactor implement this
 		// const cheifs = chooseChambermaidChiefs(townMaterial);
-		const final = createTheTown(townMaterial, currentSetCards, state);
+		const final = createTheTown(
+			mainPageState.townMaterial,
+			mainPageState.currentSetCards,
+			state
+		);
 		//Sets the final array to what was returned from creating the town
-		setFinalTown([...final]);
+		setMainPageState((prev) => ({ ...prev, finalTown: [...final] }));
 	};
 
 	/**
@@ -170,16 +194,48 @@ const MainPage: React.FC = () => {
 	}, [maidUrlList]);
 	const genericMaidList = getRandomMaid();
 
+	const handleReset = () => {
+		dispatch({ type: "RESET_STATE" });
+	};
+
+	const resetFinalTown = () => {
+		console.log(`Resetting final Town`);
+		//Resets state
+		handleReset();
+		//Sets final town after so no wonky flickers happen
+		setMainPageState((prev) => ({ ...prev, finalTown: [] }));
+	};
 	getRandomMaid();
 
-	if (finalTown.length === 10) {
+	const reRunTown = () => {
+		const setCards = state.setList.reduce(
+			(accumulator: Card[], setName: ESet) => {
+				return accumulator.concat(setMapping[setName] || []);
+			},
+			[]
+		);
+		console.log(`Grabbed set cards`, setCards);
+		const townMaterial: Card[] = filterCards(setCards, state);
+		console.log(`Filtered`, townMaterial);
+		const final = createTheTown(townMaterial, setCards, state);
+		console.log(`Final town`, final);
+
+		setMainPageState((prev) => ({ ...prev, finalTown: [] }));
+		setMainPageState((prev) => ({ ...prev, finalTown: [...final] }));
+	};
+
+	if (mainPageState.finalTown.length === 10) {
 		return (
 			<div className="final-town-wrapper">
 				<LegendBox />
-				<StateBox state={state} />
+				<StateBox
+					state={state}
+					resetFinalTown={resetFinalTown}
+					reRunTown={reRunTown}
+				/>
 				{state.listView === false ? (
 					<div className="town-grid">
-						{finalTown.map((card, index) => (
+						{mainPageState.finalTown.map((card, index) => (
 							<CardStructure
 								key={card.id + card.set}
 								card={card}
@@ -189,7 +245,7 @@ const MainPage: React.FC = () => {
 					</div>
 				) : (
 					//Pull this into tile when done
-					<ListView finalTown={finalTown} />
+					<ListView finalTown={mainPageState.finalTown} />
 				)}
 				<Footer />
 			</div>
@@ -198,17 +254,17 @@ const MainPage: React.FC = () => {
 
 	return (
 		<div className="choices-view-container">
-			{townMaterial.length > 0 && (
+			{mainPageState.townMaterial.length > 0 && (
 				<div className="right-fixed-box">
 					<ul className="nameDisplayList">
-						{currentSetCards.map((card) => {
+						{mainPageState.currentSetCards.map((card) => {
 							//Pull the chief maids out cause they're pulled out anyways
 							if (!card.chiefMaid)
 								return (
 									<li
 										key={card.name}
 										className={
-											townMaterial.includes(card)
+											mainPageState.townMaterial.includes(card)
 												? "enabledName"
 												: "disabledName"
 										}
@@ -222,7 +278,7 @@ const MainPage: React.FC = () => {
 			)}
 			<SetTile />
 			<CSSTransition
-				in={showSistersTile}
+				in={mainPageState.showSistersTile}
 				timeout={300}
 				classNames="tile"
 				unmountOnExit
@@ -230,7 +286,7 @@ const MainPage: React.FC = () => {
 				<SistersTile />
 			</CSSTransition>
 			<CSSTransition
-				in={showReminescenses}
+				in={mainPageState.showReminescenses}
 				timeout={300}
 				classNames="tile"
 				unmountOnExit
@@ -238,7 +294,7 @@ const MainPage: React.FC = () => {
 				<ReminescensesTile />
 			</CSSTransition>
 			<CSSTransition
-				in={showBeer}
+				in={mainPageState.showBeer}
 				timeout={300}
 				classNames="tile"
 				unmountOnExit
@@ -246,7 +302,11 @@ const MainPage: React.FC = () => {
 				<BeerTile />
 			</CSSTransition>
 			<CSSTransition
-				in={showBeer || showReminescenses || showSistersTile}
+				in={
+					mainPageState.showBeer ||
+					mainPageState.showReminescenses ||
+					mainPageState.showSistersTile
+				}
 				timeout={300}
 				classNames="tile"
 				unmountOnExit
@@ -254,7 +314,7 @@ const MainPage: React.FC = () => {
 				<CautionTile />
 			</CSSTransition>
 			<CSSTransition
-				in={showPrivateMaids}
+				in={mainPageState.showPrivateMaids}
 				timeout={300}
 				classNames="tile"
 				unmountOnExit
@@ -262,7 +322,7 @@ const MainPage: React.FC = () => {
 				<PrivateMaidTile />
 			</CSSTransition>
 			<CSSTransition
-				in={showEvents}
+				in={mainPageState.showEvents}
 				timeout={300}
 				classNames="tile"
 				unmountOnExit
@@ -270,7 +330,7 @@ const MainPage: React.FC = () => {
 				<EventsTile />
 			</CSSTransition>
 			<CSSTransition
-				in={showBuildings}
+				in={mainPageState.showBuildings}
 				timeout={300}
 				classNames="tile"
 				unmountOnExit
@@ -279,7 +339,7 @@ const MainPage: React.FC = () => {
 			</CSSTransition>
 
 			<CSSTransition
-				in={showCouples}
+				in={mainPageState.showCouples}
 				timeout={300}
 				classNames="tile"
 				unmountOnExit

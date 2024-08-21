@@ -43,6 +43,9 @@ type Action =
 			type: "TOGGLE_LIST_VIEW";
 	  }
 	| {
+			type: "RESET_STATE";
+	  }
+	| {
 			type: "SET_SELECTED_OPTION";
 			payload: { key: keyof FilterState; value: string };
 	  }
@@ -93,6 +96,9 @@ function reducer(state: FilterState, action: Action): FilterState {
 				...state,
 				listView: !state.listView, // Toggle the specific boolean value
 			};
+		}
+		case "RESET_STATE": {
+			return initialState;
 		}
 		case "BAN_MAIDS": {
 			const maidName = action.payload;

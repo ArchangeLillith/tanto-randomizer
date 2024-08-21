@@ -16,6 +16,8 @@ export function createTheTown(
 	fullSetArray: Card[],
 	filter: FilterState
 ) {
+	FINISHED_TOWN.length = 0;
+	LOCKED_CARDS.clear();
 	const beerMaid = getBeerMaid(townMaterials, fullSetArray, filter);
 	const sisters = getSisters(townMaterials, fullSetArray, filter);
 

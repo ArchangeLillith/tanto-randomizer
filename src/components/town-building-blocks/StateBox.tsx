@@ -5,7 +5,16 @@ import {
 	slantNameMapping,
 } from "../../utils/types";
 
-const StateBox = ({ state }: { state: FilterState }) => {
+interface StateBoxProps {
+	state: FilterState;
+	reRunTown: () => void;
+	resetFinalTown: () => void;
+}
+const StateBox: React.FC<StateBoxProps> = ({
+	state,
+	reRunTown,
+	resetFinalTown,
+}) => {
 	const renderSlantInfo = (label: string, slant: ESlantOptions) =>
 		slant !== ESlantOptions.NoSlant && (
 			<p>{`${label}: ${slantNameMapping[slant]}`}</p>
@@ -57,6 +66,27 @@ const StateBox = ({ state }: { state: FilterState }) => {
 						))}
 					</div>
 				)}
+			</div>
+			<div className="button-wrapper-state">
+				{" "}
+				<div className="button-container">
+					<button
+						className="button-75 list-view-button same-options"
+						role="button"
+						onClick={reRunTown}
+					>
+						<span className="text">New town, same options</span>
+					</button>
+				</div>
+				<div className="button-container">
+					<button
+						className="button-75 list-view-button new-town"
+						role="button"
+						onClick={resetFinalTown}
+					>
+						<span className="text">Restart!</span>
+					</button>
+				</div>
 			</div>
 		</div>
 	);

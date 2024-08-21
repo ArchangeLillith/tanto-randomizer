@@ -38,13 +38,13 @@ const ListView: React.FC<ListViewProps> = ({ finalTown }) => {
 		},
 		{
 			key: "love",
-			label: "Love Give",
+			label: "LoveGive",
 			className: "list-view-Love-Give",
 			shouldShow: finalTown.some((card) => card.love),
 		},
 		{
 			key: "cardDraw",
-			label: "Card Draw",
+			label: "CardDraw",
 			className: "list-view-Card-Draw",
 			shouldShow: finalTown.some((card) => card.cardDraw),
 		},
@@ -80,7 +80,7 @@ const ListView: React.FC<ListViewProps> = ({ finalTown }) => {
 		},
 		{
 			key: "eventRequired",
-			label: "Req Events",
+			label: "ReqEvents",
 			className: "list-view-Events-required",
 			shouldShow: finalTown.some((card) => card.eventRequired),
 		},
@@ -111,15 +111,18 @@ const ListView: React.FC<ListViewProps> = ({ finalTown }) => {
 	];
 
 	const calculateGridTemplateColumns = () => {
-		return visibleColumns.map(() => "1fr").join(" "); // Adjust "1fr" as needed
-	};
-	const getVisibleColumns = () => {
-		return columns
-			.filter(({ shouldShow }) => shouldShow)
-			.map(({ className }) => className);
-	};
+		const nameColumnWidth = "200px"; // Adjust this width as needed
+		const flexibleColumns = columns.filter(
+			(col) => col.key !== "name" && col.shouldShow
+		);
+		const flexibleColumnCount = flexibleColumns.length;
 
-	const visibleColumns = getVisibleColumns();
+		// Set a fixed width for "Name" column and flexible width with extra space for other columns
+		const flexibleColumnWidth = `minmax(150px, auto)`; // Adjust the minimum width as needed
+		return `${flexibleColumnWidth} ${nameColumnWidth} ${flexibleColumnWidth} ${"1fr ".repeat(
+			flexibleColumnCount - 2
+		)}`.trim();
+	};
 
 	if (showLotsOfStats) {
 		return (
