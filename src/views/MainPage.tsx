@@ -28,6 +28,7 @@ import { maidUrlList } from "../../genericMaidUrls";
 import { createTheTown } from "../utils/CreateTheTown";
 import ListView from "./ListView";
 import Footer from "../components/Footer";
+import svgIcons from "../utils/svgIcons";
 
 const MainPage: React.FC = () => {
 	const { state, dispatch } = useContext(StateContext);
@@ -44,6 +45,7 @@ const MainPage: React.FC = () => {
 		showReminescenses: false,
 		showBeer: false,
 		showCouples: false,
+		errors: [] as string[],
 	});
 	const prevStateRef = useRef<FilterState | undefined>(undefined);
 
@@ -175,8 +177,11 @@ const MainPage: React.FC = () => {
 			mainPageState.currentSetCards,
 			state
 		);
+		const finalTown = final.town;
+		const errorList = final.ERROR_LIST;
 		//Sets the final array to what was returned from creating the town
-		setMainPageState((prev) => ({ ...prev, finalTown: [...final] }));
+		setMainPageState((prev) => ({ ...prev, finalTown: [...finalTown] }));
+		setMainPageState((prev) => ({ ...prev, errors: [...errorList] }));
 	};
 
 	/**
@@ -193,7 +198,6 @@ const MainPage: React.FC = () => {
 		return genericMaidList;
 	}, [maidUrlList]);
 	const genericMaidList = getRandomMaid();
-
 	const handleReset = () => {
 		dispatch({ type: "RESET_STATE" });
 	};
@@ -218,10 +222,14 @@ const MainPage: React.FC = () => {
 		const townMaterial: Card[] = filterCards(setCards, state);
 		console.log(`Filtered`, townMaterial);
 		const final = createTheTown(townMaterial, setCards, state);
+		const finalTown = final.town;
+		const errorList = final.ERROR_LIST;
 		console.log(`Final town`, final);
 
+		setMainPageState((prev) => ({ ...prev, errors: [] }));
 		setMainPageState((prev) => ({ ...prev, finalTown: [] }));
-		setMainPageState((prev) => ({ ...prev, finalTown: [...final] }));
+		setMainPageState((prev) => ({ ...prev, finalTown: [...finalTown] }));
+		setMainPageState((prev) => ({ ...prev, errors: [...errorList] }));
 	};
 
 	if (mainPageState.finalTown.length === 10) {
@@ -232,15 +240,29 @@ const MainPage: React.FC = () => {
 					state={state}
 					resetFinalTown={resetFinalTown}
 					reRunTown={reRunTown}
+					errors={mainPageState.errors}
 				/>
 				{state.listView === false ? (
 					<div className="town-grid">
 						{mainPageState.finalTown.map((card, index) => (
-							<CardStructure
-								key={card.id + card.set}
-								card={card}
-								genericMaidUrl={genericMaidList[index]}
-							/>
+							<div className="card-background heart-indicator">
+								<div className="set-heart-indicator">
+									{card.set === ESet.BaseSet && svgIcons.svgHeartIcons.base_set}
+									{card.set === ESet.ExpandingTheHouse &&
+										svgIcons.svgHeartIcons.expanding_the_house}
+									{card.set === ESet.RomanticVacation &&
+										svgIcons.svgHeartIcons.romantic_vacation}
+									{card.set === ESet.Oktoberfest &&
+										svgIcons.svgHeartIcons.oktoberfest}
+									{card.set === ESet.WinterRomance &&
+										svgIcons.svgHeartIcons.winter_romance}
+								</div>
+								<CardStructure
+									key={card.id + card.set}
+									card={card}
+									genericMaidUrl={genericMaidList[index]}
+								/>
+							</div>
 						))}
 					</div>
 				) : (

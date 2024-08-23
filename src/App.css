@@ -477,6 +477,7 @@ select:focus {
 .banned-card {
 	font-size: 10px;
 }
+
 /*---------------------------------------------- Finished town view generic styling --------------------------------------------*/
 .final-town-wrapper {
 	display: flex;
@@ -493,6 +494,16 @@ select:focus {
 	display: flex;
 	flex-direction: column;
 	width: 35%;
+}
+.heart-indicator.card-background {
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+}
+.set-heart-indicator {
+	height: 30px;
+	align-self: center;
+	padding-bottom: 5px;
 }
 .button-75.list-view-button {
 	padding: 10px;
@@ -682,16 +693,15 @@ div[class^="list-view"].winter_romance {
 	grid-row-gap: 4px;
 	background-color: pink;
 	border-radius: 10px;
-	padding-left: 30px;
-	padding-right: 30px;
+	padding: 40px;
 	width: 1180px;
 }
 /* The grid that informs where everything in the created card should go */
 .single-card-grid {
-	padding: 2%;
-	padding-bottom: 4%;
 	width: 200px;
-	height: 280px;
+	padding-top: 5px;
+	padding-left: 2px;
+	height: 300px;
 	display: grid;
 	grid-template-columns: 0.4fr 2.2fr 0.4fr;
 	grid-template-rows: 0.41fr 4.02fr 0.01fr 1fr;
@@ -732,10 +742,13 @@ div[class^="list-view"].winter_romance {
 }
 /* The base of the card */
 .card-background {
+	width: 205px;
+	border-radius: 10px;
+}
+.card-background.fake-card {
 	margin: 35px 0 35px 0;
 	padding: 2%;
 	width: 205px;
-	height: 290px;
 	border-radius: 10px;
 	padding-bottom: 20px;
 }
@@ -775,7 +788,7 @@ div[class^="list-view"].winter_romance {
 .bottomSection {
 	display: grid;
 	border-radius: 10px;
-	grid-template-columns: 0.6fr 1.8fr 0.6fr;
+	grid-template-columns: 0.6fr 1.5fr 0.6fr;
 	grid-template-rows: 1fr 1fr;
 	gap: 0px 0px;
 	grid-template-areas:
@@ -796,13 +809,13 @@ div[class^="list-view"].winter_romance {
 	display: flex;
 	align-items: center;
 	border-radius: 50px;
-	padding: 4px;
-	margin: 2px;
+	padding: 2px;
+	margin: 1px;
 }
 
 /* -------------------------------------------------- Color variables ------------------------------------------------------*/
 * {
-	--baseSetBackgroundColor: pink;
+	--baseSetBackgroundColor: hsl(350, 100%, 88%);
 	--baseSetLightAccentColor: #ffd1d9;
 	--baseSetDarkAccentColor: #f7a0af;
 	--baseSetIconEnabled: #fa81b5;
@@ -826,8 +839,8 @@ div[class^="list-view"].winter_romance {
 	--winterRomanceIconEnabled: rgb(89, 119, 194);
 	--winterRomanceIconDisabled: rgb(151, 173, 228);
 
-	--oktoberfestBackgroundColor: rgb(238, 173, 127);
-	--oktoberfestDarkAccentColor: rgb(193, 119, 76);
+	--oktoberfestBackgroundColor: #eead7f;
+	--oktoberfestDarkAccentColor: #c1774c;
 	--oktoberfestLightAccentColor: rgb(193, 137, 104);
 	--oktoberfestIconEnabled: rgb(156, 76, 19);
 	--oktoberfestIconDisabled: rgb(229, 189, 161);
@@ -835,6 +848,7 @@ div[class^="list-view"].winter_romance {
 
 /*------------------------ Coloring for text and icons relating to card draw, love, employs and servings ------------------------*/
 .iconEnabled.base_set {
+
 	fill: var(--baseSetIconEnabled);
 }
 .iconDisabled.base_set {

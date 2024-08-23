@@ -9,11 +9,13 @@ interface StateBoxProps {
 	state: FilterState;
 	reRunTown: () => void;
 	resetFinalTown: () => void;
+	errors: string[];
 }
 const StateBox: React.FC<StateBoxProps> = ({
 	state,
 	reRunTown,
 	resetFinalTown,
+	errors,
 }) => {
 	const renderSlantInfo = (label: string, slant: ESlantOptions) =>
 		slant !== ESlantOptions.NoSlant && (
@@ -39,6 +41,13 @@ const StateBox: React.FC<StateBoxProps> = ({
 	return (
 		<div className="right-fixed-box">
 			<div className="state-box">
+				{errors.length > 0 && (
+					<div className="error-wrapper">
+						{errors.map((error) => (
+							<div>{error}</div>
+						))}
+					</div>
+				)}
 				<h2 className="legend-set-title align-center">Filters</h2>
 				<div className="set-box">
 					<h3>Sets Chosen: </h3>

@@ -3,6 +3,7 @@ import { Card, FilterState, EBeerOptions, EReminescenseOptions } from "./types";
 
 const FINISHED_TOWN: Card[] = [];
 const LOCKED_CARDS: Set<string> = new Set();
+const ERROR_LIST: string[] = [];
 
 /**
  * Creates the 10 card town based on the filters selected and remembered in state
@@ -34,9 +35,7 @@ export function createTheTown(
 				(card) => card.name !== selectedCard.name
 			);
 		} else {
-			console.error(
-				`There was a duplicate or a banned card got through, ${selectedCard.name} was the culprit, figure it out X_X`
-			);
+			ERROR_LIST.push(`There's a dupe or banned card`);
 		}
 	}
 
@@ -71,17 +70,13 @@ export function createTheTown(
 			withoutBanned.length > 0 &&
 			filter.reminescenseOptions === EReminescenseOptions.Purchasable
 		) {
-			console.error(
-				"There are some banned card here, Reminecense options forced one to be included :("
-			);
+			ERROR_LIST.push("A banned card was added because of the Rem. filter");
 		} else if (withoutBanned.length > 0) {
-			console.error(
-				"There are some banned cards here, idk why, not reminecencses"
-			);
+			ERROR_LIST.push("Some banned cards were included to satisfy filters");
 		}
 	}
 	console.log(`FINISHED TOWN`, FINISHED_TOWN);
-	return FINISHED_TOWN;
+	return { town: FINISHED_TOWN, ERROR_LIST };
 }
 
 /**
