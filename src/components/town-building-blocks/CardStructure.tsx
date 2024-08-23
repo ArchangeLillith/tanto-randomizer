@@ -10,7 +10,6 @@ interface CardProps {
 const CardStructure = (props: CardProps) => {
 	const card: CardProps["card"] = props.card;
 
-	//Return the card image if we have it
 	if (card.pictureUrl) {
 		return (
 			<div className="card-background">
@@ -24,8 +23,7 @@ const CardStructure = (props: CardProps) => {
 			</div>
 		);
 	}
-
-	//If not, we build the card
+	
 	return (
 		<div className={`card-background ${card.set}`}>
 			<div className="single-card-grid">

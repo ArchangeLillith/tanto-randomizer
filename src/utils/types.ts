@@ -1,6 +1,8 @@
 import db from "../../db.json";
 
-//State shape
+/**
+ * Shape of global state
+ */
 export interface FilterState {
 	listView: boolean;
 	setList: ESet[];
@@ -17,7 +19,9 @@ export interface FilterState {
 	servingsSlant: ESlantOptions;
 	employEffectsSlant: ESlantOptions;
 }
-//Pulling out the boolean options
+/**
+ * Global state's boolean options
+ */
 type stateBooleans = {
 	includePrivateMaids: boolean;
 	includeEvents: boolean;
@@ -25,6 +29,9 @@ type stateBooleans = {
 	includeCouples: boolean;
 };
 
+/**
+ * Enums for state options
+ */
 export enum ESet {
 	BaseSet = "base_set",
 	ExpandingTheHouse = "expanding_the_house",
@@ -60,7 +67,9 @@ export enum EAttackOptions {
 	AllAttack = "allAttack",
 }
 
-//The key for slants that match state
+/**
+ * Keys to match the slants
+ */
 export enum ESlantKeys {
 	victoryPointSlant = "victoryPointSlant",
 	cardDrawSlant = "cardDrawSlant",
@@ -70,7 +79,9 @@ export enum ESlantKeys {
 	employEffectsSlant = "employEffectsSlant",
 }
 
-//When card comes back from database, we type cast to this to ensure that the keys are spelled correctly
+/**
+ * Card typing
+ */
 export interface Card {
 	name: string;
 	cardTitle: string;
@@ -107,6 +118,7 @@ export const setNameMapping: Record<ESet, string> = {
 	[ESet.RomanticVacation]: "Romantic Vacation",
 	[ESet.WinterRomance]: "Winter Romance",
 };
+
 /**
  * A mapping between slants and the names to be displayed to the user
  */
@@ -116,7 +128,9 @@ export const slantNameMapping: Record<ESlantOptions, string> = {
 	[ESlantOptions.SlantLow]: "Slant low",
 };
 
-// Maps the ESet enum values to the corresponding database keys
+/**
+ * Maps the ESet enum values to the corresponding database keys
+ */
 export const setMapping: { [key in ESet]: Card[] } = {
 	[ESet.BaseSet]: db.base_set as Card[],
 	[ESet.ExpandingTheHouse]: db.expanding_the_house as Card[],
@@ -125,7 +139,9 @@ export const setMapping: { [key in ESet]: Card[] } = {
 	[ESet.RomanticVacation]: db.romantic_vacation as Card[],
 };
 
-// Mapping of internal set values to display names
+/**
+ * Mapping of internal set values to display names
+ */
 export const setDisplayNames: Record<string, string> = {
 	base_set: "Base Set",
 	expanding_the_house: "Expanding the House",

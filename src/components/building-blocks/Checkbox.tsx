@@ -10,13 +10,10 @@ const Checkbox: React.FC<{
 }> = ({ parent, item, id, tooltip }) => {
 	const { state, dispatch } = useContext(StateContext);
 
-	// Determine if the checkbox should be checked (inverted logic)
 	const isChecked = (id: ESet | EBooleans): boolean => {
 		if (parent === "sets") {
-			// Invert the check for setList
 			return state.setList.includes(id as ESet);
 		} else {
-			// Invert the check for boolean values
 			if (typeof id === "string" && id in state.booleans) {
 				return !state.booleans[id as keyof FilterState["booleans"]];
 			}

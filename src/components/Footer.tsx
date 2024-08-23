@@ -90,30 +90,6 @@ const Footer = () => {
 							errors and clean rendering of specific elements). Styling was all
 							hand-done in vanilla CSS, and I used a few React Icons sprinkled
 							throughout the site to give it a bit of sparkle.
-							{/* Currently, I don't have all of the cards scanned and the ones I do
-							have scanned were found on the{" "}
-							<a href="https://tanto-cuore.fandom.com/wiki/Tanto_Cuore_Wiki">
-								Tanto Cuore Wiki
-							</a>
-							. This means that as I start scanning cards in, the "created" card
-							that feature random maid images from the internet will be replaced
-							with the actual card, making it easier to see all the info at a
-							glance. This also, unfortunetly, makes it harder to see which set
-							the maids are from. To combat this, I'm going to add a colored
-							heart above each maid that cooresponds to the set they come from.
-							<br />
-							<br />
-							While I know I like the card view, some of my friend prefered the
-							list view as they were used to it. Thankfully sonce I had the data
-							already from the cards I threw together a list view as well for
-							people that have been used to the view from{" "}
-							<a href="https://nekomusume.net/tc/">nekosume's</a> randomizer! I
-							also expanded on that, cause I'm a nerd, and added a 'stats' view
-							that is a MUCH larger list allowing a user to see exactly what the
-							cards they're getting do - from beer maid to chambermaid to
-							requiring events or remenescences, I've added whatever I can think
-							of. Plus, if a card doens't have one of the columns, that column
-							doesn't exist so you don't see useless info! */}
 						</div>
 					</div>
 				</Modal>

@@ -111,14 +111,13 @@ const ListView: React.FC<ListViewProps> = ({ finalTown }) => {
 	];
 
 	const calculateGridTemplateColumns = () => {
-		const nameColumnWidth = "200px"; // Adjust this width as needed
+		const nameColumnWidth = "200px";
 		const flexibleColumns = columns.filter(
 			(col) => col.key !== "name" && col.shouldShow
 		);
 		const flexibleColumnCount = flexibleColumns.length;
 
-		// Set a fixed width for "Name" column and flexible width with extra space for other columns
-		const flexibleColumnWidth = `minmax(150px, auto)`; // Adjust the minimum width as needed
+		const flexibleColumnWidth = `minmax(150px, auto)`;
 		return `${flexibleColumnWidth} ${nameColumnWidth} ${flexibleColumnWidth} ${"1fr ".repeat(
 			flexibleColumnCount - 2
 		)}`.trim();
@@ -131,13 +130,10 @@ const ListView: React.FC<ListViewProps> = ({ finalTown }) => {
 					className="grid-container"
 					style={{ gridTemplateColumns: calculateGridTemplateColumns() }}
 				>
-					{/* Data Columns as Rows */}
 					{columns.map(({ key, label, className, shouldShow }) =>
 						shouldShow ? (
 							<div key={key} className="data-column">
-								{/* Column Header */}
 								<div className={"header " + className}>{label}</div>
-								{/* Column Data */}
 								{finalTown.map((card, index) => {
 									const value = card[key as keyof Card];
 									return (
@@ -185,7 +181,6 @@ const ListView: React.FC<ListViewProps> = ({ finalTown }) => {
 									"list-view-name",
 									card.chamberMaid && "card-is-chambermaid",
 									(card.victoryPoints || card.stackingVP) && "card-has-vp",
-									//REFACTOR for attack cards card.thirdProperty && "third-property-class", // Example for a third property
 								]
 									.filter(Boolean)
 									.join(" ")}

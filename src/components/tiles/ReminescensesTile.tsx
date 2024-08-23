@@ -20,14 +20,13 @@ const options = [
 ];
 
 const ReminescensesTile = () => {
-	//No explicit typing because TS infers the typing of this because it's repetative and doesn't change, and we don't need to force type it when TS can just infer it
 	return (
 		<TileBox>
 			<Title title="Reminiscenses" />
 			<RadioGroup
 				options={options}
 				stateKey={"reminescenseOptions"}
-				toolTip="NOTE: Reminiscenses purchasable is one of the hardest options to satisfy, and will take over the town" //Key from state that cooresponds to this option
+				toolTip="NOTE: Reminiscenses purchasable is one of the hardest options to satisfy, and will take over the town"
 			/>
 		</TileBox>
 	);

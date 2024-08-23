@@ -25,7 +25,7 @@ export function createTheTown(
 	while (FINISHED_TOWN.length < 10 && townMaterials.length > 0) {
 		const index: number = Math.floor(Math.random() * townMaterials.length);
 		const selectedCard: Card = townMaterials[index];
-		//This filters the cardArray so no banned cards are accidentally selected, though none should pass through the filter function. It also looks for duplicates and throws and error if either of these situations were to happen
+
 		if (
 			!FINISHED_TOWN.some((card) => card.name === selectedCard.name) &&
 			!filter.bannedCards.includes(selectedCard.name)
@@ -39,13 +39,11 @@ export function createTheTown(
 		}
 	}
 
-	//Beer filter
 	if (filter.beerOptions === EBeerOptions.Force) {
 		const hasBeerMaid = FINISHED_TOWN.some((card) => card.beerMaid === true);
 		if (!hasBeerMaid && beerMaid) addBeer(beerMaid);
 	}
 
-	//Sisters filter
 	if (filter.sisterInclusion > 0) {
 		if (
 			FINISHED_TOWN.reduce(
@@ -60,7 +58,6 @@ export function createTheTown(
 		addRem(townMaterials, fullSetArray, filter);
 	}
 
-	//Maybe don't need this as I'm checking for banned cards above but this may be a good final check to have just in case a banned card was added in the filtering process, just pull it down a bit and return an error but let the card slide throug. Inform the from end something funky happened and a banned card was included for some reason (at this point, idk how that would be possible but we should at least acknowledge it to the user if in some unforseen way it does happen)
 	if (filter.bannedCards.length > 0) {
 		console.log(`FINISH`, FINISHED_TOWN);
 		const withoutBanned = FINISHED_TOWN.filter(
@@ -246,9 +243,7 @@ function purchasePriceFivePlus(
 	fullSetArray: Card[],
 	filter: FilterState
 ) {
-	//The array of cards above five in the town already
 	const aboveFiveTown = FINISHED_TOWN.filter((card) => card.purchasePrice >= 5);
-	//The cards that are locked that are above 5
 	let addNeeded = 4 - aboveFiveTown.length;
 	if (addNeeded <= 0) {
 		const notLockedAboveFive = aboveFiveTown.filter(

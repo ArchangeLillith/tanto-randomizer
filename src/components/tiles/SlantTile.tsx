@@ -2,7 +2,6 @@ import { ESlantKeys, ESlantOptions } from "../../utils/types";
 import SlantGroup from "../building-blocks/SlantGroup";
 import Title from "../building-blocks/Title";
 
-//No explicit typing because TS infers the typing of this because it's repetative and doesn't change, and we don't need to force type it when TS can just infer it
 const slantOptionsData = [
 	{
 		stateKey: ESlantKeys.cardDrawSlant,

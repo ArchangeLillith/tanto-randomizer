@@ -30,7 +30,7 @@ const initialState: FilterState = {
 	},
 };
 
-//The handler for the state actions. Without adding it here, we can't use a new action.
+
 type Action =
 	| { type: "TOGGLE_BOOLEAN"; payload: keyof FilterState["booleans"] }
 	| { type: "HANDLE_SET_LIST"; payload: ESet }
@@ -62,7 +62,7 @@ function reducer(state: FilterState, action: Action): FilterState {
 				...state,
 				booleans: {
 					...state.booleans,
-					[booleanKey]: !state.booleans[booleanKey], // Toggle the specific boolean value
+					[booleanKey]: !state.booleans[booleanKey], 
 				},
 			};
 		}
@@ -88,13 +88,13 @@ function reducer(state: FilterState, action: Action): FilterState {
 		case "SET_SLANT_OPTION": {
 			return {
 				...state,
-				[action.payload.key]: action.payload.value, // Toggle the specific boolean value
+				[action.payload.key]: action.payload.value, 
 			};
 		}
 		case "TOGGLE_LIST_VIEW": {
 			return {
 				...state,
-				listView: !state.listView, // Toggle the specific boolean value
+				listView: !state.listView,
 			};
 		}
 		case "RESET_STATE": {
@@ -123,8 +123,6 @@ export const StateContext = createContext<{
 	dispatch: () => undefined,
 });
 
-//Left here because it's only used here, no point in throwing it in util
-//Showing state that we have children to pass in and that they're reactnodes
 interface StateProviderProps {
 	children: ReactNode;
 }

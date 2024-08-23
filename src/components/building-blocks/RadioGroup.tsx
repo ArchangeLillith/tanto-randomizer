@@ -26,7 +26,6 @@ const RadioGroup: React.FC<RadioGroupProps> = ({
 		});
 	};
 
-	//Grab the value that's in state so we can accuretly mark the radio group on load
 	const currentValue = state[stateKey] as EReminescenseOptions;
 
 	return (
@@ -40,7 +39,7 @@ const RadioGroup: React.FC<RadioGroupProps> = ({
 							name={stateKey}
 							value={value}
 							onChange={handleChange}
-							checked={currentValue === value} // Set the checked property
+							checked={currentValue === value}
 						/>
 						<label className="radio-check-label">{label}</label>
 					</div>

@@ -26,7 +26,6 @@ const SlantGroup: React.FC<SlantGroupProps> = ({
 		});
 	};
 
-	//Grab the value that's in state so we can accurately mark the radio group on load
 	const selectedValue = state[stateKey] as ESlantOptions;
 
 	return (
@@ -44,7 +43,6 @@ const SlantGroup: React.FC<SlantGroupProps> = ({
 							value={value}
 							checked={selectedValue === value}
 							onChange={handleChange}
-							//If something breaks, it could be this? Shouldn't have anything dependant on it but you never know
 							id={`${stateKey}-${value}`}
 						/>
 						<label htmlFor={stateKey} className="radio-check-label text-12">
