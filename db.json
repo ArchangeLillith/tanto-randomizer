@@ -455,7 +455,7 @@
 		{
 			"name": "Claudine de La Rochelle",
 			"cardTitle": "Maid Chief",
-			"pictureUrl": "/assetssrc/assets/images/RougeCrescent.webp",
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Claudine+de+La+Rochelle.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": true,
@@ -480,7 +480,7 @@
 		{
 			"name": "Aline Du Roy",
 			"cardTitle": "Chambermaid Chief",
-			"pictureUrl": "src/assets/images/AlineDuRoy.webp",
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Aline+Du+Roy.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": true,
@@ -505,7 +505,7 @@
 		{
 			"name": "Tiffany Wise",
 			"cardTitle": "Hiring Maid",
-			"pictureUrl": "src/assets/images/TiffanyWise.webp",
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Tiffany+Wise.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
