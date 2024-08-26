@@ -14,9 +14,7 @@ import {
 } from "../components/tiles/index";
 import { StateContext } from "../utils/stateHandler";
 import { Card, ESet, FilterState, setMapping } from "../utils/types";
-import {
-	filterCards,
-} from "../utils/CardFilterService";
+import { filterCards } from "../utils/CardFilterService";
 import {
 	CardStructure,
 	LegendBox,
@@ -29,7 +27,7 @@ import ListView from "./ListView";
 import Footer from "../components/Footer";
 import svgIcons from "../utils/svgIcons";
 
-const MainPage: React.FC = () => {
+const MainPage = () => {
 	const { state, dispatch } = useContext(StateContext);
 
 	const [mainPageState, setMainPageState] = useState({
@@ -45,6 +43,8 @@ const MainPage: React.FC = () => {
 		showBeer: false,
 		showCouples: false,
 		errors: [] as string[],
+		imagesLoaded: false,
+		overlayVisible: false,
 	});
 	const prevStateRef = useRef<FilterState | undefined>(undefined);
 
@@ -104,7 +104,7 @@ const MainPage: React.FC = () => {
 		if (
 			prevState &&
 			JSON.stringify(prevState.setList) !== JSON.stringify(state.setList)
-		) {		
+		) {
 			const selectedCards = state.setList.reduce(
 				(accumulator: Card[], setName: ESet) => {
 					return accumulator.concat(setMapping[setName] || []);
@@ -153,7 +153,7 @@ const MainPage: React.FC = () => {
 	 * Calls to an external util to take in the town material and pull 10 cards from it. Random if there are no "force include" options selected (beer, sisters ect), OR random then checks to see if "force include" options are met. If they're not, it splices and adds the cards it needs to in order to align with the filter.
 	 * @returns a Card[] of length 10
 	 */
-	const handleTownCreation = () => {
+	const handleTownCreation = async () => {
 		if (state.setList.length < 1) {
 			alert("Please choose a set");
 			return;
@@ -163,10 +163,33 @@ const MainPage: React.FC = () => {
 			mainPageState.currentSetCards,
 			state
 		);
+		setMainPageState((prev) => ({ ...prev, overlayVisible: true }));
 		const finalTown = final.town;
 		const errorList = final.ERROR_LIST;
-		setMainPageState((prev) => ({ ...prev, finalTown: [...finalTown] }));
-		setMainPageState((prev) => ({ ...prev, errors: [...errorList] }));
+		setMainPageState((prev) => ({
+			...prev,
+			finalTown: [...finalTown],
+			errors: [...errorList],
+		}));
+		const preloadPromises = finalTown
+			.filter((card) => card.pictureUrl)
+			.map((card) => preloadImage(card.pictureUrl));
+
+		await Promise.all(preloadPromises);
+		setMainPageState((prev) => ({
+			...prev,
+			imagesLoaded: true,
+			overlayVisible: false,
+		}));
+	};
+
+	const preloadImage = async (url: string | undefined) => {
+		return new Promise<void>((resolve) => {
+			const img = new Image();
+			img.onload = () => resolve();
+			img.onerror = () => resolve();
+			img.src = url;
+		});
 	};
 
 	/**
@@ -217,45 +240,58 @@ const MainPage: React.FC = () => {
 
 	if (mainPageState.finalTown.length === 10) {
 		return (
-			<div className="final-town-wrapper">
-				<LegendBox />
-				<StateBox
-					state={state}
-					resetFinalTown={resetFinalTown}
-					reRunTown={reRunTown}
-					errors={mainPageState.errors}
-				/>
-				{state.listView === false ? (
-					<div className="town-grid">
-						{mainPageState.finalTown.map((card, index) => (
-							<div className="card-background heart-indicator">
-								<div className="set-heart-indicator">
-									{card.set === ESet.BaseSet && svgIcons.svgHeartIcons.base_set}
-									{card.set === ESet.ExpandingTheHouse &&
-										svgIcons.svgHeartIcons.expanding_the_house}
-									{card.set === ESet.RomanticVacation &&
-										svgIcons.svgHeartIcons.romantic_vacation}
-									{card.set === ESet.Oktoberfest &&
-										svgIcons.svgHeartIcons.oktoberfest}
-									{card.set === ESet.WinterRomance &&
-										svgIcons.svgHeartIcons.winter_romance}
-								</div>
-								<CardStructure
-									key={card.id + card.set}
-									card={card}
-									genericMaidUrl={genericMaidList[index]}
-								/>
+			<div className="main-page-container">
+				{mainPageState.finalTown.length === 10 && (
+					<div className="final-town-wrapper">
+						<LegendBox />
+						<StateBox
+							state={state}
+							resetFinalTown={resetFinalTown}
+							reRunTown={reRunTown}
+							errors={mainPageState.errors}
+						/>
+
+						{state.listView === false ? (
+							<div className="town-grid">
+								{!mainPageState.imagesLoaded && (
+									<div className="loading-overlay">
+										<h2>Loading...</h2>
+									</div>
+								)}
+								{mainPageState.finalTown.map((card, index) => (
+									<div
+										className="card-background heart-indicator"
+										key={card.id + card.set}
+									>
+										<div className="set-heart-indicator">
+											{card.set === ESet.BaseSet &&
+												svgIcons.svgHeartIcons.base_set}
+											{card.set === ESet.ExpandingTheHouse &&
+												svgIcons.svgHeartIcons.expanding_the_house}
+											{card.set === ESet.RomanticVacation &&
+												svgIcons.svgHeartIcons.romantic_vacation}
+											{card.set === ESet.Oktoberfest &&
+												svgIcons.svgHeartIcons.oktoberfest}
+											{card.set === ESet.WinterRomance &&
+												svgIcons.svgHeartIcons.winter_romance}
+										</div>
+										<CardStructure
+											key={card.id + card.set}
+											card={card}
+											genericMaidUrl={genericMaidList[index]}
+										/>
+									</div>
+								))}
 							</div>
-						))}
+						) : (
+							<ListView finalTown={mainPageState.finalTown} />
+						)}
+						<Footer />
 					</div>
-				) : (
-					<ListView finalTown={mainPageState.finalTown} />
 				)}
-				<Footer />
 			</div>
 		);
 	}
-
 	return (
 		<div className="choices-view-container">
 			{mainPageState.townMaterial.length > 0 && (

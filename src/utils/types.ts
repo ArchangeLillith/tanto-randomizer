@@ -85,7 +85,7 @@ export enum ESlantKeys {
 export interface Card {
 	name: string;
 	cardTitle: string;
-	pictureUrl?: string;
+	pictureUrl: string;
 	promo: boolean;
 	employEffect: boolean;
 	chiefMaid: boolean;

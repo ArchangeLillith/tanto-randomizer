@@ -477,6 +477,21 @@ select:focus {
 .banned-card {
 	font-size: 10px;
 }
+.loading-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(255, 192, 203, 0.928);
+	color: white;
+	display: flex;
+	border-radius: 10px;
+	justify-content: center;
+	align-items: center;
+	z-index: 10;
+	pointer-events: none; /* Allows interaction with elements behind the overlay */
+}
 
 /*---------------------------------------------- Finished town view generic styling --------------------------------------------*/
 .final-town-wrapper {
@@ -687,6 +702,7 @@ div[class^="list-view"].winter_romance {
 /* The base grid for the town cards */
 .town-grid {
 	display: grid;
+	position: relative;
 	grid-template-columns: repeat(5, 1fr);
 	grid-template-rows: repeat(2, 1fr);
 	grid-column-gap: 20px;
@@ -848,7 +864,6 @@ div[class^="list-view"].winter_romance {
 
 /*------------------------ Coloring for text and icons relating to card draw, love, employs and servings ------------------------*/
 .iconEnabled.base_set {
-
 	fill: var(--baseSetIconEnabled);
 }
 .iconDisabled.base_set {
