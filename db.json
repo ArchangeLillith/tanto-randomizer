@@ -530,7 +530,7 @@
 		{
 			"name": "Carillion Vandoor",
 			"cardTitle": "Governess Maid",
-			"pictureUrl": "src/assets/images/CarillonVandoor.webp",
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Carillon+Vandoor.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -555,7 +555,7 @@
 		{
 			"name": "Francine Barbier",
 			"cardTitle": "Library Maid",
-			"pictureUrl": "src/assets/images/FrancineBarbier.webp",
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Francine+Barbier.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -580,7 +580,7 @@
 		{
 			"name": "Renee R Rieussec",
 			"cardTitle": "Pet Maid",
-			"pictureUrl": "src/assets/images/ReneeRRieussec.webp",
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Renee+R+Rieussec.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -605,7 +605,7 @@
 		{
 			"name": "Domino Bonaparte",
 			"cardTitle": "Black Maid",
-			"pictureUrl": "src/assets/images/DominoBonaparte.webp",
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Domino+Bonaparte.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -630,7 +630,7 @@
 		{
 			"name": "Amaretto Renard",
 			"cardTitle": "Dressing Maid",
-			"pictureUrl": "src/assets/images/AmarettoRenard.webp",
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Amaretto+Renard.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -655,7 +655,7 @@
 		{
 			"name": "Victoria Calderan",
 			"cardTitle": "Destruction Maid",
-			"pictureUrl": "src/assets/images/VictoriaCalderan.webp",
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Victoria+Calderan.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -680,7 +680,7 @@
 		{
 			"name": "Emily Raymond",
 			"cardTitle": "Architect Maid",
-			"pictureUrl": "src/assets/images/EmilyRaymond.webp",
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Emily+Raymond.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -705,7 +705,7 @@
 		{
 			"name": "Rutile der Sar",
 			"cardTitle": "Ninja Maid",
-			"pictureUrl": "src/assets/images/RutileDerSar.webp",
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Rutile+der+Sar.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -730,7 +730,7 @@
 		{
 			"name": "Phyllis Lumley",
 			"cardTitle": "Guest Room Maid",
-			"pictureUrl": "src/assets/images/PhyllisLumley.webp",
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Phyllis+Lumley.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -755,7 +755,7 @@
 		{
 			"name": "Lilac Hawkwind",
 			"cardTitle": "Bodyguard Maid",
-			"pictureUrl": null,
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Lilac+Hawkwind.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -780,7 +780,7 @@
 		{
 			"name": "Felicity Horn",
 			"cardTitle": "Chambermaid",
-			"pictureUrl": null,
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Felicity+Horn.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -805,7 +805,7 @@
 		{
 			"name": "Suzuna Kamikawa",
 			"cardTitle": "Chambermaid",
-			"pictureUrl": null,
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Suzuna+Kamikawa.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -830,7 +830,7 @@
 		{
 			"name": "Grace Saulsbury",
 			"cardTitle": "Parlor Maid",
-			"pictureUrl": null,
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Grace+Saulsbury.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -855,7 +855,7 @@
 		{
 			"name": "Pauline Dumond",
 			"cardTitle": "Tea Maid",
-			"pictureUrl": "src/assets/images/PaulineDumond.webp",
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Pauline+Dumond.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -880,7 +880,7 @@
 		{
 			"name": "Ririko Hiragi",
 			"cardTitle": "Chambermaid",
-			"pictureUrl": null,
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Ririko+Hiiragi.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -907,7 +907,7 @@
 		{
 			"name": "Anja Brunner",
 			"cardTitle": "Maid Chief",
-			"pictureUrl": "src/assets/images/PR20-Anja_Brunner.webp",
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Anja+Brunner.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": true,
@@ -932,7 +932,7 @@
 		{
 			"name": "Matilde Wiese",
 			"cardTitle": "Chambermaid Chief",
-			"pictureUrl": "src/assets/images/PR21-Matilde_Wiese.webp",
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Matilde+Wiese.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": true,
@@ -957,7 +957,7 @@
 		{
 			"name": "Elsa Reinmaier",
 			"cardTitle": "Total Management Maid",
-			"pictureUrl": null,
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Elsa+Reinmaier.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -982,7 +982,7 @@
 		{
 			"name": "Hermina Baum",
 			"cardTitle": "Money Keeper Maid",
-			"pictureUrl": null,
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Hermina+Baum.png",
 			"promo": false,
 			"employEffect": true,
 			"chiefMaid": false,
@@ -1007,7 +1007,7 @@
 		{
 			"name": "Toni Darling",
 			"cardTitle": "Confectionary Maid",
-			"pictureUrl": "src/assets/images/PR22-Toni_Darling.webp",
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Toni+Darling.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -1032,7 +1032,7 @@
 		{
 			"name": "Nora Morgenstern",
 			"cardTitle": "Negotiation Maid",
-			"pictureUrl": null,
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Nora+Morgenstern.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -1057,7 +1057,7 @@
 		{
 			"name": "Nadja Kesten",
 			"cardTitle": "Bar Maid",
-			"pictureUrl": "src/assets/images/PR23-Nadja_Kersten.webp",
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Nadja+Kersten.png",
 			"promo": false,
 			"employEffect": true,
 			"chiefMaid": false,
@@ -1082,7 +1082,7 @@
 		{
 			"name": "Gina Kersten",
 			"cardTitle": "Bar Maid",
-			"pictureUrl": "src/assets/images/PR24-Gina_Kersten.webp",
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Gina+Kersten.png",
 			"promo": false,
 			"employEffect": true,
 			"chiefMaid": false,
@@ -1107,7 +1107,7 @@
 		{
 			"name": "Sara Leonhardt",
 			"cardTitle": "Floor Assistant Maid",
-			"pictureUrl": null,
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Sara+Leonhardt.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -1132,7 +1132,7 @@
 		{
 			"name": "Julia Kunster",
 			"cardTitle": "Potter Ware Maid",
-			"pictureUrl": null,
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Julia+Kunster.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -1157,7 +1157,7 @@
 		{
 			"name": "Kirika von Heidemann",
 			"cardTitle": "Welfare Maid",
-			"pictureUrl": null,
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Kirika+von+Heidemann.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -1182,7 +1182,7 @@
 		{
 			"name": "Anna Hartman",
 			"cardTitle": "Silver Tableware Maid",
-			"pictureUrl": null,
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Anna+Hartmann.png",
 			"promo": false,
 			"employEffect": true,
 			"chiefMaid": false,
@@ -1207,7 +1207,7 @@
 		{
 			"name": "Renata Abendroth",
 			"cardTitle": "Punishing Maid",
-			"pictureUrl": null,
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Renata+Abendroth.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -1232,7 +1232,7 @@
 		{
 			"name": "Aileen Hammer.",
 			"cardTitle": "Gambler Maid",
-			"pictureUrl": null,
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Aileen+Hammerschmidt.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -1257,7 +1257,7 @@
 		{
 			"name": "Ute Krombach",
 			"cardTitle": "Chambermaid",
-			"pictureUrl": null,
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Ute+Krombach.png",
 			"promo": false,
 			"employEffect": true,
 			"chiefMaid": false,
@@ -1282,7 +1282,7 @@
 		{
 			"name": "Kaori Hamasaki",
 			"cardTitle": "Chambermaid",
-			"pictureUrl": null,
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Kaori+Hamasaki.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -1307,7 +1307,7 @@
 		{
 			"name": "Paula Lauenburg",
 			"cardTitle": "Weathercast Maid",
-			"pictureUrl": null,
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Paula+Laudenburg.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -1332,7 +1332,7 @@
 		{
 			"name": "Nicole Schmieg",
 			"cardTitle": "Apprentice Maid",
-			"pictureUrl": null,
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Nicole+Schmieg.png",
 			"promo": false,
 			"employEffect": true,
 			"chiefMaid": false,
@@ -1359,7 +1359,7 @@
 		{
 			"name": "Leopold Niebling",
 			"cardTitle": "Butler Chief",
-			"pictureUrl": "src/assets/images/PR39-Leopold_Niebling.webp",
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Leopold+Niebling.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": true,
@@ -1384,7 +1384,7 @@
 		{
 			"name": "Beverly Snowfeldt",
 			"cardTitle": "Chambermaid Chief",
-			"pictureUrl": "src/assets/images/PR40-Beverly_Snowfeldt.webp",
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Beverly+Snowfeldt.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": true,
@@ -1409,7 +1409,7 @@
 		{
 			"name": "Dermot Gherin",
 			"cardTitle": "Head Guard Butler",
-			"pictureUrl": null,
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Dermot+Gherin.png",
 			"promo": false,
 			"employEffect": true,
 			"chiefMaid": false,
@@ -1434,7 +1434,7 @@
 		{
 			"name": "Michaela Fidelity",
 			"cardTitle": "Smiling Maid",
-			"pictureUrl": null,
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Michaela+Fidelity.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -1459,7 +1459,7 @@
 		{
 			"name": "Menou Tatehira",
 			"cardTitle": "Hot-Blooded Maid",
-			"pictureUrl": null,
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Menou+Tatehira.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -1484,7 +1484,7 @@
 		{
 			"name": "Sonny Crosscalent",
 			"cardTitle": "Driver Butler",
-			"pictureUrl": null,
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Sonny+Crosscalent.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -1509,7 +1509,7 @@
 		{
 			"name": "Shishido Kurogane",
 			"cardTitle": "Gardener Butler",
-			"pictureUrl": null,
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Shishido+Kurogane.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -1534,7 +1534,7 @@
 		{
 			"name": "Dante Gagne",
 			"cardTitle": "Attendant Butler",
-			"pictureUrl": null,
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Dante+Gagne.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -1559,7 +1559,7 @@
 		{
 			"name": "Kimberly Evan",
 			"cardTitle": "Wardrobe Maid",
-			"pictureUrl": null,
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Kimberly+Evan.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -1584,7 +1584,7 @@
 		{
 			"name": "Benoit Ibsen",
 			"cardTitle": "Head Chef Butler",
-			"pictureUrl": null,
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Benoit+Ibsen.png",
 			"promo": false,
 			"employEffect": true,
 			"chiefMaid": false,
@@ -1609,7 +1609,7 @@
 		{
 			"name": "Shirley Pollock",
 			"cardTitle": "Busybody Maid",
-			"pictureUrl": null,
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Shirley+Pollock.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -1634,7 +1634,7 @@
 		{
 			"name": "Herbie Fortz",
 			"cardTitle": "Door Man Butler",
-			"pictureUrl": null,
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Herbie+Fortz.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -1659,7 +1659,7 @@
 		{
 			"name": "Elizabeth Coran",
 			"cardTitle": "Snack Maid",
-			"pictureUrl": null,
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Elizabeth+Coran.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -1684,7 +1684,7 @@
 		{
 			"name": "Jimmy Harriston",
 			"cardTitle": "Pool Butler",
-			"pictureUrl": null,
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Jimmy+Harriston.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -1709,7 +1709,7 @@
 		{
 			"name": "Nicolas Garibaldi",
 			"cardTitle": "Odd Job Butler",
-			"pictureUrl": null,
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Nicolas+Garibaldi.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -1734,7 +1734,7 @@
 		{
 			"name": "Anemone Seiya",
 			"cardTitle": "Flower Garden Maid",
-			"pictureUrl": null,
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Anemone+Seiya.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -1759,7 +1759,7 @@
 		{
 			"name": "Shanti Bell",
 			"cardTitle": "Lucky Maid",
-			"pictureUrl": null,
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Shanti+Bell.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -1784,7 +1784,7 @@
 		{
 			"name": "Keena Solistia",
 			"cardTitle": "Druid Maid",
-			"pictureUrl": null,
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Keena+Solistia.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -1811,7 +1811,7 @@
 		{
 			"name": "Sophia Marfil",
 			"cardTitle": "Maid Chief",
-			"pictureUrl": "src/assets/images/PR12-Sophia_Marfil.webp",
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Sophia+Marfil.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": true,
@@ -1836,7 +1836,7 @@
 		{
 			"name": "Beatrice Escudo",
 			"cardTitle": "Chambermaid Chief",
-			"pictureUrl": "src/assets/images/PR13-Beatrice_Escudo.webp",
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Beatrice+Escudo.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": true,
@@ -1861,7 +1861,7 @@
 		{
 			"name": "Fryda Viento",
 			"cardTitle": "Oceanographer Maid",
-			"pictureUrl": "src/assets/images/FrydaViento.webp",
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Fryda+Viento.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -1886,7 +1886,7 @@
 		{
 			"name": "Laura",
 			"cardTitle": "Island Folk Maid",
-			"pictureUrl": null,
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Laura.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -1911,7 +1911,7 @@
 		{
 			"name": "Clorinde Sea",
 			"cardTitle": "Mer Maid",
-			"pictureUrl": null,
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Clorinde+Sea.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -1936,7 +1936,7 @@
 		{
 			"name": "Lydia Leon",
 			"cardTitle": "Adventure Maid",
-			"pictureUrl": null,
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Lydia+Leon.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -1961,7 +1961,7 @@
 		{
 			"name": "Florence Spring",
 			"cardTitle": "Chambermaid",
-			"pictureUrl": null,
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Florence+Spring.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -1986,7 +1986,7 @@
 		{
 			"name": "Cynthia Lakes",
 			"cardTitle": "Nap Maid",
-			"pictureUrl": null,
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Cynthia+Lakes.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -2011,7 +2011,7 @@
 		{
 			"name": "Caldina Alley",
 			"cardTitle": "Sea Bear Maid",
-			"pictureUrl": null,
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Caldina+Alley.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -2036,7 +2036,7 @@
 		{
 			"name": "Riya Naragashi",
 			"cardTitle": "Fireworks Maid",
-			"pictureUrl": null,
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Riya+Naragashi.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -2061,7 +2061,7 @@
 		{
 			"name": "Chinatsu Kooriyama",
 			"cardTitle": "Interpreter Maid",
-			"pictureUrl": null,
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Chinatsu+Kooriyama.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -2086,7 +2086,7 @@
 		{
 			"name": "Fea Primrose",
 			"cardTitle": "Beach Maid",
-			"pictureUrl": null,
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Fea+Primrose.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -2111,7 +2111,7 @@
 		{
 			"name": "Romina Vautrin",
 			"cardTitle": "Job-Skipping Maid",
-			"pictureUrl": null,
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Romina+Vautrin.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -2136,7 +2136,7 @@
 		{
 			"name": "Daphne Coraille",
 			"cardTitle": "Sea Folk Maid",
-			"pictureUrl": null,
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Daphne+Coraille.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -2161,7 +2161,7 @@
 		{
 			"name": "Margareta Torrente",
 			"cardTitle": "Island Food Maid",
-			"pictureUrl": null,
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Margareta+Torrente.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -2186,7 +2186,7 @@
 		{
 			"name": "Germaine Mahle",
 			"cardTitle": "Juice Serving Maid",
-			"pictureUrl": null,
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Germaine+Mahle.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -2211,7 +2211,7 @@
 		{
 			"name": "Evita Catale",
 			"cardTitle": "Watermelon Smashing Maid",
-			"pictureUrl": null,
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Evita+Catala.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -2236,7 +2236,7 @@
 		{
 			"name": "Valencia Pretre",
 			"cardTitle": "Chambermaid",
-			"pictureUrl": null,
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Valencia+Pretre.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -2261,7 +2261,7 @@
 		{
 			"name": "Hyacinth Arrow",
 			"cardTitle": "Chambermaid",
-			"pictureUrl": null,
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Hyacinth+Arrow.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -2286,7 +2286,7 @@
 		{
 			"name": "Nonnette Soyeux",
 			"cardTitle": "Dolphin Caretaker Maid",
-			"pictureUrl": null,
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Nonette+Soyeux.png",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
