@@ -1,5 +1,3 @@
-Built with Vite, React, TS, useReducer & useContext, react-icons, node, JSON blob database? react-transition-group
-
 <a name="readme-top"></a>
 
 <!-- PROJECT LOGO -->
@@ -12,7 +10,7 @@ Built with Vite, React, TS, useReducer & useContext, react-icons, node, JSON blo
   <h3 align="center">Tanto Cuore Randomizer</h3>
 
   <p align="center">
-    A randomizer with options for the game Tanto Cuore
+    A randomizer with options for the game <i>Tanto Cuore</i>
     <br />
     <a href="https://github.com/ArchangeLillith/knitters-fren"><strong>Explore the docs »</strong></a>
     <br />
@@ -63,13 +61,14 @@ Tanto Cuore is played with a combination of 10 cards (called a 'town') across fi
 [![cors][cors]][cors-url]
 [![esbuild][esbuild]][esbuild-url]
 [![vite][vite]][vite-url]
+[![react-transition-group][react-transition-group]][react-transition-group-url]
 
 </div>
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-Originally this project was made in Angular, but having more experiance in React I wanted to port it over and do more with it. While I had a lot of the project scaffolding, Angular is very different from React, so ultimetly the only things I ended up using were the list of options I had in the Angular version and the look of the site, both of which I couldn't copy paste. Further, I was challenged by the unique choices I made for the styling of the website. The highlight of my learning from this project was how to remove excess CSS, and how to code in a mindset that, from the beginning, leads to clean CSS. The created cards are mostly CSS, leveraging grid-template-areas and dynamic coloring that communicate which set the card is from. Original card images are displayed with a legend symbol above them to help the user search in the correct box. 
+Originally this project was made in Angular, but having more experiance in React I wanted to port it over and do more with it. While I had a lot of the project scaffolding, Angular is very different from React. Ultimately the only things I ended up using were the list of options and the look of the site, both of which I couldn't copy paste. Further, I was challenged by the unique choices I made for the styling of the website. The highlight of my learning from this project was how to remove excess CSS, and how to code in a mindset that, from the beginning, leads to clean CSS. The created cards are mostly CSS, leveraging grid-template-areas and dynamic coloring that communicate which set the card is from. Original card images are displayed with a legend symbol above them to help the user search in the correct box. 
 
 At first, I stylized everything using CSS specific to each individual property, leading to a very bloated CSS file. I found I had trouble figuring out where things were, and refactored the whole CSS and app to ensure that only the bare minimum CSS is used. This meant combining layout classes into one global class, and pulling colors into variable names that make the CSS much more readable. 
 
@@ -158,6 +157,8 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
+[react-transition-group]:https://img.shields.io/badge/react_transition_group-61DAFB?style=for-the-badge&logo=react&logoColor=20232A
+[react-transition-group-url]: https://reactjs.org/
 [tanto-randomizer]: https://img.shields.io/badge/live_site!-ffc2c0?style=for-the-badge
 [tanto-randomizer-url]: https://tanto-randomizer-fb8a3be947e5.herokuapp.com/
 [vite]: https://img.shields.io/badge/vite-8A89FF?style=for-the-badge&logo=vite&logoColor=DAA520
@@ -168,7 +169,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 [esbuild-url]: https://esbuild.github.io/
 [eslint]: https://img.shields.io/badge/eslint-A78BFA?style=for-the-badge&logo=eslint&logoColor=000000
 [eslint-url]: https://eslint.org/
-[cors]: https://img.shields.io/badge/CORS-E8A87C?style=for-the-badge&logo=express&logoColor=8B4000
+[cors]: https://img.shields.io/badge/CORS-E8A87C?style=for-the-badge&logo=c&logoColor=8B4000
 [cors-url]: https://github.com/expressjs/cors
 [js-cookie]: https://img.shields.io/badge/JS_Cookie-D2B48C?style=for-the-badge&logo=javascript&logoColor=8B4513
 [js-cookie-url]: https://www.npmjs.com/package/js-cookie
