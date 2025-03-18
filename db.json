@@ -3,7 +3,7 @@
 		{
 			"name": "Marianne Soleil",
 			"cardTitle": "Maid Chief",
-			"pictureUrl": "src/assets/images/MarianneSoleil.webp",
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Marianne+Soleil.webp",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": true,
@@ -28,7 +28,7 @@
 		{
 			"name": "Colette Framboise",
 			"cardTitle": "Chambermaid Chief",
-			"pictureUrl": "src/assets/images/ColetteFramboise.webp",
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Colette+Framboise.webp",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": true,
@@ -53,7 +53,7 @@
 		{
 			"name": "Anise Greenaway",
 			"cardTitle": "Treasury Maid",
-			"pictureUrl": "src/assets/images/AniseGreenaway.webp",
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Anise+Greenaway.webp",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -78,7 +78,7 @@
 		{
 			"name": "Ophelia Grail",
 			"cardTitle": "All-Purpose Maid",
-			"pictureUrl": null,
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Ophelia.webp",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -103,7 +103,7 @@
 		{
 			"name": "Sainsbury Lockwood",
 			"cardTitle": "Laundry Maid",
-			"pictureUrl": "src/assets/images/SainsburyLockwood.webp",
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Sainsbury+Lockwood.webp",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -128,7 +128,7 @@
 		{
 			"name": "Tenalys Trent",
 			"cardTitle": "Nap Maid",
-			"pictureUrl": "src/assets/images/TenalysTrent.webp",
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Tenalys+Trent.webp",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -153,7 +153,7 @@
 		{
 			"name": "Natsumi Fujikawa",
 			"cardTitle": "Cleaning Maid",
-			"pictureUrl": "src/assets/images/NatsumiFujikawa.webp",
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Natsumi+Fujikawa.webp",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -178,7 +178,7 @@
 		{
 			"name": "Nena Wilder",
 			"cardTitle": "Teasing Maid",
-			"pictureUrl": "src/assets/images/NenaWilder.webp",
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Nena+Wilder.webp",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -203,7 +203,7 @@
 		{
 			"name": "Esquine Foret",
 			"cardTitle": "Scrapping Maid",
-			"pictureUrl": "src/assets/images/EsquineForet.webp",
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Esquine+Foret.webp",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -228,7 +228,7 @@
 		{
 			"name": "Genevieve Daubigny",
 			"cardTitle": "Cooking Maid",
-			"pictureUrl": "src/assets/images/GenevieveDaubigny.webp",
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Genevieve+Daubigny.webp",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -253,7 +253,7 @@
 		{
 			"name": "Moine de Lefevre",
 			"cardTitle": "Employing Maid",
-			"pictureUrl": "src/assets/images/MoineDeLefevre.webp",
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Moine+De+Lefevre.webp",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -278,7 +278,7 @@
 		{
 			"name": "Eliza Rosewater",
 			"cardTitle": "Policing Maid",
-			"pictureUrl": "src/assets/images/ElizaRosewater.webp",
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Eliza+Rosewater.webp",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -303,7 +303,7 @@
 		{
 			"name": "Kagari Ichinomiya",
 			"cardTitle": "Sewing Maid",
-			"pictureUrl": "src/assets/images/KagariIchinomiya.webp",
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Kagari+Ichinomiya.webp",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -328,7 +328,7 @@
 		{
 			"name": "Claire Saint-Juste",
 			"cardTitle": "White Maid",
-			"pictureUrl": "src/assets/images/ClaireSaint-Juste.webp",
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Claire+Saint-Juste.webp",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -353,7 +353,7 @@
 		{
 			"name": "Safran Virginie",
 			"cardTitle": "Chambermaid",
-			"pictureUrl": "src/assets/images/SafranVirginie.webp",
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Safran+Virginie.webp",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -378,7 +378,7 @@
 		{
 			"name": "Azure Crescent",
 			"cardTitle": "Chambermaid",
-			"pictureUrl": "src/assets/images/AzureCrescent.webp",
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Azure+Crescent.webp",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -403,7 +403,7 @@
 		{
 			"name": "Viola Crescent",
 			"cardTitle": "Chambermaid",
-			"pictureUrl": "src/assets/images/ViolaCrescent.webp",
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Viola+Crescent.webp",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
@@ -428,7 +428,7 @@
 		{
 			"name": "Rouge Crescent",
 			"cardTitle": "Chambermaid",
-			"pictureUrl": "src/assets/images/RougeCrescent.webp",
+			"pictureUrl": "https://tanto-cuore-randomizer.s3.ca-central-1.amazonaws.com/images/pngs/Rouge+Crescent.webp",
 			"promo": false,
 			"employEffect": false,
 			"chiefMaid": false,
