@@ -52,7 +52,7 @@ const Footer = () => {
 						<div>
 							Welcome to my Tanto Cuore Randomizer! I created this originally
 							for myself and friends but figured since we use it, you might too.
-							I took heavy inspiration from{" "}
+							I took inspiration from{" "}
 							<a
 								className="modal-link"
 								href="https://nekomusume.net/tc/"
